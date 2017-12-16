@@ -1,0 +1,23 @@
+{
+    "id": 40173,
+    "username": "origami",
+    "acct": "origami",
+    "display_name": "\\t",
+    "locked": false,
+    "created_at": "2017-04-15T16:09:15.879Z",
+    "note": "<p>クライアント作ってます <a href=\"https://twitter.com/arclisp\" rel=\"nofollow noopener\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">twitter.com/arclisp</span><span class=\"invisible\"></span></a> , <a href=\"https://freezepeach.xyz/origami\" rel=\"nofollow noopener\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">freezepeach.xyz/origami</span><span class=\"invisible\"></span></a> , <a href=\"https://mstdn.jp/@lisp\" rel=\"nofollow noopener\" target=\"_blank\"><span class=\"invisible\">https://</span><span class=\"\">mstdn.jp/@lisp</span><span class=\"invisible\"></span></a></p>",
+    "url": "https://pawoo.net/@origami",
+    "avatar": "https://img.pawoo.net/accounts/avatars/000/040/173/original/33e082806f7aebf8.jpg",
+    "avatar_static": "https://img.pawoo.net/accounts/avatars/000/040/173/original/33e082806f7aebf8.jpg",
+    "header": "https://img.pawoo.net/accounts/headers/000/040/173/original/2aa94ad0002c6b66.jpg",
+    "header_static": "https://img.pawoo.net/accounts/headers/000/040/173/original/2aa94ad0002c6b66.jpg",
+    "followers_count": 37,
+    "following_count": 37,
+    "statuses_count": 400,
+    "source": {
+        "privacy": "public",
+        "sensitive": false,
+        "note": "クライアント作ってます https://twitter.com/arclisp , https://freezepeach.xyz/origami , https://mstdn.jp/@lisp"
+    },
+    "oauth_authentications": []
+}
