@@ -24,7 +24,7 @@ const styles = theme => ({
 });
 
 type Props = {
-    classes: Object
+    classes: Object,
 };
 
 const Sidebar = (props: Props) => (

@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 
 import store from './redux/store';
-import App from './component/App';
+import App from './container/App';
 
 const theme = createMuiTheme();
 
@@ -14,5 +14,5 @@ ReactDOM.render(
             <App />
         </MuiThemeProvider>
     </Provider>,
-    document.getElementById('root')
+    document.getElementById('root'),
 );

@@ -10,6 +10,7 @@ import Notification from './Notification/Notification';
 
 type Props = {
     classes: Object,
+    setDevData: Function,
 };
 
 const styles = (theme: Object): any => ({
@@ -24,15 +25,18 @@ const styles = (theme: Object): any => ({
     }
 })
 
-const App = (props: Props) => (
-    <div className={props.classes.root}>
-        <div className={props.classes.mainView}>
-            <Sidebar />
-            <TimelineView />
+const App = (props: Props) => {
+    props.setDevData();
+    return (
+        <div className={props.classes.root}>
+            <div className={props.classes.mainView}>
+                <Sidebar />
+                <TimelineView />
+            </div>
+            <Notification />
+            <Dialog />
         </div>
-        <Notification />
-        <Dialog />
-    </div>
-);
+    )
+};
 
 export default withStyles(styles)(App);
