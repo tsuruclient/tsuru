@@ -1,4 +1,7 @@
-export default Notice = {
+// @flow
+import * as Services from '../Services';
+
+export default {
     type: {
         [Services.Twitter]: '',
         [Services.GnuSocial]: '',

@@ -1,4 +1,7 @@
-export default Account = {
+// @flow
+import * as Services from '../Services';
+
+export default {
     displayName: {
         [Services.Twitter]: 'name',
         [Services.GnuSocial]: 'name',

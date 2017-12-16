@@ -1,4 +1,7 @@
-export default Content = {
+// @flow
+import * as Services from '../Services';
+
+export default {
     id: {
         [Services.Twitter]: 'id_str',
         [Services.GnuSocial]: 'id',
