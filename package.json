@@ -3,14 +3,38 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "electron-json-storage": "^4.0.2",
+    "es6-promisify": "^5.0.0",
+    "material-ui": "^1.0.0-beta.23",
+    "material-ui-icons": "^1.0.0-beta.17",
+    "moducks": "^0.2.3",
+    "oauth": "^0.9.15",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.0.17"
+    "react-redux": "^5.0.6",
+    "react-scripts": "1.0.17",
+    "redux": "^3.7.2",
+    "redux-actions": "^2.2.1",
+    "redux-logger": "^3.0.6",
+    "redux-saga": "^0.16.0",
+    "reselect": "^3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "dotenv": "^4.0.0",
+    "electron": "^1.7.9",
+    "electron-load-devtool": "^1.0.0",
+    "electron-packager": "^10.1.0",
+    "flow-bin": "^0.61.0",
+    "foreman": "^2.0.0",
+    "react-addons-perf": "^15.4.2",
+    "react-devtools": "^3.0.0",
+    "redux-devtools": "^3.4.1",
+    "webpack": "^3.10.0"
   }
 }
