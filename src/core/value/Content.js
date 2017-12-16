@@ -1,4 +1,5 @@
 // @flow
+import Content from '../difference/content';
 import User from './User';
 
 export const Normal = 'Normal';
@@ -26,4 +27,22 @@ export default class Content {
 
     retweeted: boolean;
     favorited: boolean;
+
+    constructor(service: string, data: Object) {
+        this.type = Normal;
+        this.id = data[Content.id[service]];
+        this.user = new User(service, data[Content.user[service]]);
+        this.content = data[Content.text[service]];
+        
+        if(data[Content.inReplyToId[service]]) {
+            this.inReplyToId = data[Content.inReplyToId[service]];
+            this.inReplyToAccountId = data[Content.inReplyToAccountId[service]];
+            this.type = Reply;
+        }
+
+        if(data[Content.retweetedTweet[service]]){
+            this.type = Retweeted;
+            this.target = new Content(service, data[Content.retweetedTweet[service]]);
+        }
+    }
 }
