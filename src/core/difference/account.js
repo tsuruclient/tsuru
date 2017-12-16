@@ -1,4 +1,4 @@
-export const Account = {
+export default Account = {
     displayName: {
         [Services.Twitter]: 'name',
         [Services.GnuSocial]: 'name',

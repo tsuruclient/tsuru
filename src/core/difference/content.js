@@ -1,4 +1,4 @@
-export const Content = {
+export default Content = {
     id: {
         [Services.Twitter]: 'id_str',
         [Services.GnuSocial]: 'id',

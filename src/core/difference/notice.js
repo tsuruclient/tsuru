@@ -1,4 +1,4 @@
-export const Notice = {
+export default Notice = {
     type: {
         [Services.Twitter]: '',
         [Services.GnuSocial]: '',
