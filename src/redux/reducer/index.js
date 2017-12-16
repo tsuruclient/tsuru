@@ -8,4 +8,8 @@ import dialog from './dialog';
 import notification from './notification';
 
 export default combineReducers({
+    account,
+    timeline,
+    dialog,
+    notification,
 });
