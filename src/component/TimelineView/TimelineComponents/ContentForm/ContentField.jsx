@@ -11,11 +11,16 @@ const styles = theme => ({
 });
 
 type Props = {
-    classes: Object
+    classes: Object,
+    index: number,
+    contentBoxText: Function,
+    updateContentText: Function,
 };
 
 const ContentField = (props: Props) => (
     <TextField
+        value={props.contentBoxText(props.index).contentText}
+        onChange={(event) => props.updateContentText({text: event.target.value, timelineIndex: props.index})}
         id="textContent"
         className={props.classes.root}
         margin="none"

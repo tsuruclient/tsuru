@@ -25,6 +25,8 @@ type Props = {
     timeline: Object,
     index: number,
     setTimelineMenu: Function,
+    contentBoxText: Function,
+    updateContentText: Function,
 };
 
 const Timeline = (props: Props) => (
@@ -35,7 +37,10 @@ const Timeline = (props: Props) => (
             menuOpen={props.timeline.menuOpen}
             anchorEl={props.timeline.anchorEl}
             setTimelineMenu={props.setTimelineMenu}/>
-        <ContentForm />
+        <ContentForm
+            index={props.index}
+            contentBoxText={props.contentBoxText}
+            updateContentText={props.updateContentText} />
     </Paper>
 )
 
