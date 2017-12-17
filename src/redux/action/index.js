@@ -16,6 +16,7 @@ export const timelineActions = createActions(
     types.ADD_TIMELINE,
     types.DELETE_TIMELINE,
     types.UPDATE_CONTENT_TEXT,
+    types.SET_TIMELINE_MENU,
 );
 
 export const apiActions = createActions(

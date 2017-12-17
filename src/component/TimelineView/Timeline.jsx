@@ -21,12 +21,18 @@ const styles = theme => ({
 type Props = {
     classes: Object,
     timeline: Object,
+    index: number,
+    setTimelineMenu: Function,
 };
 
 const Timeline = (props: Props) => (
     <Paper className={props.classes.root}>
         <InfoBar
-            inProgress={props.timeline.inProgress} />
+            timelineIndex={props.index}
+            inProgress={props.timeline.inProgress}
+            menuOpen={props.timeline.menuOpen}
+            anchorEl={props.timeline.anchorEl}
+            setTimelineMenu={props.setTimelineMenu}/>
     </Paper>
 )
 

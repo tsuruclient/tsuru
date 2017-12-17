@@ -5,7 +5,7 @@ import {withStyles} from 'material-ui/styles';
 import Toolbar from 'material-ui/Toolbar';
 
 import Title from './Title';
-import Menu from './Menu';
+import TimelineMenu from './TimelineMenu';
 import ProgressBar from './ProgressBar';
 
 const styles = theme => ({
@@ -14,7 +14,11 @@ const styles = theme => ({
 
 type Props = {
     classes: Object,
+    timelineIndex: number,
     inProgress: boolean,
+    menuOpen: boolean,
+    anchorEl: Object,
+    setTimelineMenu: Function,
 };
 
 const InfoBar = (props: Props) => (
@@ -24,7 +28,11 @@ const InfoBar = (props: Props) => (
                 <Title timelineName={'Hogehgoe'}/>
             </div>
             <div style={{marginLeft: 'auto'}}>
-                <Menu />
+                <TimelineMenu
+                    timelineIndex={props.timelineIndex}
+                    open={props.menuOpen}
+                    anchorEl={props.anchorEl}
+                    setTimelineMenu={props.setTimelineMenu}/>
             </div>
         </Toolbar>
         <ProgressBar inProgress={props.inProgress} />

@@ -12,6 +12,11 @@ export default class Timeline {
     error: ?string;
 
     inProgress: boolean;
+    
+    inStreaming: boolean;
+
+    menuOpen: boolean;
+    anchorEl: ?Object;
 
     constructor(ownerIndex: number, timelineType: string) {
         this.ownerIndex = ownerIndex;
@@ -21,6 +26,9 @@ export default class Timeline {
         this.image = [];
         this.error = null;
         this.inProgress = false;
+        this.inStreaming = false;
+        this.menuOpen = false;
+        this.anchorEl = null;
     }
 
     updateContentText(value: string): Timeline {
@@ -29,14 +37,33 @@ export default class Timeline {
         return r;
     }
 
-    filterling(data: Array<any>): Array<any> {
-        return data;
-    }
-    
     clear(): Timeline {
         const r = copyInstance(this);
         r.contentText = '';
         r.image = [];
         return r;
+    }
+
+    setMenu(anchorEl: ?Object): Timeline {
+        const r = copyInstance(this);
+        r.menuOpen = anchorEl ? true : false;
+        r.anchorEl = anchorEl;
+        return r;
+    }
+
+    setIsStreaming(isStreaming: boolean): Timeline {
+        const r = copyInstance(this);
+        r.isStreaming = isStreaming;
+        return r;
+    }
+
+    setInProgress(inProgress: boolean): Timeline {
+        const r = copyInstance(this);
+        r.inProgress = inProgress;
+        return r;
+    }
+
+    filterling(data: Array<any>): Array<any> {
+        return data;
     }
 }
