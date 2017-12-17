@@ -16,7 +16,7 @@ type Props = {
     classes: Object,
     index: number,
     service: string,
-    contentBoxText: Function,
+    contentBoxText: string,
     updateContentText: Function,
 };
 
@@ -32,9 +32,9 @@ const textCount = (service: string, text: string): string => {
 
 const ContentField = (props: Props) => (
     <TextField
-        value={props.contentBoxText(props.index).contentText}
+        value={props.contentBoxText}
         onChange={(event) => props.updateContentText({text: event.target.value, timelineIndex: props.index})}
-        helperText={textCount(props.service, props.contentBoxText(props.index).contentText)}
+        helperText={textCount(props.service, props.contentBoxText)}
         id="textContent"
         className={props.classes.root}
         margin="none"
