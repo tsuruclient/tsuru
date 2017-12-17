@@ -4,6 +4,7 @@ import {withStyles} from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 
 import InfoBar from './TimelineComponents/Toolbar/InfoBar';
+import ContentForm from './TimelineComponents/ContentForm/ContentForm';
 
 const styles = theme => ({
     root: {
@@ -17,6 +18,7 @@ const styles = theme => ({
         justifyContent: 'flex-start',
     }
 })
+
 
 type Props = {
     classes: Object,
@@ -33,6 +35,7 @@ const Timeline = (props: Props) => (
             menuOpen={props.timeline.menuOpen}
             anchorEl={props.timeline.anchorEl}
             setTimelineMenu={props.setTimelineMenu}/>
+        <ContentForm />
     </Paper>
 )
 
