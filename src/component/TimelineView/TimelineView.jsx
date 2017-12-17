@@ -20,6 +20,7 @@ type Props = {
     contentBoxText: Function,
     updateContentText: Function,
     setTimelineMenu: Function,
+    service: Function,
 };
 
 const TimelineView = (props: Props) => (
@@ -29,6 +30,7 @@ const TimelineView = (props: Props) => (
                 key={index}
                 timeline={item}
                 index={index}
+                service={props.service}
                 setTimelineMenu={props.setTimelineMenu}
                 contentBoxText={props.contentBoxText}
                 updateContentText={props.updateContentText}/>

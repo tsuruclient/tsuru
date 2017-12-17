@@ -21,6 +21,7 @@ const styles = theme => ({
 type Props = {
     classes: Object,
     index: number,
+    service: string,
     contentBoxText: Function,
     updateContentText: Function,
 };
@@ -29,6 +30,7 @@ const ContentForm = (props: Props) => (
     <div className={props.classes.root}>
         <ContentField
             index={props.index}
+            service={props.service}
             contentBoxText={props.contentBoxText}
             updateContentText={props.updateContentText} />
         <SendButton />

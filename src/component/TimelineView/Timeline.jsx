@@ -24,6 +24,7 @@ type Props = {
     classes: Object,
     timeline: Object,
     index: number,
+    service: Function,
     setTimelineMenu: Function,
     contentBoxText: Function,
     updateContentText: Function,
@@ -39,6 +40,7 @@ const Timeline = (props: Props) => (
             setTimelineMenu={props.setTimelineMenu}/>
         <ContentForm
             index={props.index}
+            service={props.service(props.index)}
             contentBoxText={props.contentBoxText}
             updateContentText={props.updateContentText} />
     </Paper>
