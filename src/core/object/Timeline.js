@@ -11,6 +11,8 @@ export default class Timeline {
     image: Array<any>;
     error: ?string;
 
+    inProgress: boolean;
+
     constructor(ownerIndex: number, timelineType: string) {
         this.ownerIndex = ownerIndex;
         this.timelineType = timelineType;
@@ -18,6 +20,7 @@ export default class Timeline {
         this.contentText = '';
         this.image = [];
         this.error = null;
+        this.inProgress = false;
     }
 
     updateContentText(value: string): Timeline {

@@ -3,6 +3,8 @@ import React from 'react';
 import {withStyles} from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 
+import InfoBar from './TimelineComponents/Toolbar/InfoBar';
+
 const styles = theme => ({
     root: {
         margin: 3,
@@ -23,6 +25,8 @@ type Props = {
 
 const Timeline = (props: Props) => (
     <Paper className={props.classes.root}>
+        <InfoBar
+            inProgress={props.timeline.inProgress} />
     </Paper>
 )
 
