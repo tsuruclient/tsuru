@@ -3,7 +3,7 @@
 import React from 'react';
 import {withStyles} from 'material-ui/styles';
 
-import Sidebar from './Sidebar/Sidebar';
+import Sidebar from '../container/Sidebar';
 import TimelineView from './TimelineView/TimelineView';
 import Dialog from './Dialog/Dialog';
 import Notification from './Notification/Notification';

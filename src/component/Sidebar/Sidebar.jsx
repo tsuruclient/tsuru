@@ -9,6 +9,8 @@ import SettingsIcon from 'material-ui-icons/Settings';
 import AddBoxIcon from 'material-ui-icons/AddBox';
 import PersonAddIcon from 'material-ui-icons/PersonAdd';
 
+import AccountList from './AccountList';
+
 const styles = theme => ({
     root: {
         margin: "3px",
@@ -25,6 +27,7 @@ const styles = theme => ({
 
 type Props = {
     classes: Object,
+    accounts: Array<Object>,
 };
 
 const Sidebar = (props: Props) => (
@@ -33,12 +36,11 @@ const Sidebar = (props: Props) => (
             <AddBoxIcon/>
         </IconButton>
         <div className={props.classes.accountSection}>
-            <div>
-                <IconButton
-                    aria-label="Add Account">
-                    <PersonAddIcon/>
-                </IconButton>
-            </div>
+            <AccountList accounts={props.accounts} />
+            <IconButton
+                aria-label="Add Account">
+                <PersonAddIcon/>
+            </IconButton>
         </div>
         <IconButton aria-label="General Setting">
             <SettingsIcon/>
