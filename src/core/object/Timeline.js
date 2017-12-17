@@ -5,6 +5,7 @@ import copyInstance from '../../helper/copyInstance';
 export default class Timeline {
     ownerIndex: number;
     timelineType: string;
+    
     filtering: Object; // TODO: 頼む
     contentText: string;
     image: Array<any>;
