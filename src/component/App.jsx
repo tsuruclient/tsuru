@@ -4,7 +4,7 @@ import React from 'react';
 import {withStyles} from 'material-ui/styles';
 
 import Sidebar from '../container/Sidebar';
-import TimelineView from './TimelineView/TimelineView';
+import TimelineView from '../container/TimelineView';
 import Dialog from './Dialog/Dialog';
 import Notification from './Notification/Notification';
 
