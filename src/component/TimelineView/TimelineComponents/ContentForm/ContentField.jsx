@@ -14,9 +14,9 @@ const styles = theme => ({
 
 type Props = {
     classes: Object,
-    index: number,
+    timelineIndex: number,
     service: string,
-    contentBoxText: string,
+    contentFormContent: Object,
     updateContentText: Function,
 };
 
@@ -32,9 +32,9 @@ const textCount = (service: string, text: string): string => {
 
 const ContentField = (props: Props) => (
     <TextField
-        value={props.contentBoxText}
-        onChange={(event) => props.updateContentText({text: event.target.value, timelineIndex: props.index})}
-        helperText={textCount(props.service, props.contentBoxText)}
+        value={props.contentFormContent.text}
+        onChange={(event) => props.updateContentText({text: event.target.value, timelineIndex: props.timelineIndex})}
+        helperText={textCount(props.service, props.contentFormContent.text)}
         id="textContent"
         className={props.classes.root}
         margin="none"

@@ -9,7 +9,7 @@ export const contentBoxText = createSelector(
     [timelineList],
     (Timelines: Array<any>): Function => (
         (index: number): Object => ({
-            contentText: Timelines[index].contentText,
+            text: Timelines[index].contentText,
             imageList: Timelines[index].image,
         })),
 );
@@ -17,6 +17,15 @@ export const contentBoxText = createSelector(
 export const service = createSelector(
     [accountList],
     (Accounts: Array<any>): Function => (
-        (index: number): Object => (Accounts[index].service)
+        (index: number): Object => (Accounts[index].account.service)
+    )
+);
+
+export const contents = createSelector(
+    [accountList],
+    (AccountList: Array<any>): Function => (
+        (index: number, dataType: string): Array<any> => (
+            AccountList[index].record[dataType]
+        )
     )
 );

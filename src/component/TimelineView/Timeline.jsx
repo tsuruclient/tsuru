@@ -5,6 +5,7 @@ import Paper from 'material-ui/Paper';
 
 import InfoBar from './TimelineComponents/Toolbar/InfoBar';
 import ContentForm from './TimelineComponents/ContentForm/ContentForm';
+import ContentList from './TimelineComponents/ContentView/ContentList';
 
 const styles = theme => ({
     root: {
@@ -22,26 +23,31 @@ const styles = theme => ({
 type Props = {
     classes: Object,
     timeline: Object,
-    index: number,
-    service: Function,
+    timelineIndex: number,
+    service: string,
+    contents: Array<any>,
+    contentFormContent: Object,
     setTimelineMenu: Function,
-    contentBoxText: Function,
     updateContentText: Function,
 };
 
 const Timeline = (props: Props) => (
     <Paper className={props.classes.root}>
         <InfoBar
-            timelineIndex={props.index}
+            timelineIndex={props.timelineIndex}
             inProgress={props.timeline.inProgress}
             menuOpen={props.timeline.menuOpen}
             anchorEl={props.timeline.anchorEl}
             setTimelineMenu={props.setTimelineMenu}/>
         <ContentForm
-            index={props.index}
-            service={props.service(props.index)}
-            contentBoxText={props.contentBoxText(props.index).contentText}
+            timelineIndex={props.timelineIndex}
+            service={props.service}
+            contentFormContent={props.contentFormContent}
             updateContentText={props.updateContentText} />
+        <ContentList
+            timelineIndex={props.timelineIndex}
+            service={props.service}
+            contents={props.contents} />
     </Paper>
 )
 

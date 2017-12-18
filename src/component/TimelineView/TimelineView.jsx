@@ -21,18 +21,20 @@ type Props = {
     updateContentText: Function,
     setTimelineMenu: Function,
     service: Function,
+    contents: Function,
 };
 
 const TimelineView = (props: Props) => (
     <div className={props.classes.root}>
-        {props.timelines.map((item: Object, index: number): any => (
+            {props.timelines.map((item: Object, index: number): any => (
             <Timeline
                 key={index}
                 timeline={item}
-                index={index}
-                service={props.service}
+                timelineIndex={index}
+                service={props.service(item.ownerIndex)}
+                contentFormContent={props.contentBoxText(index)}
+                contents={props.contents(item.ownerIndex, item.timelineType)}
                 setTimelineMenu={props.setTimelineMenu}
-                contentBoxText={props.contentBoxText}
                 updateContentText={props.updateContentText}/>
         ))}
     </div>
