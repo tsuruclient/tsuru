@@ -20,10 +20,10 @@ export default class Record {
         const r = copyInstance(this);
         switch(dataType){
         case dataTypes.home:
-            r.home.unshift(data);
+            r.home.unshift(...data);
             break;
         case dataTypes.activity:
-            r.activity.unshift(data);
+            r.activity.unshift(...data);
             break;
         }
         return r;
