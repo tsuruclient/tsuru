@@ -20,6 +20,14 @@ export default function* setDevData(action: Object): any {
         yield put({ type: types.ADD_TIMELINE, accountIndex: 0, timelineType: 'home' });
         const data = allocation(Services.Twitter, dataTypes.home, twitterContentData);
         yield put({ type: types.UPDATE_CONTENT, accountIndex: 0, dataType: dataTypes.home, data });
+        yield put({ type: types.UPDATE_CONTENT, accountIndex: 0, dataType: dataTypes.home, data });
+        yield put({ type: types.UPDATE_CONTENT, accountIndex: 0, dataType: dataTypes.home, data });
+        yield put({ type: types.UPDATE_CONTENT, accountIndex: 0, dataType: dataTypes.home, data });
+        yield put({ type: types.UPDATE_CONTENT, accountIndex: 0, dataType: dataTypes.home, data });
+        yield put({ type: types.UPDATE_CONTENT, accountIndex: 0, dataType: dataTypes.home, data });
+        yield put({ type: types.UPDATE_CONTENT, accountIndex: 0, dataType: dataTypes.home, data });
+        yield put({ type: types.UPDATE_CONTENT, accountIndex: 0, dataType: dataTypes.home, data });
+        yield put({ type: types.UPDATE_CONTENT, accountIndex: 0, dataType: dataTypes.home, data });
     } catch (e) {
         console.warn('?');
         throw e;
