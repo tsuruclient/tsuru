@@ -45,7 +45,6 @@ const Timeline = (props: Props) => (
             contentFormContent={props.contentFormContent}
             updateContentText={props.updateContentText} />
         <ContentList
-            timelineIndex={props.timelineIndex}
             service={props.service}
             contents={props.contents} />
     </Paper>
