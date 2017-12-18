@@ -31,5 +31,4 @@ export default class user {
         
         this.isLocked = data[Account.protected[service]];
     }
-
 }

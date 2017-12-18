@@ -1,6 +1,7 @@
 // @flow
 
 import copyInstance from '../../helper/copyInstance';
+import * as dataTypes from '../constant/dataType';
 
 export default class Record {
     service: string;
@@ -13,5 +14,18 @@ export default class Record {
         this.home = [];
         this.activity = [];
         this.directMail = [];
+    }
+
+    unshift(dataType: string, data: Array<any>): Record {
+        const r = copyInstance(this);
+        switch(dataType){
+        case dataTypes.home:
+            r.home.unshift(data);
+            break;
+        case dataTypes.activity:
+            r.activity.unshift(data);
+            break;
+        }
+        return r;
     }
 }

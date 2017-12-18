@@ -19,7 +19,6 @@ const styles = theme => ({
     }
 })
 
-
 type Props = {
     classes: Object,
     timeline: Object,
