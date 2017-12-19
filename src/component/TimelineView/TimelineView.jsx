@@ -33,7 +33,7 @@ const TimelineView = (props: Props) => (
                 timelineIndex={index}
                 service={props.service(item.ownerIndex)}
                 contentFormContent={props.contentBoxText(index)}
-                contents={props.contents(item.ownerIndex, item.timelineType)}
+                contents={props.contents(item.ownerIndex, item.timelineType.dataname)}
                 setTimelineMenu={props.setTimelineMenu}
                 updateContentText={props.updateContentText}/>
         ))}
