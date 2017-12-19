@@ -5,7 +5,7 @@ import {withStyles} from 'material-ui/styles';
 
 import Sidebar from '../container/Sidebar';
 import TimelineView from '../container/TimelineView';
-import Dialog from './Dialog/Dialog';
+import Dialog from '../container/Dialog';
 import Notification from './Notification/Notification';
 
 type Props = {
