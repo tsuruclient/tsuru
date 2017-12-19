@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react';
+import {pure} from 'recompose';
 import {withStyles} from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 
@@ -24,7 +25,7 @@ type Props = {
     data: Content,
 };
 
-const ContentItem = (props: Props) => (
+const ContentItem = pure((props: Props) => (
     <div className={props.classes.root}>
         <div className={props.classes.body}>
             <Icon src={props.data.user.avatar}/>
@@ -33,6 +34,6 @@ const ContentItem = (props: Props) => (
             <Buttons />
         </div>
     </div>
-);
+));
 
 export default withStyles(styles)(ContentItem);

@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react'
+import {pure} from 'recompose';
 import {withStyles} from 'material-ui/styles';
 import Toolbar from 'material-ui/Toolbar';
 
@@ -21,7 +22,7 @@ type Props = {
     setTimelineMenu: Function,
 };
 
-const InfoBar = (props: Props) => (
+const InfoBar = pure((props: Props) => (
     <div>
         <Toolbar>
             <div style={{marginRight: 'auto'}}>
@@ -37,6 +38,6 @@ const InfoBar = (props: Props) => (
         </Toolbar>
         <ProgressBar inProgress={props.inProgress} />
     </div>
-);
+));
 
 export default withStyles(styles)(InfoBar);

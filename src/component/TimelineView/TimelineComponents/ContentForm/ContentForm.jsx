@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react';
+import {pure} from 'recompose';
 import {withStyles} from 'material-ui/styles';
 
 import ContentField from './ContentField';
@@ -26,7 +27,7 @@ type Props = {
     updateContentText: Function,
 };
 
-const ContentForm = (props: Props) => (
+const ContentForm = pure((props: Props) => (
     <div className={props.classes.root}>
         <ContentField
             timelineIndex={props.timelineIndex}
@@ -35,6 +36,6 @@ const ContentForm = (props: Props) => (
             updateContentText={props.updateContentText} />
         <SendButton />
     </div>
-);
+));
 
 export default withStyles(styles)(ContentForm);
