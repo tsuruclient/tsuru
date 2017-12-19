@@ -21,7 +21,7 @@ export default (service: string, dataType: string, data: Array<Object>): ?Array<
     case Services.GnuSocial:
         switch (dataType) {
         case dataTypes.home:
-            return data.map((item: Object): Content => new Content(service, data));
+            return data.map((item: Object): Content => new Content(service, item));
         case dataTypes.activity:
             break;
         case dataTypes.directMail:
@@ -31,7 +31,7 @@ export default (service: string, dataType: string, data: Array<Object>): ?Array<
     case Services.Mastodon:
         switch (dataType) {
         case dataTypes.home:
-            return data.map((item: Object): Content => new Content(service, data));
+            return data.map((item: Object): Content => new Content(service, item));
         case dataTypes.activity:
             break;
         case dataTypes.directMail:
