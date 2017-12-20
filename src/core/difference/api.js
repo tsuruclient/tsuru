@@ -1,5 +1,6 @@
 // @flow
 import * as Services from '../Services';
+import * as apiUrls from './api_urls';
 
 export const oauth = {
     request_token: {
@@ -15,3 +16,11 @@ export const oauth = {
         [Services.GnuSocial]: 'api/oauth/authorize',
     },
 };
+
+export const get = {
+    statuses: {
+        home_timeline: (service: string, since_id: ?number, max_id: ?number): string => {
+            // TODO: ?
+        }
+    }
+}
