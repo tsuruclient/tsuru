@@ -15,13 +15,16 @@ type Props = {
     classes: Object,
     accounts: Array<Object>,
     addAccountDialog: Object,
+    addTimelineDialog: Object,
+    closeDialog: Function,
 };
 
 const Dialog = (props: Props) => (
     <div>
         <AddTimelineDialog
-        accounts={props.accounts}
-        dialogData={props.addAccountDialog} />
+            accounts={props.accounts}
+            dialogData={props.addTimelineDialog}
+            closeDialog={props.closeDialog} />
     </div>
 );
 

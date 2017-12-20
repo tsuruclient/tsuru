@@ -5,10 +5,13 @@ import {pure} from 'recompose';
 import {withStyles} from 'material-ui/styles';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
-
 import Dialog, { DialogActions,
     DialogContent,
     DialogTitle } from 'material-ui/Dialog';
+
+import AccountList from './AccountList';
+
+import {AddTimelineDialogName} from '../../../redux/constant/dialogs';
 
 const styles = theme => ({
     root: {
@@ -19,11 +22,18 @@ const styles = theme => ({
 type Props = {
     classes: Object,
     accounts: Array<Object>,
-    addAccountDialog: Object,
+    dialogData: Object,
+    closeDialog: Function,
 };
 
+const handleRequestClose = (closeDialog: Function): Function => (
+    () => closeDialog({dialogName: AddTimelineDialogName})
+)
+
 const AddTimelineDialog = pure((props: Props) => (
-    <Dialog open={true}>
+    <Dialog
+        open={props.dialogData.open}
+        onRequestClose={handleRequestClose(props.closeDialog)}>
         <DialogTitle>{'Add Timeline'}</DialogTitle>
         <DialogContent>
             <Typography>{'一億総虐殺社会'}</Typography>

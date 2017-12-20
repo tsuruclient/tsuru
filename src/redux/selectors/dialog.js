@@ -17,3 +17,8 @@ export const addAccountDialogObject = createSelector(
     [dialogObject],
     (dialogData: Object): Object => (dialogData.AddAccountDialog)
 );
+
+export const addTimelineDialogObject = createSelector(
+    [dialogObject],
+    (dialogData: Object): Object => (dialogData.AddTimelineDialog)
+);

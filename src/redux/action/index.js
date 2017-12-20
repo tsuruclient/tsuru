@@ -23,6 +23,13 @@ export const apiActions = createActions(
     types.REQUEST_CALL_API,
 );
 
+export const dialogActions = createActions(
+    types.OPEN_DIALOG,
+    types.CLOSE_DIALOG,
+    types.CREATE_TL_DIALOG_SELECT_ACCOUNT,
+    types.CREATE_TL_DIALOG_SELECT_TIMELINE_TYPE,
+)
+
 export const devOptionActions = createActions(
     types.SET_DEV_DATA,
 );
