@@ -15,7 +15,7 @@ const initState = {
         receivedError: null,
     },
     [dialogTypes.AddTimelineDialogName]: {
-        open: true,
+        open: false,
         selectedAccount: 0,
         selectedTimelineType: Home,
     },
