@@ -1,6 +1,6 @@
 // @flow
 import promisify from 'es6-promisify';
-import * as apis from ''; //TODO : required api.
+import * as apis from '../difference/api';
 import * as Services from '../Services';
 import type { Social, KeyObject, TokenObject } from './client';
 
