@@ -9,6 +9,7 @@
     "material-ui-icons": "^1.0.0-beta.17",
     "moducks": "^0.2.3",
     "oauth": "^0.9.15",
+    "query-string": "^5.0.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
