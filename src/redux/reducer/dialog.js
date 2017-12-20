@@ -32,4 +32,14 @@ export default handleActions({
         obj.open = false;
         return Object.assign({}, state, {[action.payload.dialogName]: obj});
     },
+    [types.CREATE_TL_DIALOG_SELECT_ACCOUNT]: (state: Object, action: Object): Object => {
+        const obj = Object.assign({}, state[dialogTypes.AddTimelineDialogName]);
+        obj.selectedAccount = action.payload.selectedAccount;
+        return Object.assign({}, state, ({[dialogTypes.AddTimelineDialogName]: obj}));
+    },
+    [types.CREATE_TL_DIALOG_SELECT_TIMELINE_TYPE]: (state: Object, action: Object): Object => {
+        const obj = Object.assign({}, state[dialogTypes.AddTimelineDialogName]);
+        obj.selectedTimelineType = action.payload.selectedTimelineType;
+        return Object.assign({}, state, ({[dialogTypes.AddTimelineDialogName]: obj}));
+    }
 }, initState);

@@ -3,19 +3,24 @@
 import React from 'react';
 import {pure} from 'recompose';
 import {withStyles} from 'material-ui/styles';
-import Button from 'material-ui/Button';
-import Typography from 'material-ui/Typography';
 import Dialog, { DialogActions,
     DialogContent,
     DialogTitle } from 'material-ui/Dialog';
+import Button from 'material-ui/Button';
+import Typography from 'material-ui/Typography';
+import Divider from 'material-ui/Divider';
 
 import AccountList from './AccountList';
+import TimelineTypeList from './TimelineTypeList';
 
 import {AddTimelineDialogName} from '../../../redux/constant/dialogs';
 
 const styles = theme => ({
     root: {
 
+    },
+    content: {
+        width: '420px',
     }
 });
 
@@ -24,6 +29,8 @@ type Props = {
     accounts: Array<Object>,
     dialogData: Object,
     closeDialog: Function,
+    selectAccount: Function,
+    selectTimelineType: Function,
 };
 
 const handleRequestClose = (closeDialog: Function): Function => (
@@ -36,7 +43,16 @@ const AddTimelineDialog = pure((props: Props) => (
         onRequestClose={handleRequestClose(props.closeDialog)}>
         <DialogTitle>{'Add Timeline'}</DialogTitle>
         <DialogContent>
-            <Typography>{'一億総虐殺社会'}</Typography>
+            <div className={props.classes.content}>
+                <AccountList
+                    accounts={props.accounts}
+                    selected={props.dialogData.selectedAccount}
+                    selectAccount={props.selectAccount} />
+                <Divider />
+                <TimelineTypeList
+                    selected={props.dialogData.selectedTimelineType}
+                    selectTimelineType={props.selectTimelineType} />
+            </div>
         </DialogContent>
         <DialogActions>
             <Button raised color='primary'>{'Confirm'}</Button>

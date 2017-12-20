@@ -14,8 +14,9 @@ const mapStateToProps = (state: Object): Object => ({
 });
 
 const mapDispatchToProps = (dispatch: Function): Object => ({
-    openDialog: bindActionCreators(dialogActions.openDialog, dispatch),
     closeDialog: bindActionCreators(dialogActions.closeDialog, dispatch),
+    createTl_selectAccount: bindActionCreators(dialogActions.createTlDialogSelectAccount, dispatch),
+    createTl_selectTimelineType: bindActionCreators(dialogActions.createTlDialogSelectTimelineType, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dialog);

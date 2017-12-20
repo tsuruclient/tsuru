@@ -17,6 +17,8 @@ type Props = {
     addAccountDialog: Object,
     addTimelineDialog: Object,
     closeDialog: Function,
+    createTl_selectAccount: Function,
+    createTl_selectTimelineType: Function,
 };
 
 const Dialog = (props: Props) => (
@@ -24,7 +26,9 @@ const Dialog = (props: Props) => (
         <AddTimelineDialog
             accounts={props.accounts}
             dialogData={props.addTimelineDialog}
-            closeDialog={props.closeDialog} />
+            closeDialog={props.closeDialog}
+            selectAccount={props.createTl_selectAccount}
+            selectTimelineType={props.createTl_selectTimelineType} />
     </div>
 );
 
