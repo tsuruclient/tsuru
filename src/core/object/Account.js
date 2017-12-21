@@ -1,6 +1,7 @@
 // @flow
 
 import User from '../value/User';
+import Client from '../client/client';
 import copyInstance from '../../helper/copyInstance';
 
 export default class Account {
@@ -8,9 +9,25 @@ export default class Account {
     client: any;
     userdata: ?User;
 
-    constructor(service: string, client: any, userdata: Object) {
+    constructor(service: string, client: any, userdata: ?Object) {
         this.service = service;
         this.client = client;
-        this.userdata = new User(service, userdata);
+        if (userdata) this.userdata = new User(service, userdata);
+    }
+
+    confirm(data: Object): Account {
+        const r = copyInstance(this);
+        r.userdata = new User(this.service, data);
+        return r;
+    }
+
+    export(): Object {
+        return {
+            service: this.service,
+            consumerKey: this.client.exportConsumerKey(),
+            token: this.client.exportToken(),
+            domain: this.client.domain,
+            userData: Object.assign({}, this.userdata),
+        };
     }
 }

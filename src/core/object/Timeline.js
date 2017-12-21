@@ -66,4 +66,12 @@ export default class Timeline {
     filterling(data: Array<any>): Array<any> {
         return data;
     }
+    
+    export(): Object {
+        return {
+            ownerIndex: this.ownerIndex,
+            timelineType: this.timelineType,
+            filterling: this.filtering,
+        };
+    }
 }
