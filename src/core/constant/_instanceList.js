@@ -1,4 +1,6 @@
-import Services from './services';
+// @flow
+
+import * as Services from '../Services';
 
 export default {
     /* 'Common Twitter': {

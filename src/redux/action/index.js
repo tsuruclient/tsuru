@@ -28,6 +28,11 @@ export const dialogActions = createActions(
     types.CLOSE_DIALOG,
     types.CREATE_TL_DIALOG_SELECT_ACCOUNT,
     types.CREATE_TL_DIALOG_SELECT_TIMELINE_TYPE,
+    types.CREATE_AC_SELECT_INSTANCE,
+    types.CREATE_AC_FORWARD_INPUT_DATA,
+    types.CREATE_AC_FORWARD_PIN_AUTH,
+    types.CREATE_AC_RECEIVE_PIN_ERR,
+    types.CREATE_AC_BACK_SECTION,
 )
 
 export const devOptionActions = createActions(

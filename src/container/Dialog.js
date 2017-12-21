@@ -17,6 +17,10 @@ const mapDispatchToProps = (dispatch: Function): Object => ({
     closeDialog: bindActionCreators(dialogActions.closeDialog, dispatch),
     createTl_selectAccount: bindActionCreators(dialogActions.createTlDialogSelectAccount, dispatch),
     createTl_selectTimelineType: bindActionCreators(dialogActions.createTlDialogSelectTimelineType, dispatch),
+    createAc_SelectInstance: bindActionCreators(dialogActions.createAcSelectInstance, dispatch),
+    createAc_ForwardInputSection: bindActionCreators(dialogActions.createAcForwardInputData, dispatch),
+    createAc_ForwardPinAuthSection: bindActionCreators(dialogActions.createAcForwardPinAuth, dispatch),
+    createAc_BackSection: bindActionCreators(dialogActions.createAcBackSection, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dialog);
