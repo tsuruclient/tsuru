@@ -25,3 +25,6 @@ yarn-error.log*
 # ide
 .vscode
 .idea
+
+# ?
+src/core/constant/instanceList.js
