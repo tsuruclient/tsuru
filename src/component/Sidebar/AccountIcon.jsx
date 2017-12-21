@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react';
+import {pure} from 'recompose';
 import {withStyles} from 'material-ui/styles';
 import ButtonBase from 'material-ui/ButtonBase';
 import Avatar from 'material-ui/Avatar';
@@ -37,9 +38,7 @@ type Props = {
     data: User
 }
 
-
-
-const AccountIcon = (props: Props) => (
+const AccountIcon = pure((props: Props) => (
     <Tooltip id="tooltip-account-icon"
         title={"@" + props.data.screenName}
         placement="right"
@@ -49,9 +48,9 @@ const AccountIcon = (props: Props) => (
             popper: props.classes.popper
         }}>
         <ButtonBase disableRipple classes={{root: props.classes.button}}>
-            <Avatar src={props.data.avatar} />
+            {props.data.avatar ? <Avatar src={props.data.avatar} /> : <Avatar>?</Avatar>}
         </ButtonBase>
     </Tooltip>
-)
+));
 
 export default withStyles(styles)(AccountIcon);
