@@ -9,6 +9,8 @@ import Tooltip from 'material-ui/Tooltip';
 import Badge from 'material-ui/Badge';
 import Popover from 'material-ui/Popover';
 import Typography from 'material-ui/Typography';
+import { CircularProgress } from 'material-ui/Progress';
+
 
 import type User from '../../core/value/User';
 
@@ -48,7 +50,7 @@ const AccountIcon = pure((props: Props) => (
             popper: props.classes.popper
         }}>
         <ButtonBase disableRipple classes={{root: props.classes.button}}>
-            {props.data.avatar ? <Avatar src={props.data.avatar} /> : <Avatar>?</Avatar>}
+            {props.data.avatar ? <Avatar src={props.data.avatar} /> : <CircularProgress />}
         </ButtonBase>
     </Tooltip>
 ));
