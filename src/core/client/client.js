@@ -24,7 +24,7 @@ export interface Social {
 
     openAuthorizationWindow(): void;
     activate(pin: string): Promise<any>;
-    get(dest: string, payload: Object): Promise<any>;
+    get(dest: string): Promise<any>;
     post(dest: string, payload: Object): Promise<any>;
 
     exportConsumerKey(): KeyObject;

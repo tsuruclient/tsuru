@@ -1,6 +1,7 @@
 // @flow
 import * as Services from '../Services';
 import * as apiUrls from './api_urls';
+import querystring from 'query-string';
 
 export const oauth = {
     request_token: {
@@ -17,10 +18,24 @@ export const oauth = {
     },
 };
 
+/* ---- 警告 ----
+各関数のoptional paramはnullableですが、nullでは恐らくAPI呼び出しに失敗します。
+必ずundefinedになるよう、nullはnullable parameterに入れないでください。undefinedが推奨です
+// ---- ---- */
+
 export const get = {
     statuses: {
-        home_timeline: (service: string, since_id: ?number, max_id: ?number): string => {
-            // TODO: ?
-        }
+        home_timeline: (service: string, since_id: ?number, max_id: ?number, amount: ?number): string => (
+            apiUrls.get.statuses.home_timeline.url[service] + '?' + querystring({
+                [apiUrls.get.statuses.home_timeline.optional_param.since_id[service]]: since_id,
+                [apiUrls.get.statuses.home_timeline.optional_param.max_id[service]]: max_id,
+                [apiUrls.get.statuses.home_timeline.optional_param.amount[service]]: amount,
+            })
+        )
+    },
+    account: {
+        verify_credentials: (service: string): string => (
+            apiUrls.get.account.verify_credentials.url[service]
+        )
     }
 }

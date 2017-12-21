@@ -74,13 +74,12 @@ export default class client implements Social {
         });
     }
 
-    get(dest: string, payload: Object): Promise<any> {
-        const params = Object.keys(payload).length === 0 ? '' : '?' + querystring.stringify(payload);
+    get(dest: string): Promise<any> {
         return promisify(this.oauth.get, {
             thisArg: this.oauth,
             multiArgs: true,
         })(
-            this.url + dest + params,
+            this.url + dest,
             this.accessToken,
             this.accessTokenSecret,
         ).then((result: Array<any>): string => (
@@ -90,6 +89,7 @@ export default class client implements Social {
         });
     }
 
+    // todo: POSTはpayloadをどうするか考えましょう
     post(dest: string, payload: Object): Promise<any> {
         return promisify(this.oauth.post, {
             thisArg: this.oauth,
