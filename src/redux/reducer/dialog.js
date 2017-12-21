@@ -7,30 +7,34 @@ import * as dialogTypes from '../constant/dialogs';
 import timelineTypes, {Home} from '../../core/constant/timelineType';
 
 const AddAccountDialogDefaultState = {
-    open: false,
+    open: true,
     step: 0,
     selected: 0,
     receivedError: null,
 };
 
 const AddTimelineDialogDefaultState = {
-    open: false,
+    open: true,
     selectedAccount: 0,
     selectedTimelineType: Home,
 };
 
 const initState = {
-    [dialogTypes.AddAccountDialogName]: AddAccountDialogDefaultState,
-    [dialogTypes.AddTimelineDialogName]: AddTimelineDialogDefaultState,
+    [dialogTypes.AddAccountDialogName]: {
+        open: false,
+        step: 0,
+        selected: 0,
+        receivedError: null,
+    },
+    [dialogTypes.AddTimelineDialogName]: {
+        open: false,
+        selectedAccount: 0,
+        selectedTimelineType: Home,
+    },
 };
 
 export default handleActions({
     [types.OPEN_DIALOG]: (state: Object, action: Object): Object => {
-        const obj = Object.assign({}, state[action.payload.dialogName]);
-        obj.open = true;
-        return Object.assign({}, state, {[action.payload.dialogName]: obj});
-    },
-    [types.CLOSE_DIALOG]: (state: Object, action: Object): Object => {
         switch (action.payload.dialogName) {
         case dialogTypes.AddAccountDialogName:
             return Object.assign({}, state, {[dialogTypes.AddAccountDialogName]: AddAccountDialogDefaultState});
@@ -40,6 +44,11 @@ export default handleActions({
             console.warn('something went wrong from reducer/dialog');
             return Object.assign({}, state);
         }
+    },
+    [types.CLOSE_DIALOG]: (state: Object, action: Object): Object => {
+        const obj = Object.assign({}, state[action.payload.dialogName]);
+        obj.open = false;
+        return Object.assign({}, state, {[action.payload.dialogName]: obj});
     },
     [types.CREATE_TL_DIALOG_SELECT_ACCOUNT]: (state: Object, action: Object): Object => {
         const obj = Object.assign({}, state[dialogTypes.AddTimelineDialogName]);
