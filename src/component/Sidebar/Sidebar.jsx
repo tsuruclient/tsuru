@@ -39,7 +39,7 @@ const openAddTimelineDialog = (openDialog: Function): Function => (
 );
 
 const openAddAccountDialog = (openDialog: Function): Function => (
-    () => openDialog({dialogname: DialogNames.AddAccountDialogName})
+    () => openDialog({dialogName: DialogNames.AddAccountDialogName})
 );
 
 const openSettingDialog = (openDialog: Function): Function => (

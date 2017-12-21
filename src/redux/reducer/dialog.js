@@ -6,20 +6,24 @@ import * as types from '../constant';
 import * as dialogTypes from '../constant/dialogs';
 import timelineTypes, {Home} from '../../core/constant/timelineType';
 
+const AddAccountDialogDefaultState = {
+    open: false,
+    step: 0,
+    selected: 0,
+    isCommon: false,
+    receivedError: null,
+};
+
+const AddTimelineDialogDefaultState = {
+    open: false,
+    selectedAccount: 0,
+    selectedTimelineType: Home,
+};
+
 const initState = {
-    [dialogTypes.AddAccountDialogName]: {
-        open: false,
-        step: 0,
-        selected: 0,
-        isCommon: false,
-        receivedError: null,
-    },
-    [dialogTypes.AddTimelineDialogName]: {
-        open: false,
-        selectedAccount: 0,
-        selectedTimelineType: Home,
-    },
-}
+    [dialogTypes.AddAccountDialogName]: AddAccountDialogDefaultState,
+    [dialogTypes.AddTimelineDialogName]: AddTimelineDialogDefaultState,
+};
 
 export default handleActions({
     [types.OPEN_DIALOG]: (state: Object, action: Object): Object => {
@@ -28,9 +32,15 @@ export default handleActions({
         return Object.assign({}, state, {[action.payload.dialogName]: obj});
     },
     [types.CLOSE_DIALOG]: (state: Object, action: Object): Object => {
-        const obj = Object.assign({}, state[action.payload.dialogName]);
-        obj.open = false;
-        return Object.assign({}, state, {[action.payload.dialogName]: obj});
+        switch (action.payload.dialogName) {
+        case dialogTypes.AddAccountDialogName:
+            return Object.assign({}, state, {[dialogTypes.AddAccountDialogName]: AddAccountDialogDefaultState});
+        case dialogTypes.AddTimelineDialogName:
+            return Object.assign({}, state, {[dialogTypes.AddTimelineDialogName]: AddTimelineDialogDefaultState});
+        default:
+            console.warn('something went wrong from reducer/dialog');
+            return Object.assign({}, state);
+        }
     },
     [types.CREATE_TL_DIALOG_SELECT_ACCOUNT]: (state: Object, action: Object): Object => {
         const obj = Object.assign({}, state[dialogTypes.AddTimelineDialogName]);
