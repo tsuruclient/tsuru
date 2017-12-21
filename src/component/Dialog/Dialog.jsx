@@ -24,6 +24,8 @@ type Props = {
     createAc_ForwardInputSection: Function,
     createAc_ForwardPinAuthSection: Function,
     createAc_BackSection: Function,
+    createAc_openPinAuthWindow: Function,
+    createAc_cancelPinAuth: Function,
 };
 
 const Dialog = (props: Props) => (
@@ -40,7 +42,9 @@ const Dialog = (props: Props) => (
             selectInstance={props.createAc_SelectInstance}
             forwardInputSection={props.createAc_ForwardInputSection}
             forwardPinAuthSection={props.createAc_ForwardPinAuthSection}
-            backSection={props.createAc_BackSection} />
+            backSection={props.createAc_BackSection}
+            openPinAuthWindow={props.createAc_openPinAuthWindow}
+            cancelPinAuth={props.createAc_cancelPinAuth} />
     </div>
 );
 

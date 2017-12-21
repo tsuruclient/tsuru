@@ -28,6 +28,7 @@ type Props = {
     selectInstance: Function,
     forwardInputSection: Function,
     forwardPinAuthSection: Function,
+    openPinAuthWindow: Function,
 };
 
 const handleClickForwardButton = (props: Props): Function => (
@@ -35,7 +36,7 @@ const handleClickForwardButton = (props: Props): Function => (
         if(props.selected <= 1) { // 1以下はcommon扱い…
             props.forwardInputSection();
         }else{
-            // props.startAuth(instances[Object.keys(instances)[props.selected]]);
+            props.openPinAuthWindow(instances[Object.keys(instances)[props.selected]]);
             props.forwardPinAuthSection();
         }
     }

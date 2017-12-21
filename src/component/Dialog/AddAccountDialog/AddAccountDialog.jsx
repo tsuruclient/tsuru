@@ -32,6 +32,8 @@ type Props = {
     forwardInputSection: Function,
     forwardPinAuthSection: Function,
     backSection: Function,
+    openPinAuthWindow: Function,
+    cancelPinAuth: Function,
 };
 
 const handleRequestClose = (step: number, closeDialog: Function): Function => (
@@ -51,12 +53,15 @@ const AddAccountDialog = pure((props: Props) => (
                 selected={props.dialogData.selected}
                 selectInstance={props.selectInstance}
                 forwardInputSection={props.forwardInputSection}
-                forwardPinAuthSection={props.forwardPinAuthSection} />,
+                forwardPinAuthSection={props.forwardPinAuthSection}
+                openPinAuthWindow={props.openPinAuthWindow} />,
             <InputInstanceView
                 selected={props.dialogData.selected}
-                forwardPinAuthSection={props.forwardPinAuthSection} />,
+                forwardPinAuthSection={props.forwardPinAuthSection}
+                openPinAuthWindow={props.openPinAuthWindow} />,
             <InputPinView
-                onRequestClose={handleClose(props.closeDialog)}/>
+                onRequestClose={handleClose(props.closeDialog)}
+                cancelPinAuth={props.cancelPinAuth} />
         ][props.dialogData.step]}
     </Dialog>
 ));

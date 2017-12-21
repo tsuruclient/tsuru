@@ -27,6 +27,7 @@ type Props = {
     classes: Object,
     selected: number,
     forwardPinAuthSection: Function,
+    openPinAuthWindow: Function,
 };
 
 type State = {
@@ -64,7 +65,7 @@ class InputInstanceView extends PureComponent<Props, State> {
             if (status.apikey === '') throw errorType.APIKEY;
             if (status.apisecret === '') throw errorType.APISECRET;
 
-            // this.props.startAuth(status);
+            this.props.openPinAuthWindow(status);
             this.props.forwardPinAuthSection();
         }catch(e){
             this.setState({err: e}); 

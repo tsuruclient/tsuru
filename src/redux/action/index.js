@@ -8,6 +8,11 @@ export const accountActions = createActions(
     types.DELETE_ACCOUNT,
 );
 
+export const authActions = createActions(
+    types.OPEN_PIN_AUTHORIZATION_WINDOW,
+    types.CALCEL_PIN_AUTHORIZATION,
+)
+
 export const contentActions = createActions(
     types.UPDATE_CONTENT,
 );
