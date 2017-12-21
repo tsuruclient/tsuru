@@ -34,14 +34,18 @@ type Props = {
     backSection: Function,
 };
 
-const handleRequestClose = (closeDialog: Function): Function => (
+const handleRequestClose = (step: number, closeDialog: Function): Function => (
+    () => step !== 2 ? closeDialog({dialogName: AddAccountDialogName}) : null
+)
+
+const handleClose = (closeDialog: Function): Function => (
     () => closeDialog({dialogName: AddAccountDialogName})
 )
 
 const AddAccountDialog = pure((props: Props) => (
     <Dialog
         open={props.dialogData.open}
-        onRequestClose={handleRequestClose(props.closeDialog)}>
+        onRequestClose={handleRequestClose(props.dialogData.step, props.closeDialog)}>
         {[
             <SelectAccountTypeView
                 selected={props.dialogData.selected}
@@ -52,7 +56,7 @@ const AddAccountDialog = pure((props: Props) => (
                 selected={props.dialogData.selected}
                 forwardPinAuthSection={props.forwardPinAuthSection} />,
             <InputPinView
-                onRequestClose={handleRequestClose(props.closeDialog)}/>
+                onRequestClose={handleClose(props.closeDialog)}/>
         ][props.dialogData.step]}
     </Dialog>
 ));
