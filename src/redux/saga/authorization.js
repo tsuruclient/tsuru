@@ -19,6 +19,10 @@ export default function* pinAuthorization(action: Object): any {
             data: userData,
             index: addedAccountIndex,
         }});
+        yield call(storageApis.saveAccounts, yield select((state: Object): Array<Account> => 
+            state.account.map((item: Object): Account => 
+                item.account
+        )));
     } catch (e) {
         yield put({ type: types.CREATE_AC_RECEIVE_PIN_ERR });
     }

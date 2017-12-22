@@ -27,4 +27,7 @@ export default handleActions({
     [types.ADD_ACCOUNT]: (state: Array<AccountItemType>, action: Object): Array<AccountItemType> => (
         [...state, {account: action.payload, record: new Record(action.service)}]
     ),
+    [types.LOAD_ACCOUNT_DATA_SUCCESSED]: (state: Array<AccountItemType>, action: Object): Array<AccountItemType> => (
+        [...action.payload]
+    ),
 }, initState);
