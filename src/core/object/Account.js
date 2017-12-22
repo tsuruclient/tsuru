@@ -12,7 +12,7 @@ export default class Account {
     constructor(service: string, client: any, userdata: ?Object) {
         this.service = service;
         this.client = client;
-        if (userdata) this.userdata = new User(service, userdata);
+        if (userdata) this.userdata = Object.assign(Object.create(Object.getPrototypeOf(new User(this.service))), userdata);
     }
 
     confirm(data: Object): Account {

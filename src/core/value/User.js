@@ -21,14 +21,16 @@ export default class user {
     followCount: number;
     followerCount: number;
 
-    constructor(service: string, data: Object) {
-        this.displayName = data[Account.displayName[service]];
-        this.screenName = data[Account.screenName[service]];
-        this.id = data[Account.id[service]];
-
-        this.avatar = data[Account.icon[service]];
-        this.header = data[Account.header[service]];
-        
-        this.isLocked = data[Account.protected[service]];
+    constructor(service: string, data: ?Object) {
+        if(data){
+            this.displayName = data[Account.displayName[service]];
+            this.screenName = data[Account.screenName[service]];
+            this.id = data[Account.id[service]];
+    
+            this.avatar = data[Account.icon[service]];
+            this.header = data[Account.header[service]];
+            
+            this.isLocked = data[Account.protected[service]];
+        }
     }
 }
