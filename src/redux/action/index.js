@@ -2,6 +2,16 @@
 
 import { createActions } from 'redux-actions';
 import * as types from '../constant';
+import { REQUEST_SAVE_TIMELINE } from '../constant';
+
+export const generalActions = createActions(
+    types.INIT_APP,
+    types.REQUEST_SAVE_ACCOUNT,
+    types.REQUEST_SAVE_TIMELINE,
+    types.LOAD_ACCOUNT_DATA_SUCCESSED,
+    types.LOAD_TIMELINE_DATA_SUCCESSED,
+    types.LOAD_DATA_FAILED,
+);
 
 export const accountActions = createActions(
     types.ADD_ACCOUNT,
