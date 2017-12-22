@@ -3,6 +3,7 @@ import * as apis from '../../core/difference/api';
 import OAuth from '../../core/client/oauth';
 import OAuth2 from '../../core/client/oauth2';
 import * as Services from '../../core/Services';
+import * as Apis from '../../core/difference/api';
 
 export function openPinAuthWindow(status: Object): OAuth | OAuth2 {
     const client: OAuth | OAuth2 = status.type === Services.Mastodon ?
@@ -28,4 +29,8 @@ export function openPinAuthWindow(status: Object): OAuth | OAuth2 {
 
 export function getOAuthAccessToken(client: OAuth | OAuth2, pin: string): Promise<any> {
     return client.activate(pin);
+}
+
+export function confirm(client: OAuth | OAuth2, service: string): Promise<any> {
+    return client.get(apis.get.account.verify_credentials(service));
 }

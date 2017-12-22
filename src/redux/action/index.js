@@ -6,6 +6,7 @@ import * as types from '../constant';
 export const accountActions = createActions(
     types.ADD_ACCOUNT,
     types.DELETE_ACCOUNT,
+    types.UPDATE_USERDATA,
 );
 
 export const authActions = createActions(

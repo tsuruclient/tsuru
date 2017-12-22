@@ -15,8 +15,13 @@ const initState = [];
 
 export default handleActions({
     [types.UPDATE_CONTENT]: (state: Array<AccountItemType>, action: Object): Array<AccountItemType> => (
-        state.map((item: Object, index: number): Array<any> => (
+        state.map((item: AccountItemType, index: number): AccountItemType => (
             action.accountIndex === index ? {account: item.account, record: item.record.unshift(action.dataType, action.data)}: item
+        ))
+    ),
+    [types.UPDATE_USERDATA]: (state: Array<AccountItemType>, action: Object): Array<AccountItemType> => (
+        state.map((item: AccountItemType, index: number): AccountItemType => (
+            index === action.payload.index ? {account: item.account.confirm(action.payload.data), record: item.record} : item
         ))
     ),
     [types.ADD_ACCOUNT]: (state: Array<AccountItemType>, action: Object): Array<AccountItemType> => (
