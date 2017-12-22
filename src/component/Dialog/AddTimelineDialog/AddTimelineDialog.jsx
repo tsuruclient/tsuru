@@ -31,11 +31,19 @@ type Props = {
     closeDialog: Function,
     selectAccount: Function,
     selectTimelineType: Function,
+    addTimeline: Function,
 };
 
 const handleRequestClose = (closeDialog: Function): Function => (
     () => closeDialog({dialogName: AddTimelineDialogName})
 )
+
+const handleAddButtonClicked = (dialogData: Object, addTimeline: Function, closeDialog: Function): Function => (
+    () => {
+        addTimeline({accountIndex: dialogData.selectedAccount, timelineType: dialogData.selectedTimelineType});
+        closeDialog({dialogName: AddTimelineDialogName});
+    }
+);
 
 const AddTimelineDialog = pure((props: Props) => (
     <Dialog
@@ -55,7 +63,12 @@ const AddTimelineDialog = pure((props: Props) => (
             </div>
         </DialogContent>
         <DialogActions>
-            <Button raised color='primary'>{'Confirm'}</Button>
+            <Button
+                raised
+                color='primary'
+                onClick={handleAddButtonClicked(props.dialogData, props.addTimeline, props.closeDialog)}>
+                {'Confirm'}
+            </Button>
         </DialogActions>
     </Dialog>
 ));

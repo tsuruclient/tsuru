@@ -18,6 +18,6 @@ export default handleActions({
         ))
     ),
     [types.ADD_TIMELINE]: (state: Array<Timeline>, action: Object): Array<Timeline> => (
-        [...state, new Timeline(action.accountIndex, action.timelineType)]
+        [...state, new Timeline(action.payload.accountIndex, action.payload.timelineType)]
     ),
 }, initState);

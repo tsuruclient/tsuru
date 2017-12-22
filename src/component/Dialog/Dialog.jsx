@@ -20,6 +20,7 @@ type Props = {
     closeDialog: Function,
     createTl_selectAccount: Function,
     createTl_selectTimelineType: Function,
+    createTl_addTimeline: Function,
     createAc_SelectInstance: Function,
     createAc_ForwardInputSection: Function,
     createAc_ForwardPinAuthSection: Function,
@@ -35,7 +36,8 @@ const Dialog = (props: Props) => (
             dialogData={props.addTimelineDialog}
             closeDialog={props.closeDialog}
             selectAccount={props.createTl_selectAccount}
-            selectTimelineType={props.createTl_selectTimelineType} />
+            selectTimelineType={props.createTl_selectTimelineType}
+            addTimeline={props.createTl_addTimeline} />
         <AddAccountDialog 
             dialogData={props.addAccountDialog}
             closeDialog={props.closeDialog}

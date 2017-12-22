@@ -3,7 +3,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import {dialogActions, authActions} from '../redux/action';
+import {dialogActions, authActions, timelineActions} from '../redux/action';
 import Dialog from '../component/Dialog/Dialog';
 import * as dialogData from '../redux/selectors/dialog';
 
@@ -17,6 +17,7 @@ const mapDispatchToProps = (dispatch: Function): Object => ({
     closeDialog: bindActionCreators(dialogActions.closeDialog, dispatch),
     createTl_selectAccount: bindActionCreators(dialogActions.createTlDialogSelectAccount, dispatch),
     createTl_selectTimelineType: bindActionCreators(dialogActions.createTlDialogSelectTimelineType, dispatch),
+    createTl_addTimeline: bindActionCreators(timelineActions.addTimeline, dispatch),
     createAc_SelectInstance: bindActionCreators(dialogActions.createAcSelectInstance, dispatch),
     createAc_ForwardInputSection: bindActionCreators(dialogActions.createAcForwardInputData, dispatch),
     createAc_ForwardPinAuthSection: bindActionCreators(dialogActions.createAcForwardPinAuth, dispatch),
