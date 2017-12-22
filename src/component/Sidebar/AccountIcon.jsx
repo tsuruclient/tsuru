@@ -32,6 +32,9 @@ const styles = theme => ({
     badge: {
         top: -3,
         right: -3,
+    },
+    progress: {
+        margin: 0,
     }
 });
 
@@ -42,7 +45,7 @@ type Props = {
 
 const AccountIcon = pure((props: Props) => (
     <Tooltip id="tooltip-account-icon"
-        title={"@" + props.data.screenName}
+        title={props.data ? "@" + props.data.screenName : 'now loading...'}
         placement="right"
         classes={{
             tooltip: props.classes.tooltip,
@@ -50,7 +53,7 @@ const AccountIcon = pure((props: Props) => (
             popper: props.classes.popper
         }}>
         <ButtonBase disableRipple classes={{root: props.classes.button}}>
-            {props.data.avatar ? <Avatar src={props.data.avatar} /> : <CircularProgress />}
+            {props.data ? <Avatar src={props.data.avatar} /> : <CircularProgress className={props.classes.progress} />}
         </ButtonBase>
     </Tooltip>
 ));

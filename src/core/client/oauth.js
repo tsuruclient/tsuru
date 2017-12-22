@@ -57,7 +57,6 @@ export default class client implements Social {
     }
 
     activate(pin: string): Promise<any> {
-        console.log(this);
         return promisify(this.oauth.getOAuthAccessToken, {
             thisArg: this.oauth,
             multiArgs: true,
