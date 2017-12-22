@@ -18,10 +18,10 @@ export default class Timeline {
     menuOpen: boolean;
     anchorEl: ?Object;
 
-    constructor(ownerIndex: number, timelineType: string) {
+    constructor(ownerIndex: number, timelineType: string, filter: ?Object) {
         this.ownerIndex = ownerIndex;
         this.timelineType = timelineType;
-        this.filtering = {};
+        this.filtering = filter ? filter : {};
         this.contentText = '';
         this.image = [];
         this.error = null;
