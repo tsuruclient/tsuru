@@ -11,5 +11,4 @@ export default handleActions({
     [types.OPEN_PIN_AUTHORIZATION_WINDOW]: (state: Object, action: Object): Object => (
         new Account(action.payload.type, openPinAuthWindow(action.payload), null)
     ),
-    [types.CALCEL_PIN_AUTHORIZATION]: (state: Object): Object => ({}),
 }, initState);

@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch: Function): Object => ({
     createAc_ForwardPinAuthSection: bindActionCreators(dialogActions.createAcForwardPinAuth, dispatch),
     createAc_BackSection: bindActionCreators(dialogActions.createAcBackSection, dispatch),
     createAc_openPinAuthWindow: bindActionCreators(authActions.openPinAuthorizationWindow, dispatch),
-    createAc_cancelPinAuth: bindActionCreators(authActions.cancelPinAuthorization, dispatch),
+    createAc_startAuth: bindActionCreators(authActions.requestAuthorization, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Dialog);
