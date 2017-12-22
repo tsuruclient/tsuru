@@ -20,7 +20,7 @@ type Props = {
 const AccountList = (props: Props) => (
     <div className={props.classes.root}>
         {props.accounts.map((item, index) => (
-            <AccountIcon key={index} data={item.userdata} />
+            <AccountIcon key={index} data={item.userdata} domain={item.client.domain} />
         ))}
     </div>
 );

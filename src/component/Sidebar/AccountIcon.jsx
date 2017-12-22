@@ -43,12 +43,13 @@ const styles = theme => ({
 
 type Props = {
     classes: Object,
-    data: User
+    data: ?User,
+    domain: string,
 }
 
 const AccountIcon = pure((props: Props) => (
     <Tooltip id="tooltip-account-icon"
-        title={props.data ? "@" + props.data.screenName : 'now loading...'}
+        title={props.data ? props.domain + "@" + props.data.screenName : 'now loading...'}
         placement="right"
         classes={{
             tooltip: props.classes.tooltip,
