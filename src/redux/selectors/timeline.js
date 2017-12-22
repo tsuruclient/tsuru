@@ -21,6 +21,20 @@ export const service = createSelector(
     )
 );
 
+export const ownerInfo = createSelector(
+    [accountList],
+    (Accounts: Array<any>): Function => (
+        (index: number): Object => {
+            const account = Accounts[index].account;
+            return {
+                service: account.service,
+                domain: account.client.domain,
+                screenName: account.userdata.screenName,
+            }
+        }
+    )
+);
+
 export const contents = createSelector(
     [accountList],
     (AccountList: Array<any>): Function => (

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import {pure} from 'recompose';
 import {withStyles} from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 
@@ -24,30 +25,32 @@ type Props = {
     classes: Object,
     timeline: Object,
     timelineIndex: number,
-    service: string,
+    ownerInfo: Object,
     contents: Array<any>,
     contentFormContent: Object,
     setTimelineMenu: Function,
     updateContentText: Function,
 };
 
-const Timeline = (props: Props) => (
+const Timeline = pure((props: Props) => (
     <Paper className={props.classes.root}>
         <InfoBar
             timelineIndex={props.timelineIndex}
+            timelineName={props.timeline.timelineType}
+            ownerInfo={props.ownerInfo}
             inProgress={props.timeline.inProgress}
             menuOpen={props.timeline.menuOpen}
             anchorEl={props.timeline.anchorEl}
-            setTimelineMenu={props.setTimelineMenu}/>
+            setTimelineMenu={props.setTimelineMenu} />
         <ContentForm
             timelineIndex={props.timelineIndex}
-            service={props.service}
+            service={props.ownerInfo.service}
             contentFormContent={props.contentFormContent}
             updateContentText={props.updateContentText} />
         <ContentList
-            service={props.service}
+            service={props.ownerInfo.service}
             contents={props.contents} />
     </Paper>
-)
+));
 
 export default withStyles(styles)(Timeline);

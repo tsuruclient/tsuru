@@ -4,7 +4,7 @@ import copyInstance from '../../helper/copyInstance';
 
 export default class Timeline {
     ownerIndex: number;
-    timelineType: Object;
+    timelineType: string;
     
     filtering: Object; // TODO: 頼む
     contentText: string;
@@ -18,7 +18,7 @@ export default class Timeline {
     menuOpen: boolean;
     anchorEl: ?Object;
 
-    constructor(ownerIndex: number, timelineType: Object) {
+    constructor(ownerIndex: number, timelineType: string) {
         this.ownerIndex = ownerIndex;
         this.timelineType = timelineType;
         this.filtering = {};

@@ -10,8 +10,8 @@ import TimelineView from '../component/TimelineView/TimelineView';
 const mapStateToProps = (state: Object): Object => ({
     timelines: state.timeline,
     contentBoxText: selectors.contentBoxText(state),
-    service: selectors.service(state),
     contents: selectors.contents(state),
+    ownerInfo: selectors.ownerInfo(state),
 });
 
 const mapDispatchToProps = (dispatch: Function): Object => ({

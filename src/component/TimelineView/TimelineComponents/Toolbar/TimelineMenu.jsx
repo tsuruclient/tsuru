@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react'
+import {pure} from 'recompose';
 import {withStyles} from 'material-ui/styles';
 import IconButton from 'material-ui/IconButton';
 import Menu, { MenuItem } from 'material-ui/Menu';
@@ -27,7 +28,7 @@ const handleRequestClose = (timelineIndex: number, setTimelineMenu: Function) =>
     setTimelineMenu({timelineIndex, anchorEl: null});
 }
 
-const TimelineMenu = (props: Props) => (
+const TimelineMenu = pure((props: Props) => (
     <div>
         <IconButton onClick={event => handleButtonClick(props.timelineIndex, props.open, event, props.setTimelineMenu)}>
             <MenuIcon/>
@@ -43,6 +44,6 @@ const TimelineMenu = (props: Props) => (
             <MenuItem>{'Delete Timeline'}</MenuItem>
         </Menu>
     </div>
-);
+));
 
 export default withStyles(styles)(TimelineMenu);

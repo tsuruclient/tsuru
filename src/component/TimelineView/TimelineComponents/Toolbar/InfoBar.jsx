@@ -16,6 +16,8 @@ const styles = theme => ({
 type Props = {
     classes: Object,
     timelineIndex: number,
+    timelineName: string,
+    ownerInfo: Object,
     inProgress: boolean,
     menuOpen: boolean,
     anchorEl: Object,
@@ -26,7 +28,9 @@ const InfoBar = pure((props: Props) => (
     <div>
         <Toolbar>
             <div style={{marginRight: 'auto'}}>
-                <Title timelineName={'Hogehgoe'}/>
+                <Title
+                    timelineName={props.timelineName}
+                    ownerInfo={props.ownerInfo} />
             </div>
             <div style={{marginLeft: 'auto'}}>
                 <TimelineMenu

@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react'
+import {pure} from 'recompose';
 import {withStyles} from 'material-ui/styles';
 import { LinearProgress } from 'material-ui/Progress';
 
@@ -20,10 +21,10 @@ type Props = {
     inProgress: boolean,
 };
 
-const PropgressBar = (props: Props) => {
+const PropgressBar = pure((props: Props) => {
     return props.inProgress ?
         <LinearProgress className={props.classes.root} /> :
         <div className={props.classes.empty}></div>;
-};
+});
 
 export default withStyles(styles)(PropgressBar);
