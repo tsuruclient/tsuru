@@ -8,7 +8,7 @@ import AccountIcon from './AccountIcon';
 
 const styles = theme => ({
     root: {
-
+        overflowX: 'hidden',
     }
 });
 
@@ -17,10 +17,12 @@ type Props = {
     accounts: Array<Object>,
 };
 
-const AccountList = (props: Props) => {
-    return props.accounts.map((item, index) => (
-        <AccountIcon key={index} data={item.userdata} />
-    ));
-}
+const AccountList = (props: Props) => (
+    <div className={props.classes.root}>
+        {props.accounts.map((item, index) => (
+            <AccountIcon key={index} data={item.userdata} />
+        ))}
+    </div>
+);
 
 export default withStyles(styles)(AccountList);

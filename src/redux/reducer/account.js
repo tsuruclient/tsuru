@@ -20,6 +20,6 @@ export default handleActions({
         ))
     ),
     [types.ADD_ACCOUNT]: (state: Array<AccountItemType>, action: Object): Array<AccountItemType> => (
-        [...state, {account: new Account(action.service, action.client, action.userData ), record: new Record(action.service)}]
+        [...state, {account: action.payload, record: new Record(action.service)}]
     ),
 }, initState);

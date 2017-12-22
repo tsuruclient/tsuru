@@ -24,7 +24,7 @@ const initState = {
         open: false,
         step: 0,
         selected: 0,
-        receivedError: null,
+        receivedError: false,
     },
     [dialogTypes.AddTimelineDialogName]: {
         open: false,
@@ -73,6 +73,11 @@ export default handleActions({
     [types.CREATE_AC_FORWARD_PIN_AUTH]: (state: Object, action: Object): Object => {
         const obj = Object.assign({}, state[dialogTypes.AddAccountDialogName]);
         obj.step = 2;
+        return Object.assign({}, state, {[dialogTypes.AddAccountDialogName]: obj});
+    },
+    [types.AUTHORIZATION_ERROR]: (state: Object, action: Object): Object => {
+        const obj = Object.assign({}, state[dialogTypes.AddAccountDialogName]);
+        obj.step = true;
         return Object.assign({}, state, {[dialogTypes.AddAccountDialogName]: obj});
     }
 }, initState);

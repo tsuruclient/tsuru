@@ -17,11 +17,11 @@ const styles = () => ({
 type Props = {
     classes: Object,
     onRequestClose: Function,
+    startAuth: Function,
 };
 
 type State = {
     pin: string,
-    err: ?string,
 };
 
 class InputPinView extends PureComponent<Props, State> {
@@ -33,7 +33,6 @@ class InputPinView extends PureComponent<Props, State> {
 
     state = {
         pin: '',
-        err: null,
     }
     
     handleCancelClick() {
@@ -41,7 +40,9 @@ class InputPinView extends PureComponent<Props, State> {
     }
 
     handleAuthClick() {
-        console.log(this.state.pin);
+        if(this.state.pin.trim() !== '') {
+            this.props.startAuth({pin: this.state.pin});
+        }
     }
 
     render() {
@@ -55,7 +56,6 @@ class InputPinView extends PureComponent<Props, State> {
                         id="insert-pin"
                         label="Input PIN Here..."
                         margin="normal"
-                        error={this.state.err}
                         fullWidth/>
                 </DialogContent>
                 <DialogActions>

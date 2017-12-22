@@ -10,6 +10,9 @@ export const accountActions = createActions(
 
 export const authActions = createActions(
     types.OPEN_PIN_AUTHORIZATION_WINDOW,
+    types.REQUEST_AUTHORIZATION,
+    types.AUTHORIZATION_ERROR,
+);
 
 export const contentActions = createActions(
     types.UPDATE_CONTENT,

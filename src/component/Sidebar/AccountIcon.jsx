@@ -25,6 +25,9 @@ const styles = theme => ({
     popper: {
         marginLeft: 42
     },
+    buttonRoot: {
+        overflow: 'hidden',
+    },
     button: {
         padding: 0,
         margin: 4
@@ -52,7 +55,7 @@ const AccountIcon = pure((props: Props) => (
             tooltipRight: props.classes.tooltipRight,
             popper: props.classes.popper
         }}>
-        <ButtonBase disableRipple classes={{root: props.classes.button}}>
+        <ButtonBase disableRipple className={props.classes.buttonRoot} classes={{root: props.classes.button}}>
             {props.data ? <Avatar src={props.data.avatar} /> : <CircularProgress className={props.classes.progress} />}
         </ButtonBase>
     </Tooltip>
