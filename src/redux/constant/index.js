@@ -30,7 +30,7 @@ export const SET_TIMELINE_MENU = 'SET_TIMELINE_MENU';
 
 // API
 export const REQUEST_CALL_API = 'REQUEST_CALL_API';
-
+export const CALL_API_FAILED = 'CALL_API_FAILED';
 // Dialog
 export const OPEN_DIALOG = 'OPEN_DIALOG';
 export const CLOSE_DIALOG = 'CLOSE_DIALOG';

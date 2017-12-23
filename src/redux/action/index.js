@@ -38,6 +38,7 @@ export const timelineActions = createActions(
 
 export const apiActions = createActions(
     types.REQUEST_CALL_API,
+    types.CALL_API_FAILED,
 );
 
 export const dialogActions = createActions(

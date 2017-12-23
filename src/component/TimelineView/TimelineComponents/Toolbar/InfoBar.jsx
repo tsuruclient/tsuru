@@ -16,12 +16,13 @@ const styles = theme => ({
 type Props = {
     classes: Object,
     timelineIndex: number,
-    timelineName: string,
+    timeline: Object,
     ownerInfo: Object,
     inProgress: boolean,
     menuOpen: boolean,
     anchorEl: Object,
     setTimelineMenu: Function,
+    callApi: Function,
 };
 
 const InfoBar = pure((props: Props) => (
@@ -29,15 +30,18 @@ const InfoBar = pure((props: Props) => (
         <Toolbar>
             <div style={{marginRight: 'auto'}}>
                 <Title
-                    timelineName={props.timelineName}
+                    timelineName={props.timeline.timelineType}
                     ownerInfo={props.ownerInfo} />
             </div>
             <div style={{marginLeft: 'auto'}}>
                 <TimelineMenu
                     timelineIndex={props.timelineIndex}
+                    timeline={props.timeline}
                     open={props.menuOpen}
                     anchorEl={props.anchorEl}
-                    setTimelineMenu={props.setTimelineMenu}/>
+                    setTimelineMenu={props.setTimelineMenu}
+                    callApi={props.callApi}
+                    services={props.ownerInfo.service} />
             </div>
         </Toolbar>
         <ProgressBar inProgress={props.inProgress} />

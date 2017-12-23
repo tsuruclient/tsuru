@@ -25,6 +25,7 @@ type Props = {
     contentBoxText: Function,
     updateContentText: Function,
     setTimelineMenu: Function,
+    callApi: Function,
 };
 
 const TimelineView = pure((props: Props) => (
@@ -38,7 +39,8 @@ const TimelineView = pure((props: Props) => (
                     contentFormContent={props.contentBoxText(index)}
                     contents={props.contents(item.ownerIndex, timelineTypes[item.timelineType].dataname)}
                     setTimelineMenu={props.setTimelineMenu}
-                    updateContentText={props.updateContentText} />
+                    updateContentText={props.updateContentText}
+                    callApi={props.callApi} />
         ))}
     </div>
 ));

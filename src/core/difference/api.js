@@ -25,12 +25,15 @@ export const oauth = {
 
 export const get = {
     statuses: {
-        home_timeline: (service: string, since_id: ?number, max_id: ?number, amount: ?number): string => (
-            apiUrls.get.statuses.home_timeline.url[service] + '?' + querystring({
-                [apiUrls.get.statuses.home_timeline.optional_param.since_id[service]]: since_id,
-                [apiUrls.get.statuses.home_timeline.optional_param.max_id[service]]: max_id,
-                [apiUrls.get.statuses.home_timeline.optional_param.amount[service]]: amount,
-            })
+        home_timeline: (service: string, since_id: ?number, max_id: ?number, amount: ?number): Object => (
+            {
+                url: apiUrls.get.statuses.home_timeline.url[service] + '?' + querystring.stringify({
+                    [apiUrls.get.statuses.home_timeline.optional_param.since_id[service]]: since_id,
+                    [apiUrls.get.statuses.home_timeline.optional_param.max_id[service]]: max_id,
+                    [apiUrls.get.statuses.home_timeline.optional_param.amount[service]]: amount,
+                }),
+                type: 'home_timeline',
+            }
         )
     },
     account: {

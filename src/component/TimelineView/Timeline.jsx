@@ -30,18 +30,20 @@ type Props = {
     contentFormContent: Object,
     setTimelineMenu: Function,
     updateContentText: Function,
+    callApi: Function,
 };
 
 const Timeline = pure((props: Props) => (
     <Paper className={props.classes.root}>
         <InfoBar
             timelineIndex={props.timelineIndex}
-            timelineName={props.timeline.timelineType}
+            timeline={props.timeline}
             ownerInfo={props.ownerInfo}
             inProgress={props.timeline.inProgress}
             menuOpen={props.timeline.menuOpen}
             anchorEl={props.timeline.anchorEl}
-            setTimelineMenu={props.setTimelineMenu} />
+            setTimelineMenu={props.setTimelineMenu}
+            callApi={props.callApi} />
         <ContentForm
             timelineIndex={props.timelineIndex}
             service={props.ownerInfo.service}

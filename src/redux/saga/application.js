@@ -1,6 +1,6 @@
 // @flow
 
-import { put, call, takeEvery } from 'redux-saga/effects';
+import { put, call } from 'redux-saga/effects';
 
 import Account from '../../core/object/Account';
 import Timeline from '../../core/object/Timeline';
