@@ -48,7 +48,7 @@ const handleAddButtonClicked = (dialogData: Object, addTimeline: Function, close
 const AddTimelineDialog = pure((props: Props) => (
     <Dialog
         open={props.dialogData.open}
-        onRequestClose={handleRequestClose(props.closeDialog)}>
+        onClose={handleRequestClose(props.closeDialog)}>
         <DialogTitle>{'Add Timeline'}</DialogTitle>
         <DialogContent>
             <div className={props.classes.content}>

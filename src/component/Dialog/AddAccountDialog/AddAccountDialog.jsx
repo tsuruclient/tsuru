@@ -47,7 +47,7 @@ const handleClose = (closeDialog: Function): Function => (
 const AddAccountDialog = pure((props: Props) => (
     <Dialog
         open={props.dialogData.open}
-        onRequestClose={handleRequestClose(props.dialogData.step, props.closeDialog)}>
+        onClose={handleRequestClose(props.dialogData.step, props.closeDialog)}>
         {[
             <SelectAccountTypeView
                 selected={props.dialogData.selected}
