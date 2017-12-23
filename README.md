@@ -1,7 +1,7 @@
 # Tsuru
 Twitter, GNU Social, Mastodonのアカウントを一つの画面にまとめて表示できるTweetdeck風クライアントです。  
   
-![Tsuru動作画像](./ver0_1_0_view.jpg "はい")  
+![Tsuru動作画像](./images/ver0_1_0_view.jpg "はい")  
   
 [RoadmapはTrelloでご覧いただけます](https://trello.com/b/Id3TjFbr)。  
   
