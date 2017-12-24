@@ -8,7 +8,7 @@ import Menu, { MenuItem } from 'material-ui/Menu';
 import Divider from 'material-ui/Divider';
 import MenuIcon from 'material-ui-icons/Menu';
 
-import * as apis from '../../../../core/difference/api';
+import timelineTypes from '../../../../core/constant/timelineType';
 
 const styles = theme => ({
 
@@ -34,7 +34,7 @@ const handleRequestClose = (timelineIndex: number, setTimelineMenu: Function): F
 });
 
 const callApi = (props: Props): Function => (() => {
-    const apidata = apis.get.statuses.home_timeline(props.services);
+    const apidata = timelineTypes[props.timeline.timelineType].api.get(props.services);
     props.callApi({
         accountIndex: props.timeline.ownerIndex,
         timelineIndex: props.timelineIndex,

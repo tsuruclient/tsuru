@@ -1,4 +1,7 @@
+// @flow
+
 import * as dataType from './dataType';
+import * as apis from '../difference/api';
 
 export const Home = "Home";
 export const Activity = "Activity";
@@ -8,7 +11,9 @@ export const List = "List";
 export default {
     Home: {
         description: 'Home Timeline',
-        api: undefined,
+        api: {
+            get: apis.get.statuses.home_timeline,
+        },
         dataname: dataType.home,
     },
     Activity: {
