@@ -1,6 +1,7 @@
 // @flow
 import * as Services from '../Services';
 import * as apiUrls from './api_urls';
+import * as dataTypes from '../constant/dataType';
 import querystring from 'query-string';
 
 export const oauth = {
@@ -32,9 +33,10 @@ export const get = {
                     [apiUrls.get.statuses.home_timeline.optional_param.max_id[service]]: max_id,
                     [apiUrls.get.statuses.home_timeline.optional_param.amount[service]]: amount,
                 }),
-                type: 'home_timeline',
-            }
-        )
+                target: 'home_timeline',
+                datatype: dataTypes.home,
+                service,
+            })
     },
     account: {
         verify_credentials: (service: string): string => (
