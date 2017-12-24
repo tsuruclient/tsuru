@@ -1,17 +1,12 @@
 // @flow
 
 import { handleActions } from 'redux-actions';
+import scanner from '../../helper/scanner';
 import * as types from '../constant';
 import Timeline from '../../core/object/Timeline';
 import {saveTimelines} from '../api/storage';
 
 const initState = [];
-
-const scanner = (state: Array<Timeline>, targetIndex: number, closure: Function): Array<Timeline> => (
-    state.map((item: Timeline, index: number): Timeline => (
-        index === targetIndex ? closure(item) : item
-    ))
-);
 
 export default handleActions({
     [types.UPDATE_CONTENT_TEXT]: (state: Array<Timeline>, action: Object): Array<Timeline> => (
