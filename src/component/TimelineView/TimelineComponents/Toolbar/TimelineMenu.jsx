@@ -38,7 +38,7 @@ const callApi = (props: Props): Function => (() => {
     props.callApi({
         accountIndex: props.timeline.ownerIndex,
         timelineIndex: props.timelineIndex,
-        apidata: apidata,
+        apidata,
         payload: {},
     });
     props.setTimelineMenu({timelineIndex: props.timelineIndex, anchorEl: null});

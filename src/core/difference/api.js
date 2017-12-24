@@ -37,6 +37,7 @@ export const get = {
                 target: 'home_timeline',
                 datatype: dataTypes.home,
                 service,
+                method: 'GET',
             };
         }
     },
@@ -44,5 +45,22 @@ export const get = {
         verify_credentials: (service: string): string => (
             apiUrls.get.account.verify_credentials.url[service]
         )
+    }
+}
+
+export const post = {
+    statuses: {
+        update: (service: string, status: string, in_reply_to_id: ?number|string): Object => {
+            const update = apiUrls.post.statuses.update;
+            return {
+                url: update.url[service] + '?' + querystring.stringify({
+                    [update.require_param.status[service]]: status
+                }),
+                target: 'update',
+                datatype: dataTypes.home,
+                service,
+                method: 'POST',
+            };
+        },
     }
 }

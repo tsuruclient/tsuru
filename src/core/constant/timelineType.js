@@ -13,6 +13,7 @@ export default {
         description: 'Home Timeline',
         api: {
             get: apis.get.statuses.home_timeline,
+            post: apis.post.statuses.update,
         },
         dataname: dataType.home,
     },
