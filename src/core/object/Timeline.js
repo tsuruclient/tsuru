@@ -11,7 +11,7 @@ export default class Timeline {
     image: Array<any>;
     error: ?string;
 
-    inProgress: boolean;
+    inProgressCount: number; // if not 0, something is in progress.
     
     inStreaming: boolean;
 
@@ -25,7 +25,7 @@ export default class Timeline {
         this.contentText = '';
         this.image = [];
         this.error = null;
-        this.inProgress = false;
+        this.inProgressCount = 0;
         this.inStreaming = false;
         this.menuOpen = false;
         this.anchorEl = null;
@@ -57,9 +57,9 @@ export default class Timeline {
         return r;
     }
 
-    setInProgress(inProgress: boolean): Timeline {
+    setInProgress(status: boolean): Timeline {
         const r = copyInstance(this);
-        r.inProgress = inProgress;
+        status ? r.inProgressCount++ : r.inProgressCount--;
         return r;
     }
 

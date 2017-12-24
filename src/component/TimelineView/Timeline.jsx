@@ -39,7 +39,6 @@ const Timeline = pure((props: Props) => (
             timelineIndex={props.timelineIndex}
             timeline={props.timeline}
             ownerInfo={props.ownerInfo}
-            inProgress={props.timeline.inProgress}
             menuOpen={props.timeline.menuOpen}
             anchorEl={props.timeline.anchorEl}
             setTimelineMenu={props.setTimelineMenu}

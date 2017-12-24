@@ -34,6 +34,7 @@ export const timelineActions = createActions(
     types.DELETE_TIMELINE,
     types.UPDATE_CONTENT_TEXT,
     types.SET_TIMELINE_MENU,
+    types.SET_IN_PROGRESS_STATUS,
 );
 
 export const apiActions = createActions(

@@ -18,11 +18,11 @@ const styles = theme => ({
 
 type Props = {
     classes: Object,
-    inProgress: boolean,
+    inProgressCount: number,
 };
 
 const PropgressBar = pure((props: Props) => {
-    return props.inProgress ?
+    return props.inProgressCount !== 0 ?
         <LinearProgress className={props.classes.root} /> :
         <div className={props.classes.empty}></div>;
 });

@@ -13,6 +13,11 @@ export default handleActions({
             index===action.payload.timelineIndex ? item.updateContentText(action.payload.text) : item
         ))
     ),
+    [types.SET_IN_PROGRESS_STATUS]: (state: Array<Timeline>, action: Object): Array<Timeline> => (
+        state.map((item: Timeline, index: number): Timeline => (
+            index === action.payload.timelineIndex ? item.setInProgress(action.payload.status) : item
+        ))
+    ),
     [types.SET_TIMELINE_MENU]: (state: Array<Timeline>, action: Object): Array<Timeline> => (
         state.map((item: Timeline, index: number): Timeline => (
             index === action.payload.timelineIndex ? item.setMenu(action.payload.anchorEl) : item

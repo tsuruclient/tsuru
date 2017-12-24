@@ -18,7 +18,6 @@ type Props = {
     timelineIndex: number,
     timeline: Object,
     ownerInfo: Object,
-    inProgress: boolean,
     menuOpen: boolean,
     anchorEl: Object,
     setTimelineMenu: Function,
@@ -44,7 +43,7 @@ const InfoBar = pure((props: Props) => (
                     services={props.ownerInfo.service} />
             </div>
         </Toolbar>
-        <ProgressBar inProgress={props.inProgress} />
+        <ProgressBar inProgressCount={props.timeline.inProgressCount} />
     </div>
 ));
 
