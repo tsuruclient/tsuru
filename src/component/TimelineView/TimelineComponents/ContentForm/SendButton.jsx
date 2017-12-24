@@ -5,6 +5,8 @@ import {withStyles} from 'material-ui/styles';
 import IconButton from 'material-ui/IconButton';
 import SendIcon from 'material-ui-icons/Send';
 
+import timelineTypes from '../../../../core/constant/timelineType';
+
 const styles = theme => ({
     root: {
         width: 36,
@@ -13,11 +15,29 @@ const styles = theme => ({
 });
 
 type Props = {
-    classes: Object
+    classes: Object,
+    service: string,
+    ownerIndex: number,
+    timelineIndex: number,
+    timelineType: string,
+    formContent: Object,
+    callApi: Function,
 };
 
+const handleSendButtonClicked = (props: Props): Function => () => {
+    const apidata = timelineTypes[props.timelineType].api.post(props.service, props.formContent.text);
+    props.callApi({
+        accountIndex: props.ownerIndex,
+        timelineIndex: props.timelineIndex,
+        apidata,
+        payload: {},
+    });
+}
+
 const SendButton = (props: Props) => (
-    <IconButton className={props.classes.root}>
+    <IconButton
+        className={props.classes.root}
+        onClick={handleSendButtonClicked(props)} >
         <SendIcon/>
     </IconButton>
 );

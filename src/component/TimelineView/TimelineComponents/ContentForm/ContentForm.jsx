@@ -22,10 +22,14 @@ const styles = theme => ({
 type Props = {
     classes: Object,
     timelineIndex: number,
+    ownerIndex: number,
+    timelineType: string,
     service: string,
     contentFormContent: Object,
     updateContentText: Function,
+    callApi: Function,
 };
+
 
 const ContentForm = pure((props: Props) => (
     <div className={props.classes.root}>
@@ -34,7 +38,13 @@ const ContentForm = pure((props: Props) => (
             service={props.service}
             contentFormContent={props.contentFormContent}
             updateContentText={props.updateContentText} />
-        <SendButton />
+        <SendButton
+            service={props.service}
+            ownerIndex={props.ownerIndex}
+            timelineIndex={props.timelineIndex}
+            timelineType={props.timelineType}
+            formContent={props.contentFormContent}
+            callApi={props.callApi} />
     </div>
 ));
 
