@@ -23,6 +23,8 @@ export default handleActions({
     [types.SET_TIMELINE_MENU]: (state: Array<Timeline>, action: Object): Array<Timeline> => (
         scanner(state, action.payload.timelineIndex, (item: Timeline): Timeline => item.setMenu(action.payload.anchorEl))
     ),
+    [types.CLEAR_FORM]: (state: Array<Timeline>, action: Object): Array<Timeline> => (
+        scanner(state, action.payload.timelineIndex, (item: Timeline): Timeline => item.clear())
     ),
     [types.ADD_TIMELINE]: (state: Array<Timeline>, action: Object): Array<Timeline> => {
         const nextState = [...state, new Timeline(action.payload.accountIndex, action.payload.timelineType)];

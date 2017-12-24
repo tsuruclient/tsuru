@@ -33,6 +33,7 @@ export const timelineActions = createActions(
     types.ADD_TIMELINE,
     types.DELETE_TIMELINE,
     types.UPDATE_CONTENT_TEXT,
+    types.CLEAR_FORM,
     types.SET_TIMELINE_MENU,
     types.SET_IN_PROGRESS_STATUS,
 );

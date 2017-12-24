@@ -35,6 +35,7 @@ export function* apiRequest(action: Object): any {
             data = yield call((): Promise<any> => client.post(apidata.url, payload));
             switch(apidata.target) {
                 case 'update':
+                    yield put({type: types.CLEAR_FORM, payload: {timelineIndex}})
                     yield put({type: types.SET_IN_PROGRESS_STATUS, payload: {timelineIndex, status: false}});
                     break;
                 default:
