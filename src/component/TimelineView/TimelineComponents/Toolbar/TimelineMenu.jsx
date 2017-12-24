@@ -25,13 +25,13 @@ type Props = {
     callApi: Function,
 };
 
-const handleOpenMenuClicked = (timelineIndex: number, isOpen: boolean, event: Object, setTimelineMenu: Function) => {
+const handleOpenMenuClicked = (timelineIndex: number, isOpen: boolean, setTimelineMenu: Function): Function => ((event: Object) => {
     setTimelineMenu({timelineIndex, anchorEl: isOpen ? null : event.currentTarget });
-}
+});
 
-const handleRequestClose = (timelineIndex: number, setTimelineMenu: Function) => {
+const handleRequestClose = (timelineIndex: number, setTimelineMenu: Function): Function => ((event: Object) => {
     setTimelineMenu({timelineIndex, anchorEl: null});
-}
+});
 
 const callApi = (props: Props): Function => (() => {
     const apidata = apis.get.statuses.home_timeline(props.services);
@@ -40,23 +40,24 @@ const callApi = (props: Props): Function => (() => {
         timelineIndex: props.timelineIndex,
         apidata: apidata,
         payload: {},
-    })
+    });
+    props.setTimelineMenu({timelineIndex: props.timelineIndex, anchorEl: null});
 });
 
 const TimelineMenu = pure((props: Props) => (
     <div>
-        <IconButton onClick={event => handleOpenMenuClicked(props.timelineIndex, props.open, event, props.setTimelineMenu)}>
+        <IconButton onClick={handleOpenMenuClicked(props.timelineIndex, props.open, props.setTimelineMenu)}>
             <MenuIcon/>
         </IconButton>
         <Menu
             id='timeline-menu'
             anchorEl={props.anchorEl}
             open={props.open}
-            onClose={() => handleRequestClose(props.timelineIndex, props.setTimelineMenu)}>
-            <MenuItem onClick={callApi(props)}>{'Update'}</MenuItem>
-            <MenuItem>{'Timeline Option'}</MenuItem>
-            <Divider />
-            <MenuItem>{'Delete Timeline'}</MenuItem>
+            onClose={handleRequestClose(props.timelineIndex, props.setTimelineMenu)} >
+                <MenuItem onClick={callApi(props)}>{'Update'}</MenuItem>
+                <MenuItem>{'Timeline Option'}</MenuItem>
+                <Divider />
+                <MenuItem>{'Delete Timeline'}</MenuItem>
         </Menu>
     </div>
 ));
