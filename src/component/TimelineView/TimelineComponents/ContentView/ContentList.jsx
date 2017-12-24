@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import {pure} from 'recompose';
+import {onlyUpdateForKeys} from 'recompose';
 import {withStyles} from 'material-ui/styles';
 
 import Content from '../../../../core/value/Content';
@@ -21,7 +21,7 @@ type Props = {
     contents: Array<any>,
 };
 
-const ContentList = pure((props: Props) => (
+const ContentList = onlyUpdateForKeys(['contents'])((props: Props) => (
     <div className={props.classes.root}>
         {props.contents.map((item, index) => (
             item instanceof Content ? 

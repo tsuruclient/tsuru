@@ -4,6 +4,7 @@ import React from 'react';
 import {pure} from 'recompose';
 import {withStyles} from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
+import Divider from 'material-ui/Divider'
 
 import Icon from './Icon';
 import Buttons from './Buttons';
@@ -33,6 +34,7 @@ const ContentItem = pure((props: Props) => (
             <Typography type="body1">{props.data.content}</Typography>
             <Buttons />
         </div>
+        <Divider />
     </div>
 ));
 
