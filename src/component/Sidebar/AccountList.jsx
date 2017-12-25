@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react';
+import {pure} from 'recompose';
 import {withStyles} from 'material-ui/styles';
 import IconButton from 'material-ui/IconButton';
 
@@ -20,12 +21,12 @@ type Props = {
     accounts: Array<Object>,
 };
 
-const AccountList = (props: Props) => (
+const AccountList = pure((props: Props) => (
     <div className={props.classes.root}>
         {props.accounts.map((item, index) => (
             <AccountIcon key={index} data={item.userdata} domain={item.client.domain} />
         ))}
     </div>
-);
+));
 
 export default withStyles(styles)(AccountList);

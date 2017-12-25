@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react';
+import {pure} from 'recompose';
 import {withStyles} from 'material-ui/styles';
 
 import AddTimelineDialog from './AddTimelineDialog/AddTimelineDialog';
@@ -29,7 +30,7 @@ type Props = {
     createAc_startAuth: Function,
 };
 
-const Dialog = (props: Props) => (
+const Dialog = pure((props: Props) => (
     <div>
         <AddTimelineDialog
             accounts={props.accounts}
@@ -48,6 +49,6 @@ const Dialog = (props: Props) => (
             openPinAuthWindow={props.createAc_openPinAuthWindow}
             startAuth={props.createAc_startAuth} />
     </div>
-);
+));
 
 export default withStyles(styles)(Dialog);
