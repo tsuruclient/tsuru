@@ -34,7 +34,7 @@ const handleRequestClose = (timelineIndex: number, setTimelineMenu: Function): F
 });
 
 const callApi = (props: Props): Function => (() => {
-    const apidata = timelineTypes[props.timeline.timelineType].api.get(props.services, 200);
+    const apidata = timelineTypes[props.timeline.timelineType].api.get(props.services);
     props.callApi({
         accountIndex: props.timeline.ownerIndex,
         timelineIndex: props.timelineIndex,
