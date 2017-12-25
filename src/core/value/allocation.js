@@ -2,6 +2,8 @@
 
 import * as Services from '../Services';
 import * as dataTypes from '../constant/dataType';
+import notice from '../difference/notice';
+import eventTypes from '../difference/eventType';
 import Content from './Content';
 import Event from './Event';
 
@@ -11,9 +13,8 @@ export default (service: string, dataType: string, data: Array<Object>): ?Array<
     case Services.Twitter:
         switch (dataType) {
         case dataTypes.home:
-            return data.map((item: Object): Content => new Content(service, item));
         case dataTypes.activity:
-            break;
+            return data.map((item: Object): Content => new Content(service, item));
         case dataTypes.directMail:
             break;
         }
@@ -21,9 +22,8 @@ export default (service: string, dataType: string, data: Array<Object>): ?Array<
     case Services.GnuSocial:
         switch (dataType) {
         case dataTypes.home:
-            return data.map((item: Object): Content => new Content(service, item));
         case dataTypes.activity:
-            break;
+            return data.map((item: Object): Content => new Content(service, item));
         case dataTypes.directMail:
             break;
         }
@@ -33,7 +33,11 @@ export default (service: string, dataType: string, data: Array<Object>): ?Array<
         case dataTypes.home:
             return data.map((item: Object): Content => new Content(service, item));
         case dataTypes.activity:
-            break;
+            return data.map((item: Object): Content | Event => 
+                item[notice.type[service]] === eventTypes.mention[service] ?
+                    new Content(service, item[notice.target[service]]):
+                    new Event(service, item, false)
+            )
         case dataTypes.directMail:
             break;
         }
