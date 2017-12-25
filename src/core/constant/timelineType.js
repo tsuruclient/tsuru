@@ -19,7 +19,10 @@ export default {
     },
     Activity: {
         description: 'Mentions and Reactions timeline.',
-        api: undefined,
+        api: {
+            get: apis.get.statuses.mentions_timeline,
+            post: apis.post.statuses.update,
+        },
         dataname: dataType.activity,
     },
     /* 'Direct Message': {

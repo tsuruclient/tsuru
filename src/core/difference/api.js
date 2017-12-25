@@ -39,6 +39,16 @@ export const get = {
                 service,
                 method: 'GET',
             };
+        },
+        mentions_timeline: (service: string) => {
+            const mentions_timeline = apiUrls.get.statuses.mentions_timeline;
+            return {
+                url: mentions_timeline.url[service],
+                target: 'mentions_timeline',
+                datatype: dataTypes.activity,
+                service,
+                method: 'GET',
+            }
         }
     },
     account: {
