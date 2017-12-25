@@ -26,13 +26,13 @@ export const oauth = {
 
 export const get = {
     statuses: {
-        home_timeline: (service: string, since_id: ?number, max_id: ?number, amount: ?number): Object => {
+        home_timeline: (service: string, amount: ?number, since_id: ?number, max_id: ?number): Object => {
             const home_timeline = apiUrls.get.statuses.home_timeline;
             return {
                 url: home_timeline.url[service] + '?' + querystring.stringify({
+                    [home_timeline.optional_param.amount[service]]: amount,
                     [home_timeline.optional_param.since_id[service]]: since_id,
                     [home_timeline.optional_param.max_id[service]]: max_id,
-                    [home_timeline.optional_param.amount[service]]: amount,
                 }),
                 target: 'home_timeline',
                 datatype: dataTypes.home,
