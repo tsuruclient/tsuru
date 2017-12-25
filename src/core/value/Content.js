@@ -13,8 +13,6 @@ export default class Content {
     user: User;
     content: string;
 
-    sourceUser: ?User;
-
     target: ?Content;
     targetId: ?string | number;
 
