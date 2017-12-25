@@ -8,7 +8,10 @@ import AccountIcon from './AccountIcon';
 
 const styles = theme => ({
     root: {
+        display: "flex",
+        flexDirection: "column",
         overflowX: 'hidden',
+        overflowY: "auto",
     }
 });
 
