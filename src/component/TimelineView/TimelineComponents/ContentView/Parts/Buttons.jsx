@@ -1,5 +1,4 @@
 // @flow
-
 import React from 'react';
 import {withStyles} from 'material-ui/styles';
 import IconButton from 'material-ui/IconButton';
