@@ -3,6 +3,7 @@
 import React from 'react';
 import {pure} from 'recompose';
 import {withStyles} from 'material-ui/styles';
+import Divider from 'material-ui/Divider';
 
 import ContentField from './ContentField';
 import SendButton from './SendButton';
@@ -32,19 +33,22 @@ type Props = {
 
 
 const ContentForm = pure((props: Props) => (
-    <div className={props.classes.root}>
-        <ContentField
-            timelineIndex={props.timelineIndex}
-            service={props.service}
-            contentFormContent={props.contentFormContent}
-            updateContentText={props.updateContentText} />
-        <SendButton
-            service={props.service}
-            ownerIndex={props.ownerIndex}
-            timelineIndex={props.timelineIndex}
-            timelineType={props.timelineType}
-            formContent={props.contentFormContent}
-            callApi={props.callApi} />
+    <div>
+        <div className={props.classes.root}>
+            <ContentField
+                timelineIndex={props.timelineIndex}
+                service={props.service}
+                contentFormContent={props.contentFormContent}
+                updateContentText={props.updateContentText} />
+            <SendButton
+                service={props.service}
+                ownerIndex={props.ownerIndex}
+                timelineIndex={props.timelineIndex}
+                timelineType={props.timelineType}
+                formContent={props.contentFormContent}
+                callApi={props.callApi} />
+        </div>
+        <Divider />
     </div>
 ));
 
