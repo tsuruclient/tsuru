@@ -3,8 +3,6 @@
 import React from 'react';
 import {pure} from 'recompose';
 import {withStyles} from 'material-ui/styles';
-import ButtonBase from 'material-ui/ButtonBase';
-import Tooltip from 'material-ui/Tooltip';
 import Badge from 'material-ui/Badge';
 import Popover from 'material-ui/Popover';
 import Typography from 'material-ui/Typography';
@@ -15,27 +13,14 @@ import type User from '../../core/value/User';
 import Icon from './Icon';
 
 const styles = theme => ({
-    tooltip: {
-        fontSize: 16,
-        padding: "6px 12px"
-    },
-    tooltipRight: {
-        marginLeft: 12,
-    },
-    popper: {
-        marginLeft: 42
-    },
-    buttonRoot: {
-        overflow: 'hidden',
-    },
-    button: {
-        padding: 0,
-        margin: 4
-    },
     badge: {
         top: -3,
         right: -3,
     },
+    menu: {
+        marginLeft: '44px',
+        marginTop: '48px',
+    }
 });
 
 type Props = {
@@ -48,8 +33,6 @@ type State = {
     open: boolean,
     anchorEl: ?Object,
 };
-
-// higher-order componentsで書き直してください。具体的にはIconをWrappingする形でButtonBase+TooltopとMenuを分割してる形で…
 
 class AccountIcon extends React.PureComponent<Props, State> {
     constructor(props: Props){
@@ -65,7 +48,7 @@ class AccountIcon extends React.PureComponent<Props, State> {
 
     handleClick = (event: Object) => {
         this.setState({
-            open: true,
+            open: !this.state.open,
             anchorEl: event.currentTarget,
         });
     }
@@ -81,23 +64,12 @@ class AccountIcon extends React.PureComponent<Props, State> {
         const props = this.props;
         return (
             <div>
-                <Tooltip id="tooltip-account-icon"
-                title={props.data ? props.domain + "@" + props.data.screenName : 'now loading...'}
-                placement="right"
-                classes={{
-                    tooltip: props.classes.tooltip,
-                    tooltipRight: props.classes.tooltipRight,
-                    popper: props.classes.popper
-                }}>
-                    <ButtonBase
-                        disableRipple
-                        className={props.classes.buttonRoot}
-                        classes={{root: props.classes.button}}
-                        onClick={this.handleClick} >
-                        <Icon data={props.data} />
-                    </ButtonBase>
-                </Tooltip>
+                <Icon
+                    data={props.data}
+                    domain={props.domain}
+                    handleClick={this.handleClick} />
                 <Menu
+                    className={props.classes.menu}
                     id="account-menu"
                     anchorEl={this.state.anchorEl}
                     open={this.state.open}
