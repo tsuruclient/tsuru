@@ -58,7 +58,7 @@ const eventContent = (type: string) => {
     return type === FavoriteEvent ? ' liked ' : ' retweeted ';
 }
 
-const FavRtContent = (props: Props) => (
+const FavRtContent = pure((props: Props) => (
     <div className={props.classes.root}>
         <div className={props.classes.info}>
             {eventIcon(props.data.type, props.classes.starIcon, props.classes.repeatIcon)}
@@ -73,6 +73,6 @@ const FavRtContent = (props: Props) => (
                 content={props.data.target.content} />
         </div>
     </div>
-);
+));
 
 export default withStyles(style)(FavRtContent);
