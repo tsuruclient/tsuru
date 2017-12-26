@@ -58,6 +58,6 @@ const miniAccountInfo = pure((props: Props) => (
             </div>
         </Paper>
     )
-))
+);
 
 export default withStyles(styles)(miniAccountInfo);

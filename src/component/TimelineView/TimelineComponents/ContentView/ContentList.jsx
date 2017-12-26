@@ -5,10 +5,10 @@ import {onlyUpdateForKeys} from 'recompose';
 import {withStyles} from 'material-ui/styles';
 import Divider from 'material-ui/Divider'
 
-import Content from '../../../../core/value/Content';
-import Event from '../../../../core/value/Event';
+import ContentObject from '../../../../core/value/Content';
 
-import Contents from './Content/Content';
+import Content from './Content/Content';
+import Event from './Content/Notification';
 
 const styles = theme => ({
     root: {
@@ -25,13 +25,15 @@ type Props = {
 const ContentList = onlyUpdateForKeys(['contents'])((props: Props) => (
     <div className={props.classes.root}>
         {props.contents.map((item, index) => (
-            item instanceof Content ? 
+            item instanceof ContentObject ? 
                 <div key={index}>
-                    <Contents
-                        data={item}/>
+                    <Content data={item}/>
                     <Divider />
                 </div>:
-                <div key={index}></div>
+                <div key={index}>
+                    <Event data={item} />
+                    <Divider />
+                </div>
         ))}
     </div>
 ));
