@@ -5,7 +5,7 @@ import {pure} from 'recompose';
 import {withStyles} from 'material-ui/styles';
 import IconButton from 'material-ui/IconButton';
 
-import AccountIcon from './AccountIcon';
+import AccountIcon from './AccountIcon/AccountIcon';
 
 const styles = theme => ({
     root: {
@@ -24,7 +24,10 @@ type Props = {
 const AccountList = pure((props: Props) => (
     <div className={props.classes.root}>
         {props.accounts.map((item, index) => (
-            <AccountIcon key={index} data={item.userdata} domain={item.client.domain} />
+            <AccountIcon
+                key={index}
+                data={item.userdata}
+                domain={item.client.domain} />
         ))}
     </div>
 ));

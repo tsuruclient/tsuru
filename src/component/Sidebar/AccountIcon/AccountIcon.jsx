@@ -4,16 +4,15 @@ import React from 'react';
 import {pure} from 'recompose';
 import {withStyles} from 'material-ui/styles';
 import ButtonBase from 'material-ui/ButtonBase';
-import Avatar from 'material-ui/Avatar';
 import Tooltip from 'material-ui/Tooltip';
 import Badge from 'material-ui/Badge';
 import Popover from 'material-ui/Popover';
 import Typography from 'material-ui/Typography';
-import { CircularProgress } from 'material-ui/Progress';
 import Menu, { MenuItem } from 'material-ui/Menu';
 
-
 import type User from '../../core/value/User';
+
+import Icon from './Icon';
 
 const styles = theme => ({
     tooltip: {
@@ -37,9 +36,6 @@ const styles = theme => ({
         top: -3,
         right: -3,
     },
-    progress: {
-        margin: 0,
-    }
 });
 
 type Props = {
@@ -52,6 +48,8 @@ type State = {
     open: boolean,
     anchorEl: ?Object,
 };
+
+// higher-order componentsで書き直してください。具体的にはIconをWrappingする形でButtonBase+TooltopとMenuを分割してる形で…
 
 class AccountIcon extends React.PureComponent<Props, State> {
     constructor(props: Props){
@@ -96,7 +94,7 @@ class AccountIcon extends React.PureComponent<Props, State> {
                         className={props.classes.buttonRoot}
                         classes={{root: props.classes.button}}
                         onClick={this.handleClick} >
-                        {props.data ? <Avatar src={props.data.avatar} /> : <CircularProgress className={props.classes.progress} />}
+                        <Icon data={props.data} />
                     </ButtonBase>
                 </Tooltip>
                 <Menu
@@ -104,10 +102,9 @@ class AccountIcon extends React.PureComponent<Props, State> {
                     anchorEl={this.state.anchorEl}
                     open={this.state.open}
                     onClose={this.handleClose} >
-                <MenuItem onClick={this.handleClose}>Update UserData</MenuItem>
-                <MenuItem onClick={this.handleClose}>Logout</MenuItem>
+                    <MenuItem onClick={this.handleClose}>Update UserData</MenuItem>
+                    <MenuItem onClick={this.handleClose}>Logout</MenuItem>
                 </Menu>
-
             </div>
         )
     }
