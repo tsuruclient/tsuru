@@ -1,4 +1,5 @@
 // @flow
+import * as Services from '../Services';
 import content from '../difference/content';
 import User from './User';
 
@@ -30,7 +31,9 @@ export default class Content {
         this.type = Normal;
         this.id = data[content.id[service]];
         this.user = new User(service, data[content.user[service]]);
-        this.content = data[content.text[service]];
+        this.content = service !== Services.Mastodon ?
+            data[content.text[service]] :
+            data[content.text[service]].replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
         
         if(data[content.inReplyToId[service]]) {
             this.inReplyToId = data[content.inReplyToId[service]];
