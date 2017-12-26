@@ -23,6 +23,7 @@ type Props = {
     anchorEl: Object,
     setTimelineMenu: Function,
     callApi: Function,
+    deleteTimeline: Function,
 };
 
 const handleOpenMenuClicked = (timelineIndex: number, isOpen: boolean, setTimelineMenu: Function): Function => ((event: Object) => {
@@ -44,6 +45,10 @@ const callApi = (props: Props): Function => (() => {
     props.setTimelineMenu({timelineIndex: props.timelineIndex, anchorEl: null});
 });
 
+const handleDeleteTimeline = (timelineIndex: number, deleteTimeline: Function) => () => (
+    deleteTimeline({timelineIndex})
+);
+
 const TimelineMenu = pure((props: Props) => (
     <div>
         <IconButton onClick={handleOpenMenuClicked(props.timelineIndex, props.open, props.setTimelineMenu)}>
@@ -57,7 +62,7 @@ const TimelineMenu = pure((props: Props) => (
                 <MenuItem onClick={callApi(props)}>{'Update'}</MenuItem>
                 <MenuItem>{'Timeline Option'}</MenuItem>
                 <Divider />
-                <MenuItem>{'Delete Timeline'}</MenuItem>
+                <MenuItem onClick={handleDeleteTimeline(props.timelineIndex, props.deleteTimeline)}>{'Delete Timeline'}</MenuItem>
         </Menu>
     </div>
 ));

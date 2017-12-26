@@ -28,7 +28,7 @@ export default handleActions({
     },
     [types.DELETE_TIMELINE]: (state: Array<Timeline>, action: Object): Array<Timeline> => {
         const nextState = state.concat();
-        nextState.splice(action.payload, 1);
+        nextState.splice(action.payload.timelineIndex, 1);
         saveTimelines(nextState);
         return (nextState);
     },

@@ -31,6 +31,7 @@ type Props = {
     setTimelineMenu: Function,
     updateContentText: Function,
     callApi: Function,
+    deleteTimeline: Function,
 };
 
 const Timeline = pure((props: Props) => (
@@ -42,7 +43,8 @@ const Timeline = pure((props: Props) => (
             menuOpen={props.timeline.menuOpen}
             anchorEl={props.timeline.anchorEl}
             setTimelineMenu={props.setTimelineMenu}
-            callApi={props.callApi} />
+            callApi={props.callApi}
+            deleteTimeline={props.deleteTimeline} />
         <ContentForm
             timelineIndex={props.timelineIndex}
             service={props.ownerInfo.service}

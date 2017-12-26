@@ -22,6 +22,7 @@ type Props = {
     anchorEl: Object,
     setTimelineMenu: Function,
     callApi: Function,
+    deleteTimeline: Function,
 };
 
 const InfoBar = pure((props: Props) => (
@@ -34,13 +35,14 @@ const InfoBar = pure((props: Props) => (
             </div>
             <div style={{marginLeft: 'auto'}}>
                 <TimelineMenu
+                    services={props.ownerInfo.service}
                     timelineIndex={props.timelineIndex}
                     timeline={props.timeline}
                     open={props.menuOpen}
                     anchorEl={props.anchorEl}
                     setTimelineMenu={props.setTimelineMenu}
                     callApi={props.callApi}
-                    services={props.ownerInfo.service} />
+                    deleteTimeline={props.deleteTimeline} />
             </div>
         </Toolbar>
         <ProgressBar inProgressCount={props.timeline.inProgressCount} />
