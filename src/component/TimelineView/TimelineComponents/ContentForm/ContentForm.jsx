@@ -7,6 +7,7 @@ import Divider from 'material-ui/Divider';
 
 import ContentField from './ContentField';
 import SendButton from './SendButton';
+import ReplySource from './ReplySource';
 
 const styles = theme => ({
 	root: {
@@ -27,7 +28,9 @@ type Props = {
     timelineType: string,
     service: string,
     contentFormContent: Object,
+    replySource: ?Object,
     updateContentText: Function,
+    setReply: Function,
     callApi: Function,
 };
 
@@ -48,6 +51,12 @@ const ContentForm = pure((props: Props) => (
                 formContent={props.contentFormContent}
                 callApi={props.callApi} />
         </div>
+        {props.replySource ? 
+            <ReplySource
+                tlIndex={props.timelineIndex}
+                data={props.replySource}
+                setReply={props.setReply}/>:
+            <div></div>}
         <Divider />
     </div>
 ));
