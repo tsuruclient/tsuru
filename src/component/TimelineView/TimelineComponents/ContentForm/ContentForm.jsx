@@ -49,6 +49,7 @@ const ContentForm = pure((props: Props) => (
                 timelineIndex={props.timelineIndex}
                 timelineType={props.timelineType}
                 formContent={props.contentFormContent}
+                replySource={props.replySource}
                 callApi={props.callApi} />
         </div>
         {props.replySource ? 

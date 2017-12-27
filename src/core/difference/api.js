@@ -64,7 +64,8 @@ export const post = {
             const update = apiUrls.post.statuses.update;
             return {
                 url: update.url[service] + '?' + querystring.stringify({
-                    [update.require_param.status[service]]: status
+                    [update.require_param.status[service]]: status,
+                    [update.optional_param.in_reply_to_id[service]]: in_reply_to_id,
                 }),
                 target: 'update',
                 datatype: dataTypes.home,

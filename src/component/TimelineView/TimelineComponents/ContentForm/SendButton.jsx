@@ -21,11 +21,15 @@ type Props = {
     timelineIndex: number,
     timelineType: string,
     formContent: Object,
+    replySource: ?Object,
     callApi: Function,
 };
 
 const handleSendButtonClicked = (props: Props): Function => () => {
-    const apidata = timelineTypes[props.timelineType].api.post(props.service, props.formContent.text);
+    const apidata = timelineTypes[props.timelineType].api.post(
+        props.service,
+        props.replySource ? '@' + props.replySource.user.screenName + ' ' + props.formContent.text : props.formContent.text,
+        props.replySource ? props.replySource.id : undefined);
     props.callApi({
         accountIndex: props.ownerIndex,
         timelineIndex: props.timelineIndex,

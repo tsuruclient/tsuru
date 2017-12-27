@@ -50,6 +50,7 @@ export default class Timeline {
         const r = copyInstance(this);
         r.contentText = '';
         r.image = [];
+        r.replySource = null;
         return r;
     }
 
