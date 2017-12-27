@@ -15,6 +15,7 @@ export const generalActions = createActions(
 
 export const accountActions = createActions(
     types.ADD_ACCOUNT,
+    types.REQUEST_LOGOUT,
     types.DELETE_ACCOUNT,
     types.UPDATE_USERDATA,
 );
@@ -32,6 +33,7 @@ export const contentActions = createActions(
 export const timelineActions = createActions(
     types.ADD_TIMELINE,
     types.DELETE_TIMELINE,
+    types.OWNERINDEX_REASSIGN,
     types.UPDATE_CONTENT_TEXT,
     types.CLEAR_FORM,
     types.SET_TIMELINE_MENU,

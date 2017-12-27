@@ -10,6 +10,7 @@ export const LOAD_DATA_FAILED = 'LOAD_DATA_FAILED';
 
 // Account
 export const ADD_ACCOUNT = 'ADD_ACCOUNT';
+export const REQUEST_LOGOUT = 'REQUEST_LOGOUT';
 export const DELETE_ACCOUNT = 'DELETE_ACCOUNT';
 export const UPDATE_USERDATA = 'UPDATE_USERDATA';
 
@@ -24,6 +25,7 @@ export const UPDATE_CONTENT = 'UPDATE_CONTENT';
 // Timeline
 export const ADD_TIMELINE = 'ADD_TIMELINE';
 export const DELETE_TIMELINE = 'DELETE_TIMELINE';
+export const OWNERINDEX_REASSIGN = 'OWNERINDEX_REASSIGN';
 
 export const UPDATE_CONTENT_TEXT = 'UPDATE_CONTENT_TEXT';
 export const CLEAR_FORM = 'CLEAR_FORM';

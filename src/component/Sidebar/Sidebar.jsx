@@ -32,6 +32,7 @@ type Props = {
     classes: Object,
     accounts: Array<Object>,
     openDialog: Function,
+    logout: Function,
 };
 
 const openAddTimelineDialog = (openDialog: Function): Function => (
@@ -54,7 +55,9 @@ const Sidebar = pure((props: Props) => (
             <AddBoxIcon/>
         </IconButton>
         <div className={props.classes.accountSection}>
-            <AccountList accounts={props.accounts} />
+            <AccountList
+                accounts={props.accounts}
+                logout={props.logout}/>
             <IconButton
                 aria-label="Add Account"
                 onClick={openAddAccountDialog(props.openDialog)}>

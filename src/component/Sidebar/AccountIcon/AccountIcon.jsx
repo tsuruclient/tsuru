@@ -25,8 +25,10 @@ const styles = theme => ({
 
 type Props = {
     classes: Object,
+    accountIndex: number,
     data: ?User,
     domain: string,
+    logout: Function,
 }
 
 type State = {
@@ -39,6 +41,7 @@ class AccountIcon extends React.PureComponent<Props, State> {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.handleClose = this.handleClose.bind(this);
+        this.handleLogoutClick = this.handleLogoutClick.bind(this);
     }
 
     state = {
@@ -60,6 +63,11 @@ class AccountIcon extends React.PureComponent<Props, State> {
         });
     }
 
+    handleLogoutClick = () => {
+        this.props.logout({accountIndex: this.props.accountIndex});
+        this.handleClose();
+    }
+
     render(){
         const props = this.props;
         return (
@@ -75,7 +83,7 @@ class AccountIcon extends React.PureComponent<Props, State> {
                     open={this.state.open}
                     onClose={this.handleClose} >
                     <MenuItem onClick={this.handleClose}>Update UserData</MenuItem>
-                    <MenuItem onClick={this.handleClose}>Logout</MenuItem>
+                    <MenuItem onClick={this.handleLogoutClick}>Logout</MenuItem>
                 </Menu>
             </div>
         )

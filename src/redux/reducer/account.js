@@ -31,4 +31,9 @@ export default handleActions({
     [types.LOAD_ACCOUNT_DATA_SUCCESSED]: (state: Array<AccountItemType>, action: Object): Array<AccountItemType> => (
         [...action.payload]
     ),
+    [types.DELETE_ACCOUNT]: (state: Array<AccountItemType>, action: Object): Array<AccountItemType> => {
+        const nextState = state.concat();
+        nextState.splice(action.payload.accountIndex, 1);
+        return (nextState);
+    },
 }, initState);

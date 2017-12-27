@@ -19,6 +19,7 @@ const styles = theme => ({
 type Props = {
     classes: Object,
     accounts: Array<Object>,
+    logout: Function,
 };
 
 const AccountList = pure((props: Props) => (
@@ -26,8 +27,10 @@ const AccountList = pure((props: Props) => (
         {props.accounts.map((item, index) => (
             <AccountIcon
                 key={index}
+                accountIndex={index}
                 data={item.userdata}
-                domain={item.client.domain} />
+                domain={item.client.domain}
+                logout={props.logout} />
         ))}
     </div>
 ));

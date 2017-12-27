@@ -32,6 +32,12 @@ export default handleActions({
         saveTimelines(nextState);
         return (nextState);
     },
+    [types.OWNERINDEX_REASSIGN]: (state: Array<Timeline>, action: Object): Array<Timeline> => (
+        state.map((item: Timeline): Timeline => (
+            action.payload.target < item.ownerIndex ?
+                item.updateOwnerindex(item.ownerIndex - 1):
+                item))
+    ),
     [types.LOAD_TIMELINE_DATA_SUCCESSED]: (state: Array<any>, action: Object): Array<any> => (
         action.timelines
     ),

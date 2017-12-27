@@ -67,6 +67,12 @@ export default class Timeline {
         return data;
     }
     
+    updateOwnerindex(num: number): Timeline {
+        const r = copyInstance(this);
+        r.ownerIndex = num;
+        return r;
+    }
+
     export(): Object {
         return {
             ownerIndex: this.ownerIndex,
