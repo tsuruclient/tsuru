@@ -5,7 +5,6 @@ import {withStyles} from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 
 import Icon from '../Parts/Icon';
-import Buttons from '../Parts/Buttons';
 
 import type Content from '../../../../../core/value/Content'
 
@@ -29,7 +28,6 @@ const Common = pure((props: Props) => (
         <Icon src={props.data.user.avatar}/>
         <Typography type="caption">{props.data.user.displayName + "@"+ props.data.user.screenName}</Typography>
         <Typography type="body1">{props.data.content}</Typography>
-        <Buttons />
     </div>
 ));
 

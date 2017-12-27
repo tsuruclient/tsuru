@@ -2,8 +2,6 @@
 import React from 'react'
 import {pure} from 'recompose';
 import {withStyles} from 'material-ui/styles';
-import Typography from 'material-ui/Typography';
-import Divider from 'material-ui/Divider'
 
 import Icon from '../Parts/Icon';
 import Buttons from '../Parts/Buttons';
@@ -23,17 +21,24 @@ type Props = {
     data: Content,
 };
 
-const NormalContent = pure((props: Props) => {
-    switch (props.data.type) {
-    case Normal:
-        return (<CommonItem data={props.data} />);
-    case Reply:
-        return (<ReplyItem data={props.data} />);
-    case Retweeted:
-        return (<RetweetedItem data={props.data} />);
-    default:
-        return (<CommonItem data={props.data} />);
+const selectComponent = (data: Content) => {
+    switch (data.type) {
+        case Normal:
+            return (<CommonItem data={data} />);
+        case Reply:
+            return (<ReplyItem data={data} />);
+        case Retweeted:
+            return (<RetweetedItem data={data} />);
+        default:
+            return (<CommonItem data={data} />);
     }
-});
+}
+
+const NormalContent = pure((props: Props) => (
+    <div>
+        {selectComponent(props.data)}
+        <Buttons />
+    </div>
+));
 
 export default withStyles(styles)(NormalContent);
