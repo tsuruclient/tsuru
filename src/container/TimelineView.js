@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import * as selectors from '../redux/selectors/timeline';
-import { timelineActions, apiActions } from '../redux/action';
+import { timelineActions, apiActions, contentActions } from '../redux/action';
 import TimelineView from '../component/TimelineView/TimelineView';
 
 const mapStateToProps = (state: Object): Object => ({
@@ -17,6 +17,7 @@ const mapStateToProps = (state: Object): Object => ({
 const mapDispatchToProps = (dispatch: Function): Object => ({
     setTimelineMenu: bindActionCreators(timelineActions.setTimelineMenu, dispatch),
     updateContentText: bindActionCreators(timelineActions.updateContentText, dispatch),
+    setReply: bindActionCreators(contentActions.contentSetReply, dispatch),
     callApi: bindActionCreators(apiActions.requestCallApi, dispatch),
     deleteTimeline: bindActionCreators(timelineActions.deleteTimeline, dispatch),
 });

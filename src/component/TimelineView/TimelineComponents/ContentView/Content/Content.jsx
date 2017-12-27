@@ -18,7 +18,11 @@ const styles = theme => ({
 
 type Props = {
     classes: Object,
+    service: string,
+    timelineIndex: number,
     data: Content,
+    callApi: Function,
+    setReply: Function,
 };
 
 const selectComponent = (data: Content) => {
@@ -37,7 +41,12 @@ const selectComponent = (data: Content) => {
 const NormalContent = pure((props: Props) => (
     <div>
         {selectComponent(props.data)}
-        <Buttons />
+        <Buttons
+            service={props.service}
+            timelineIndex={props.timelineIndex}
+            data={props.data}
+            callApi={props.callApi}
+            setReply={props.setReply} />
     </div>
 ));
 

@@ -30,6 +30,7 @@ type Props = {
     contentFormContent: Object,
     setTimelineMenu: Function,
     updateContentText: Function,
+    setReply: Function,
     callApi: Function,
     deleteTimeline: Function,
 };
@@ -55,6 +56,9 @@ const Timeline = pure((props: Props) => (
             callApi={props.callApi} />
         <ContentList
             service={props.ownerInfo.service}
+            timelineIndex={props.timelineIndex}
+            callApi={props.callApi}
+            setReply={props.setReply}
             contents={props.contents} />
     </Paper>
 ));

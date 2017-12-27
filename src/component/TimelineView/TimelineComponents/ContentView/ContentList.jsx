@@ -18,8 +18,11 @@ const styles = theme => ({
 
 type Props = {
     classes: Object,
+    timelineIndex: number,
     service: string,
     contents: Array<any>,
+    callApi: Function,
+    setReply: Function,
 };
 
 const ContentList = onlyUpdateForKeys(['contents'])((props: Props) => (
@@ -27,7 +30,12 @@ const ContentList = onlyUpdateForKeys(['contents'])((props: Props) => (
         {props.contents.map((item, index) => (
             item instanceof ContentObject ? 
                 <div key={index}>
-                    <Content data={item}/>
+                    <Content
+                        service={props.service}
+                        timelineIndex={props.timelineIndex}
+                        data={item}
+                        callApi={props.callApi}
+                        setReply={props.setReply} />
                     <Divider />
                 </div>:
                 <div key={index}>

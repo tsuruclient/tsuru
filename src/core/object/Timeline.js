@@ -1,6 +1,7 @@
 // @flow
 
 import copyInstance from '../../helper/copyInstance';
+import type Content from '../value/Content';
 
 export default class Timeline {
     ownerIndex: number;
@@ -8,6 +9,7 @@ export default class Timeline {
     
     filtering: Object; // TODO: 頼む
     contentText: string;
+    replySource: ?Content;
     image: Array<any>;
     error: ?string;
 
@@ -23,6 +25,7 @@ export default class Timeline {
         this.timelineType = timelineType;
         this.filtering = filter ? filter : {};
         this.contentText = '';
+        this.replySource = null;
         this.image = [];
         this.error = null;
         this.inProgressCount = 0;
@@ -34,6 +37,12 @@ export default class Timeline {
     updateContentText(value: string): Timeline {
         const r = copyInstance(this);
         r.contentText = value;
+        return r;
+    }
+
+    setReply(value: ?Content): Timeline {
+        const r = copyInstance(this);
+        r.replySource = value;
         return r;
     }
 

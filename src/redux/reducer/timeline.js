@@ -21,6 +21,9 @@ export default handleActions({
     [types.CLEAR_FORM]: (state: Array<Timeline>, action: Object): Array<Timeline> => (
         scanner(state, action.payload.timelineIndex, (item: Timeline): Timeline => item.clear())
     ),
+    [types.CONTENT_SET_REPLY]: (state: Array<Timeline>, action: Object): Array<Timeline> =>(
+        scanner(state, action.payload.timelineIndex, (item: Timeline): Timeline => item.setReply(action.payload.target))
+    ),
     [types.ADD_TIMELINE]: (state: Array<Timeline>, action: Object): Array<Timeline> => {
         const nextState = [...state, new Timeline(action.payload.accountIndex, action.payload.timelineType)];
         saveTimelines(nextState);

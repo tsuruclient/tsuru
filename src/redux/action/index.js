@@ -28,6 +28,7 @@ export const authActions = createActions(
 
 export const contentActions = createActions(
     types.UPDATE_CONTENT,
+    types.CONTENT_SET_REPLY,
 );
 
 export const timelineActions = createActions(

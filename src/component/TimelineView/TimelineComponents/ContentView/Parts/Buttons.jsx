@@ -1,5 +1,6 @@
 // @flow
 import React from 'react';
+import {pure} from 'recompose';
 import {withStyles} from 'material-ui/styles';
 import IconButton from 'material-ui/IconButton';
 
@@ -26,20 +27,39 @@ const styles = {
 
 type Props = {
     classes: Object,
-}
+    service: string,
+    timelineIndex: number,
+    data: Object,
+    callApi: Function,
+    setReply: Function,
+};
 
-const Buttons = (props: Props) => (
+const setReply = (tlIndex: number, data: Object, setReply: Function): Function => () => (
+    setReply({timelineIndex: tlIndex, target: data})
+);
+
+const Buttons = pure((props: Props) => (
     <div className={props.classes.root}>
-        <IconButton className={props.classes.button} aria-label="Reply" disableRipple={true}>
+        <IconButton
+            className={props.classes.button}
+            aria-label="Reply"
+            disableRipple={true}
+            onClick={setReply(props.timelineIndex, props.data, props.setReply)}>
             <ReplyIcon className={props.classes.icon}/>
         </IconButton>
-        <IconButton className={props.classes.button} aria-label="Fav" disableRipple={true}>
+        <IconButton
+            className={props.classes.button}
+            aria-label="Fav"
+            disableRipple={true}>
             <RepeatIcon className={props.classes.icon}/>
         </IconButton>
-        <IconButton className={props.classes.button} aria-label="RT" disableRipple={true}>
+        <IconButton
+            className={props.classes.button}
+            aria-label="RT"
+            disableRipple={true}>
             <FavoriteIcon className={props.classes.icon}/>
         </IconButton>
     </div>
-)
+));
 
 export default withStyles(styles)(Buttons);
