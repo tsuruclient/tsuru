@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "main": "src/main/electron-starter.js",
+  "homepage": "./",
   "dependencies": {
     "electron-json-storage": "^4.0.2",
     "es6-promisify": "^5.0.0",
