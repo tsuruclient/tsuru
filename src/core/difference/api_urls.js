@@ -50,6 +50,21 @@ export const get = {
             require_param: {
             },
             optional_param: {
+                max_id: {
+                    [Services.Twitter]: 'max_id',
+                    [Services.GnuSocial]: 'max_id',
+                    [Services.Mastodon]: 'max_id',
+                },
+                since_id: {
+                    [Services.Twitter]: 'since_id',
+                    [Services.GnuSocial]: 'since_id',
+                    [Services.Mastodon]: 'since_id',
+                },
+                amount: {
+                    [Services.Twitter]: 'count',
+                    [Services.GnuSocial]: 'count',
+                    [Services.Mastodon]: 'limit',
+                },
             },
         },
     },

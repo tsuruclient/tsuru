@@ -40,10 +40,14 @@ export const get = {
                 method: 'GET',
             };
         },
-        mentions_timeline: (service: string) => {
+        mentions_timeline: (service: string, amount: ?number, since_id: ?number, max_id: ?number) => {
             const mentions_timeline = apiUrls.get.statuses.mentions_timeline;
             return {
-                url: mentions_timeline.url[service],
+                url: mentions_timeline.url[service] + '?' + querystring.stringify({
+                    [mentions_timeline.optional_param.amount[service]]: amount,
+                    [mentions_timeline.optional_param.since_id[service]]: since_id,
+                    [mentions_timeline.optional_param.max_id[service]]: max_id,
+                }),
                 target: 'mentions_timeline',
                 datatype: dataTypes.activity,
                 service,
