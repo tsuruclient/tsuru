@@ -6,8 +6,8 @@ Twitter, GNU Social, Mastodonのアカウントを一つの画面にまとめて
 [RoadmapはTrelloでご覧いただけます](https://trello.com/b/Id3TjFbr)。  
   
 # 現状
-https://github.com/tsuruclient/tsuru-rewrite が破綻したので書き直しています。  
-現在めっちゃやっており、masterにすべてぶちまけていますがそんなことは知るか。Commit logを見ろ、俺はやっている。  
+だめです。  
+現状のビルドをダウンロードして使用することはできますが、バグがありまくりやばいと思われます。やばいので開発をサポートしてくれる人向けです。あと開発をサポートしてください。
   
 # LICENSE
 MIT License
