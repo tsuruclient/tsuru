@@ -11,6 +11,7 @@ const mapStateToProps = (state: Object): Object => ({
     timelines: state.timeline,
     contentBoxText: selectors.contentBoxText(state),
     contents: selectors.contents(state),
+    latestContentId: selectors.latestContentId(state),
     ownerInfo: selectors.ownerInfo(state),
 });
 

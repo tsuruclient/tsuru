@@ -27,6 +27,7 @@ type Props = {
     timelineIndex: number,
     ownerInfo: Object,
     contents: Array<any>,
+    latestContentId: ?string,
     contentFormContent: Object,
     setTimelineMenu: Function,
     updateContentText: Function,
@@ -41,6 +42,7 @@ const Timeline = pure((props: Props) => (
             timelineIndex={props.timelineIndex}
             timeline={props.timeline}
             ownerInfo={props.ownerInfo}
+            latestContentId={props.latestContentId}
             menuOpen={props.timeline.menuOpen}
             anchorEl={props.timeline.anchorEl}
             setTimelineMenu={props.setTimelineMenu}

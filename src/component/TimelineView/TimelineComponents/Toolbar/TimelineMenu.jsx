@@ -19,6 +19,7 @@ type Props = {
     timeline: Object,
     timelineIndex: number,
     services: string,
+    latestContentId: ?string,
     open: boolean,
     anchorEl: Object,
     setTimelineMenu: Function,
@@ -35,7 +36,7 @@ const handleRequestClose = (timelineIndex: number, setTimelineMenu: Function): F
 });
 
 const callApi = (props: Props): Function => (() => {
-    const apidata = timelineTypes[props.timeline.timelineType].api.get(props.services);
+    const apidata = timelineTypes[props.timeline.timelineType].api.get(props.services, 100, props.latestContentId);
     props.callApi({
         accountIndex: props.timeline.ownerIndex,
         timelineIndex: props.timelineIndex,

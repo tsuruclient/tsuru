@@ -1,6 +1,7 @@
 // @flow
 
 import { createSelector } from 'reselect';
+import content from '../../core/difference/content';
 
 const timelineList = (state: Object): Array<any> => (state.timeline);
 const accountList = (state: Object): Array<any> => (state.account);
@@ -41,5 +42,17 @@ export const contents = createSelector(
         (index: number, dataType: string): Array<any> => (
             AccountList[index].record[dataType]
         )
+    )
+);
+
+export const latestContentId = createSelector(
+    [accountList],
+    (AccountList: Array<any>): Function => (
+        (accountIndex: number, dataType: string): ?string => {
+            const contentList = AccountList[accountIndex].record[dataType];
+            return contentList.length > 0 ?
+                AccountList[accountIndex].record[dataType][0].id:
+                undefined;
+        }
     )
 );

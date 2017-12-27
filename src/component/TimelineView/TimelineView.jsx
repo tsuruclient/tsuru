@@ -22,6 +22,7 @@ type Props = {
     timelines: Array<Object>,
     ownerInfo: Function,
     contents: Function,
+    latestContentId: Function,
     contentBoxText: Function,
     updateContentText: Function,
     setTimelineMenu: Function,
@@ -41,6 +42,7 @@ const TimelineView = pure((props: Props) => (
                     contentFormContent={props.contentBoxText(index)}
                     contents={props.contents(item.ownerIndex, timelineTypes[item.timelineType].dataname)}
                     setTimelineMenu={props.setTimelineMenu}
+                    latestContentId={props.latestContentId(item.ownerIndex, timelineTypes[item.timelineType].dataname)}
                     updateContentText={props.updateContentText}
                     setReply={props.setReply}
                     callApi={props.callApi}

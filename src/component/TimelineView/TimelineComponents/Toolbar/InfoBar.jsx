@@ -18,6 +18,7 @@ type Props = {
     timelineIndex: number,
     timeline: Object,
     ownerInfo: Object,
+    latestContentId: ?string,
     menuOpen: boolean,
     anchorEl: Object,
     setTimelineMenu: Function,
@@ -38,6 +39,7 @@ const InfoBar = pure((props: Props) => (
                     services={props.ownerInfo.service}
                     timelineIndex={props.timelineIndex}
                     timeline={props.timeline}
+                    latestContentId={props.latestContentId}
                     open={props.menuOpen}
                     anchorEl={props.anchorEl}
                     setTimelineMenu={props.setTimelineMenu}
