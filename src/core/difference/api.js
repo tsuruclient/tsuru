@@ -77,5 +77,37 @@ export const post = {
                 method: 'POST',
             };
         },
+        retweet: (service: string, id: string): Object => {
+            const retweet = apiUrls.post.statuses.retweet;
+            const path = retweet.url[service] + id + service === Services.Mastodon ?
+                retweet.require_param.id[service] : '.json';
+            return {
+                url: path,
+                target: 'rt',
+                datatype: dataTypes.home,
+                service,
+                method: 'POST',
+            }
+        }
+    },
+    favorite: {
+        create: (service: string, id: string): Object => {
+            const create = apiUrls.post.favorite.create;
+            let path = create.url[service];
+            if (service === Services.Mastodon) {
+                path = path + id + create.require_param.id[service];
+            } else {
+                path = path + '?' + querystring.stringify({
+                    [create.require_param.id[service]] : id
+                });
+            }
+            return {
+                url: path,
+                target: 'fav',
+                datatype: dataTypes.home,
+                service,
+                method: 'POST',
+            }
+        }
     }
 }
