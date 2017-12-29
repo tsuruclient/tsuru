@@ -114,7 +114,57 @@ export const post = {
                     [Services.GnuSocial]: undefined,
                     [Services.Mastodon]: 'spoiler_text',
                 },
-            }
+            },
+        },
+        retweet: {
+            url: {
+                [Services.Twitter]: '1.1/statuses/retweet/',
+                [Services.GnuSocial]: 'api/statuses/update.json',
+                [Services.Mastodon]: 'api/v1/statuses',
+            },
+            require_param:{
+                id: {
+                    [Services.Twitter]: '',
+                    [Services.GnuSocial]: '',
+                    [Services.Mastodon]: '/reblog',
+                },
+            },
+            optional_param: {
+            },
+        }
+    },
+    favorite: {
+        create: {
+            url: {
+                [Services.Twitter]: '1.1/favorites/create.json',
+                [Services.GnuSocial]: 'api/favorites/create.json',
+                [Services.Mastodon]: 'api/v1/statuses/',
+            },
+            require_param: {
+                id: {
+                    [Services.Twitter]: 'id',
+                    [Services.GnuSocial]: 'id',
+                    [Services.Mastodon]: '/favourite',
+                }
+            },
+            optional_param: {
+            },
+        },
+        destroy: {
+            url: {
+                [Services.Twitter]: '1.1/favorites/destroy.json',
+                [Services.GnuSocial]: 'api/favorites/destroy.json',
+                [Services.Mastodon]: 'api/v1/statuses/',
+            },
+            require_param: {
+                id: {
+                    [Services.Twitter]: 'id',
+                    [Services.GnuSocial]: 'id',
+                    [Services.Mastodon]: '/unfavourite',
+                }
+            },
+            optional_param: {
+            },
         },
     },
 };
