@@ -119,8 +119,8 @@ export const post = {
         retweet: {
             url: {
                 [Services.Twitter]: '1.1/statuses/retweet/',
-                [Services.GnuSocial]: 'api/statuses/update.json',
-                [Services.Mastodon]: 'api/v1/statuses',
+                [Services.GnuSocial]: 'api/statuses/retweet/',
+                [Services.Mastodon]: 'api/v1/statuses/',
             },
             require_param:{
                 id: {
