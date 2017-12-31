@@ -18,7 +18,7 @@ export default class Record {
 
     unshift(dataType: string, data: Array<any>): Record {
         const r = copyInstance(this);
-        switch(dataType){
+        switch (dataType){
         case dataTypes.home:
             r.home = this.home.concat();
             r.home.unshift(...data);
@@ -27,6 +27,22 @@ export default class Record {
             r.activity = this.activity.concat();
             r.activity.unshift(...data);
             break;
+        }
+        return r;
+    }
+
+    // TODO: やって。具体的にはFav/RTしたか・あるいはしているかをあれするあれです。よろしくお願いします
+    setContentStatus(eventType: string, dataType: string, targetId: string, isActivated: boolean): Record {
+        const r = copyInstance(this);
+        switch (dataType) {
+            case dataTypes.home:
+                r.home = this.home.concat();
+                break;
+            case dataTypes.activity:
+                r.home = this.activity.concat();
+                break;
+            default:
+                break;
         }
         return r;
     }

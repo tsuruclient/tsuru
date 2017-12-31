@@ -108,6 +108,6 @@ export const post = {
                 service,
                 method: 'POST',
             }
-        }
+        },
     }
-}
+};
