@@ -34,7 +34,10 @@ export default class Content {
         this.content = service !== Services.Mastodon ?
             data[content.text[service]] :
             data[content.text[service]].replace(/<("[^"]*"|'[^']*'|[^'">])*>/g,'');
-        
+
+        this.retweeted = data[content.retweeted[service]];
+        this.favorited = data[content.favorited[service]];
+
         if(data[content.inReplyToId[service]]) {
             this.inReplyToId = data[content.inReplyToId[service]];
             this.inReplyToAccountId = data[content.inReplyToAccountId[service]];

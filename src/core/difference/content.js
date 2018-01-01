@@ -32,4 +32,14 @@ export default {
         [Services.GnuSocial]: 'in_reply_to_user_id',
         [Services.Mastodon]: 'in_reply_to_account_id',
     },
+    retweeted: {
+        [Services.Twitter]: 'retweeted',
+        [Services.GnuSocial]: 'retweeted',
+        [Services.Mastodon]: 'reblogged',
+    },
+    favorited: {
+        [Services.Twitter]: 'favorited',
+        [Services.GnuSocial]: 'favorited',
+        [Services.Mastodon]: 'favourited',
+    },
 };

@@ -52,7 +52,7 @@ export const get = {
                 datatype: dataTypes.activity,
                 service,
                 method: 'GET',
-            }
+            };
         }
     },
     account: {
@@ -60,7 +60,7 @@ export const get = {
             apiUrls.get.account.verify_credentials.url[service]
         )
     }
-}
+};
 
 export const post = {
     statuses: {
@@ -87,7 +87,7 @@ export const post = {
                 datatype: dataTypes.home,
                 service,
                 method: 'POST',
-            }
+            };
         }
     },
     favorite: {
@@ -107,7 +107,7 @@ export const post = {
                 datatype: dataTypes.home,
                 service,
                 method: 'POST',
-            }
+            };
         },
     }
 };
