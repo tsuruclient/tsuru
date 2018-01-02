@@ -33,6 +33,7 @@ type Props = {
     accounts: Array<Object>,
     openDialog: Function,
     logout: Function,
+    callApi: Function,
 };
 
 const openAddTimelineDialog = (openDialog: Function): Function => (
@@ -45,7 +46,7 @@ const openAddAccountDialog = (openDialog: Function): Function => (
 
 const openSettingDialog = (openDialog: Function): Function => (
     () => console.warn('まだないよ')
-)
+);
 
 const Sidebar = pure((props: Props) => (
     <Paper className={props.classes.root}>
@@ -57,7 +58,8 @@ const Sidebar = pure((props: Props) => (
         <div className={props.classes.accountSection}>
             <AccountList
                 accounts={props.accounts}
-                logout={props.logout}/>
+                logout={props.logout}
+                callApi={props.callApi}/>
             <IconButton
                 aria-label="Add Account"
                 onClick={openAddAccountDialog(props.openDialog)}>

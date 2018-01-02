@@ -1,14 +1,11 @@
 // @flow
 
 import React from 'react';
-import {pure} from 'recompose';
 import {withStyles} from 'material-ui/styles';
-import Badge from 'material-ui/Badge';
-import Popover from 'material-ui/Popover';
-import Typography from 'material-ui/Typography';
 import Menu, { MenuItem } from 'material-ui/Menu';
 
-import type User from '../../core/value/User';
+import type User from '../../../core/value/User';
+import * as apis from '../../../core/difference/api';
 
 import Icon from './Icon';
 
@@ -28,7 +25,9 @@ type Props = {
     accountIndex: number,
     data: ?User,
     domain: string,
+    service: string,
     logout: Function,
+    callApi: Function,
 }
 
 type State = {
@@ -39,9 +38,11 @@ type State = {
 class AccountIcon extends React.PureComponent<Props, State> {
     constructor(props: Props){
         super(props);
+        console.log(props);
         this.handleClick = this.handleClick.bind(this);
         this.handleClose = this.handleClose.bind(this);
         this.handleLogoutClick = this.handleLogoutClick.bind(this);
+        this.handleUpdateUserdataClick = this.handleUpdateUserdataClick.bind(this);
     }
 
     state = {
@@ -63,26 +64,37 @@ class AccountIcon extends React.PureComponent<Props, State> {
         });
     }
 
+    handleUpdateUserdataClick = () => {
+        const apidata = apis.get.account.verify_credentials(this.props.service);
+        this.props.callApi({
+            accountIndex: this.props.accountIndex,
+            timelineIndex: undefined,
+            apidata,
+            payload: {},
+        });
+        this.handleClose();
+    }
+
     handleLogoutClick = () => {
         this.props.logout({accountIndex: this.props.accountIndex});
         this.handleClose();
     }
 
-    render(){
+    render() {
         const props = this.props;
         return (
             <div>
                 <Icon
                     data={props.data}
                     domain={props.domain}
-                    handleClick={this.handleClick} />
+                    handleClick={this.handleClick}/>
                 <Menu
                     className={props.classes.menu}
                     id="account-menu"
                     anchorEl={this.state.anchorEl}
                     open={this.state.open}
-                    onClose={this.handleClose} >
-                    <MenuItem onClick={this.handleClose}>Update UserData</MenuItem>
+                    onClose={this.handleClose}>
+                    <MenuItem onClick={this.handleUpdateUserdataClick}>Update UserData</MenuItem>
                     <MenuItem onClick={this.handleLogoutClick}>Logout</MenuItem>
                 </Menu>
             </div>

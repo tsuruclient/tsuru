@@ -21,7 +21,7 @@ export default handleActions({
             record: item.record.unshift(action.payload.datatype, action.payload.data)}))
     ),
     [types.UPDATE_USERDATA]: (state: Array<AccountItemType>, action: Object): Array<AccountItemType> => (
-        scanner(state, action.payload.index, (item: AccountItemType): AccountItemType => ({
+        scanner(state, action.payload.accountIndex, (item: AccountItemType): AccountItemType => ({
             account: item.account.confirm(action.payload.data),
             record: item.record}))
     ),

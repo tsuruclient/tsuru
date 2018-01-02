@@ -3,7 +3,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { dialogActions, accountActions } from '../redux/action';
+import { dialogActions, accountActions, apiActions } from '../redux/action';
 import { accounts } from '../redux/selectors/sidebar';
 import Sidebar from '../component/Sidebar/Sidebar';
 
@@ -14,6 +14,7 @@ const mapStateToProps = (state: Object): Object => ({
 const mapDispatchToProps = (dispatch: Function): Object => ({
     openDialog: bindActionCreators(dialogActions.openDialog, dispatch),
     logout: bindActionCreators(accountActions.requestLogout, dispatch),
+    callApi: bindActionCreators(apiActions.requestCallApi, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

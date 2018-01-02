@@ -1,8 +1,6 @@
 // @flow
 import React from 'react';
 import {pure} from 'recompose';
-import branch from 'recompose/branch';
-import renderComponent from 'recompose/renderComponent'
 import {withStyles} from 'material-ui/styles';
 
 import ButtonBase from 'material-ui/ButtonBase';
