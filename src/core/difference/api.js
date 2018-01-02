@@ -56,9 +56,13 @@ export const get = {
         }
     },
     account: {
-        verify_credentials: (service: string): string => (
-            apiUrls.get.account.verify_credentials.url[service]
-        )
+        verify_credentials: (service: string): Object => ({
+            url: apiUrls.get.account.verify_credentials.url[service],
+            target: 'verify_credentials',
+            datatype: undefined,
+            service,
+            method: 'GET',
+        })
     }
 };
 
