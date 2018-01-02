@@ -4,6 +4,8 @@ import { put, call, select } from 'redux-saga/effects';
 import * as types from '../constant';
 import * as dataTypes from '../../core/constant/dataType';
 import alloc from '../../core/value/allocation';
+import * as storageApis from '../api/storage';
+import type Account from "../../core/object/Account";
 
 export function* apiRequest(action: Object): any {
     const { accountIndex, timelineIndex, apidata, payload } = action.payload;
@@ -28,13 +30,8 @@ export function* apiRequest(action: Object): any {
                 yield put({type: types.SET_IN_PROGRESS_STATUS, payload: {timelineIndex, status: false}});
                 break;
             case 'verify_credentials':
-                yield put({
-                    type: types.UPDATE_USERDATA,
-                    payload: {
-                        accountIndex,
-                        data,
-                    }
-                });
+                yield put({type: types.UPDATE_USERDATA, payload: {accountIndex, data,}});
+                yield call(storageApis.saveAccounts, yield select((state: Object): Array<Account> => state.account.map((item: Object): Account =>item.account)));
                 break;
             default:
                 throw '不正なtargetです: ' + apidata.target;
