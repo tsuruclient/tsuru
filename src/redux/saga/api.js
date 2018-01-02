@@ -15,9 +15,9 @@ export function* apiRequest(action: Object): any {
         case 'GET':
             data = yield call((): Promise<any> => client.get(apidata.url, payload));
 
-            switch(apidata.datatype) {
-            case dataTypes.home:
-            case dataTypes.activity:
+            switch(apidata.target) {
+            case 'home_timeline':
+            case 'mentions_timeline':
                 yield put({
                     type: types.UPDATE_CONTENT,
                     payload: {
@@ -27,8 +27,17 @@ export function* apiRequest(action: Object): any {
                     }});
                 yield put({type: types.SET_IN_PROGRESS_STATUS, payload: {timelineIndex, status: false}});
                 break;
+            case 'verify_credentials':
+                yield put({
+                    type: types.UPDATE_USERDATA,
+                    payload: {
+                        accountIndex,
+                        data,
+                    }
+                });
+                break;
             default:
-                throw '不正なdatatypeです: ' + apidata.datatype;
+                throw '不正なtargetです: ' + apidata.target;
             }
             break;
         case 'POST':
