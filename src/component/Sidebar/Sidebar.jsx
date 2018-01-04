@@ -5,6 +5,8 @@ import {pure} from 'recompose';
 import {withStyles} from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 import IconButton from 'material-ui/IconButton';
+import Tooltip from 'material-ui/Tooltip';
+
 
 import SettingsIcon from 'material-ui-icons/Settings';
 import AddBoxIcon from 'material-ui-icons/AddBox';
@@ -25,7 +27,11 @@ const styles = theme => ({
         display: "flex",
         flexDirection: "column",
         overflowY: "auto"
-    }
+    },
+    tooltip: {
+        fontSize: 16,
+        padding: "6px 12px"
+    },
 });
 
 type Props = {
@@ -50,11 +56,26 @@ const openSettingDialog = (openDialog: Function): Function => (
 
 const Sidebar = pure((props: Props) => (
     <Paper className={props.classes.root}>
-        <IconButton
-            aria-label="Add Timeline"
-            onClick={openAddTimelineDialog(props.openDialog)}>
-            <AddBoxIcon/>
-        </IconButton>
+        {
+            props.accounts.length === 0 ?
+                <Tooltip
+                    id={'add-tmeline-tooltip'}
+                    title={'先にアカウントを追加してください'}
+                    placement="right"
+                    classes={{tooltip: props.classes.tooltip}}>
+                    <IconButton
+                        aria-label="Add Timeline"
+                        onClick={null}
+                        disableRipple>
+                        <AddBoxIcon/>
+                    </IconButton>
+                </Tooltip> :
+                <IconButton
+                    aria-label="Add Timeline"
+                    onClick={openAddTimelineDialog(props.openDialog)}>
+                    <AddBoxIcon/>
+                </IconButton>
+        }
         <div className={props.classes.accountSection}>
             <AccountList
                 accounts={props.accounts}
