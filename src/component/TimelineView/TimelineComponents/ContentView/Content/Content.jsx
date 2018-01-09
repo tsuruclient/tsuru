@@ -14,6 +14,10 @@ import type Content from '../../../../../core/value/Content'
 import {Normal, Reply, Retweeted} from '../../../../../core/value/Content';
 
 const styles = theme => ({
+    root: {
+        wordWrap : 'break-word',
+        overflowWrap: 'break-word',
+    }
 });
 
 type Props = {
@@ -39,7 +43,7 @@ const selectComponent = (data: Content) => {
 }
 
 const NormalContent = pure((props: Props) => (
-    <div>
+    <div className={props.classes.root}>
         {selectComponent(props.data)}
         <Buttons
             service={props.service}
