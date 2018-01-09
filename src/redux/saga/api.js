@@ -3,6 +3,7 @@
 import { put, call, select } from 'redux-saga/effects';
 import * as types from '../constant';
 import * as dataTypes from '../../core/constant/dataType';
+import * as requestTypes from '../../core/constant/requestType';
 import alloc from '../../core/value/allocation';
 import * as storageApis from '../api/storage';
 import type Account from "../../core/object/Account";
@@ -18,8 +19,8 @@ export function* apiRequest(action: Object): any {
             data = yield call((): Promise<any> => client.get(apidata.url, payload));
 
             switch(apidata.target) {
-            case 'home_timeline':
-            case 'mentions_timeline':
+            case requestTypes.GET.home_timeline:
+            case requestTypes.GET.mentions_timeline:
                 yield put({
                     type: types.UPDATE_CONTENT,
                     payload: {
@@ -29,7 +30,7 @@ export function* apiRequest(action: Object): any {
                     }});
                 yield put({type: types.SET_IN_PROGRESS_STATUS, payload: {timelineIndex, status: false}});
                 break;
-            case 'verify_credentials':
+            case requestTypes.GET.verify_credentials:
                 yield put({type: types.UPDATE_USERDATA, payload: {accountIndex, data,}});
                 yield call(storageApis.saveAccounts, yield select((state: Object): Array<Account> => state.account.map((item: Object): Account =>item.account)));
                 break;
@@ -41,8 +42,8 @@ export function* apiRequest(action: Object): any {
             data = yield call((): Promise<any> => client.post(apidata.url, payload));
 
             switch(apidata.target) {
-                case 'update':
-                    yield put({type: types.CLEAR_FORM, payload: {timelineIndex}})
+                case requestTypes.POST.update_status:
+                    yield put({type: types.CLEAR_FORM, payload: {timelineIndex}});
                     yield put({type: types.SET_IN_PROGRESS_STATUS, payload: {timelineIndex, status: false}});
                     break;
                 default:

@@ -2,6 +2,7 @@
 import * as Services from '../Services';
 import * as apiUrls from './api_urls';
 import * as dataTypes from '../constant/dataType';
+import * as requestTypes from '../constant/requestType';
 import querystring from 'query-string';
 
 export const oauth = {
@@ -34,7 +35,7 @@ export const get = {
                     [home_timeline.optional_param.since_id[service]]: since_id,
                     [home_timeline.optional_param.max_id[service]]: max_id,
                 }),
-                target: 'home_timeline',
+                target: requestTypes.GET.home_timeline,
                 datatype: dataTypes.home,
                 service,
                 method: 'GET',
@@ -48,7 +49,7 @@ export const get = {
                     [mentions_timeline.optional_param.since_id[service]]: since_id,
                     [mentions_timeline.optional_param.max_id[service]]: max_id,
                 }),
-                target: 'mentions_timeline',
+                target: requestTypes.GET.mentions_timeline,
                 datatype: dataTypes.activity,
                 service,
                 method: 'GET',
@@ -58,7 +59,7 @@ export const get = {
     account: {
         verify_credentials: (service: string): Object => ({
             url: apiUrls.get.account.verify_credentials.url[service],
-            target: 'verify_credentials',
+            target: requestTypes.GET.verify_credentials,
             datatype: undefined,
             service,
             method: 'GET',
@@ -75,7 +76,7 @@ export const post = {
                     [update.require_param.status[service]]: status,
                     [update.optional_param.in_reply_to_id[service]]: in_reply_to_id,
                 }),
-                target: 'update',
+                target: requestTypes.POST.update_status,
                 datatype: dataTypes.home,
                 service,
                 method: 'POST',
@@ -87,7 +88,7 @@ export const post = {
                 retweet.require_param.id[service] : '.json';
             return {
                 url: path,
-                target: 'rt',
+                target: requestTypes.POST.create_rt,
                 datatype: dataTypes.home,
                 service,
                 method: 'POST',
@@ -107,7 +108,7 @@ export const post = {
             }
             return {
                 url: path,
-                target: 'fav',
+                target: requestTypes.POST.create_fav,
                 datatype: dataTypes.home,
                 service,
                 method: 'POST',
