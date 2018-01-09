@@ -74,6 +74,7 @@ export default class client implements Social {
     }
 
     get(dest: string): Promise<any> {
+        console.log(this.url + dest);
         return promisify(this.oauth.get, {
             thisArg: this.oauth,
             multiArgs: true,
@@ -90,6 +91,7 @@ export default class client implements Social {
 
     // todo: POSTはpayloadをどうするか考えましょう
     post(dest: string, payload: Object): Promise<any> {
+        console.log(this.url + dest);
         return promisify(this.oauth.post, {
             thisArg: this.oauth,
             multiArgs: true,

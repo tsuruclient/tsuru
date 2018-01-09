@@ -33,11 +33,11 @@ export default (service: string, dataType: string, data: Array<Object>): ?Array<
         case dataTypes.home:
             return data.map((item: Object): Content => new Content(service, item));
         case dataTypes.activity:
-            return data.map((item: Object): Content | Event => 
+            return data.map((item: Object): Content | Event =>
                 item[notice.type[service]] === eventTypes.mention[service] ?
                     new Content(service, item[notice.target[service]]):
                     new Event(service, item, false)
-            )
+            );
         case dataTypes.directMail:
             break;
         }
