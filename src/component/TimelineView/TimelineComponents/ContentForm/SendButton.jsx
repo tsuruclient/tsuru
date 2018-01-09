@@ -36,7 +36,7 @@ const handleSendButtonClicked = (props: Props): Function => () => {
         apidata,
         payload: {},
     });
-}
+};
 
 const SendButton = (props: Props) => (
     <IconButton

@@ -61,6 +61,7 @@ const Timeline = pure((props: Props) => (
         <ContentList
             service={props.ownerInfo.service}
             timelineIndex={props.timelineIndex}
+            ownerIndex={props.timeline.ownerIndex}
             callApi={props.callApi}
             setReply={props.setReply}
             contents={props.contents} />

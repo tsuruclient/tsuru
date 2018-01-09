@@ -20,6 +20,7 @@ type Props = {
     classes: Object,
     service: string,
     timelineIndex: number,
+    ownerIndex: number,
     data: Content,
     callApi: Function,
     setReply: Function,
@@ -44,6 +45,7 @@ const NormalContent = pure((props: Props) => (
         <Buttons
             service={props.service}
             timelineIndex={props.timelineIndex}
+            ownerIndex={props.ownerIndex}
             data={props.data}
             callApi={props.callApi}
             setReply={props.setReply} />

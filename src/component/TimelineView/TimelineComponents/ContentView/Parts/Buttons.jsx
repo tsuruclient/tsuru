@@ -8,6 +8,8 @@ import ReplyIcon from 'material-ui-icons/Reply';
 import FavoriteIcon from 'material-ui-icons/FavoriteBorder';
 import RepeatIcon from 'material-ui-icons/Repeat';
 
+import * as apis from '../../../../../core/difference/api';
+
 const styles = {
     root: {
         display: 'flex',
@@ -29,6 +31,7 @@ type Props = {
     classes: Object,
     service: string,
     timelineIndex: number,
+    ownerIndex: number,
     data: Object,
     callApi: Function,
     setReply: Function,
@@ -37,6 +40,28 @@ type Props = {
 const setReply = (tlIndex: number, data: Object, setReply: Function): Function => () => (
     setReply({timelineIndex: tlIndex, target: data})
 );
+
+const handleFavButtonClicked = (service: string, data: Object, ownerIndex: number, callApi: Function): Function => () => {
+    const apidata = data.favorited ? undefined : apis.post.favorite.create(service, data.id);
+    console.log(apidata);
+    callApi({
+        accountIndex: ownerIndex,
+        timelineIndex: undefined,
+        apidata,
+        payload: {},
+    });
+};
+
+const handleRTButtonClicked = (service: string, data: Object, ownerIndex: number, callApi: Function): Function => () => {
+    const apidata = data.retweeted ? undefined : apis.post.statuses.retweet(service, data.id);
+    console.log(apidata);
+    callApi({
+        accountIndex: ownerIndex,
+        timelineIndex: undefined,
+        apidata,
+        payload: {},
+    });
+};
 
 const Buttons = pure((props: Props) => (
     <div className={props.classes.root}>
@@ -50,13 +75,15 @@ const Buttons = pure((props: Props) => (
         <IconButton
             className={props.classes.button}
             aria-label="Fav"
-            disableRipple={true}>
+            disableRipple={true}
+            onClick={handleRTButtonClicked(props.service, props.data, props.ownerIndex, props.callApi)}>
             <RepeatIcon className={props.classes.icon}/>
         </IconButton>
         <IconButton
             className={props.classes.button}
             aria-label="RT"
-            disableRipple={true}>
+            disableRipple={true}
+            onClick={handleFavButtonClicked(props.service, props.data, props.ownerIndex, props.callApi)}>
             <FavoriteIcon className={props.classes.icon}/>
         </IconButton>
     </div>

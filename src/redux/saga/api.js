@@ -46,6 +46,12 @@ export function* apiRequest(action: Object): any {
                     yield put({type: types.CLEAR_FORM, payload: {timelineIndex}});
                     yield put({type: types.SET_IN_PROGRESS_STATUS, payload: {timelineIndex, status: false}});
                     break;
+                case requestTypes.POST.create_fav:
+                    console.log(data);
+                    break;
+                case requestTypes.POST.create_rt:
+                    console.log(data);
+                    break;
                 default:
                     throw '不正なtargetです: ' + apidata.target;
             }
