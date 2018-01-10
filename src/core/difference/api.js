@@ -84,8 +84,8 @@ export const post = {
         },
         retweet: (service: string, id: string): Object => {
             const retweet = apiUrls.post.statuses.retweet;
-            const path = retweet.url[service] + id + service === Services.Mastodon ?
-                retweet.require_param.id[service] : '.json';
+            const path = retweet.url[service] + id + (service === Services.Mastodon ?
+                retweet.require_param.id[service] : '.json');
             return {
                 url: path,
                 target: requestTypes.POST.create_rt,
