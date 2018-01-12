@@ -2,7 +2,7 @@
 
 import copyInstance from '../../helper/copyInstance';
 import * as dataTypes from '../constant/dataType';
-import Content from '../value/Content';
+import Content, {Retweeted} from '../value/Content';
 
 export default class Record {
     service: string;
@@ -32,18 +32,30 @@ export default class Record {
         return r;
     }
 
-    setContentStatus(target: Content): Record {
+    setContentStatus(targetContent: Content): Record {
         const r = copyInstance(this);
         r.home = this.home.concat().map((item: Object, index: number): any => {
-            if (item.id === target.id) {
-                console.log(target);
-                return target;
+            if (targetContent.type === Retweeted) {
+                return targetContent.target.id === item.id ?
+                    targetContent.target :
+                    item;
+            } else {
+                return targetContent.id === item.id ?
+                    targetContent :
+                    item;
             }
-            return item;
         });
         r.activity = this.activity.concat().map((item: Object, index: number): any => {
-            if (item instanceof Content && item.id === target.id) {
-                return target;
+            if (item instanceof Content) {
+                if (targetContent.type === Retweeted) {
+                    return targetContent.target.id === item.id ?
+                        targetContent.target :
+                        item;
+                } else {
+                    return targetContent.id === item.id ?
+                        targetContent :
+                        item;
+                }
             }
             return item;
         });
