@@ -5,6 +5,7 @@ import * as types from '../constant';
 import * as dataTypes from '../../core/constant/dataType';
 import * as requestTypes from '../../core/constant/requestType';
 import alloc from '../../core/value/allocation';
+import Content from '../../core/value/Content';
 import * as storageApis from '../api/storage';
 import type Account from "../../core/object/Account";
 
@@ -47,10 +48,11 @@ export function* apiRequest(action: Object): any {
                     yield put({type: types.SET_IN_PROGRESS_STATUS, payload: {timelineIndex, status: false}});
                     break;
                 case requestTypes.POST.create_fav:
-                    console.log(data);
-                    break;
                 case requestTypes.POST.create_rt:
-                    console.log(data);
+                    yield put({type: types.UPDATE_CONTENT_ATTRIBUTE, payload: {
+                        accountIndex,
+                        target: new Content(apidata.service, data),
+                    }});
                     break;
                 default:
                     throw '不正なtargetです: ' + apidata.target;

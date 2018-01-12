@@ -2,6 +2,7 @@
 
 import copyInstance from '../../helper/copyInstance';
 import * as dataTypes from '../constant/dataType';
+import Content from '../value/Content';
 
 export default class Record {
     service: string;
@@ -31,19 +32,21 @@ export default class Record {
         return r;
     }
 
-    // TODO: やって。具体的にはFav/RTしたか・あるいはしているかをあれするあれです。よろしくお願いします
-    setContentStatus(eventType: string, dataType: string, targetId: string, isActivated: boolean): Record {
+    setContentStatus(target: Content): Record {
         const r = copyInstance(this);
-        switch (dataType) {
-            case dataTypes.home:
-                r.home = this.home.concat();
-                break;
-            case dataTypes.activity:
-                r.home = this.activity.concat();
-                break;
-            default:
-                break;
-        }
+        r.home = this.home.concat().map((item: Object, index: number): any => {
+            if (item.id === target.id) {
+                console.log(target);
+                return target;
+            }
+            return item;
+        });
+        r.activity = this.activity.concat().map((item: Object, index: number): any => {
+            if (item instanceof Content && item.id === target.id) {
+                return target;
+            }
+            return item;
+        });
         return r;
     }
 }
