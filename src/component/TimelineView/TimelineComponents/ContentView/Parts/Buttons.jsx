@@ -63,6 +63,14 @@ const handleRTButtonClicked = (service: string, data: Object, ownerIndex: number
     });
 };
 
+const favChecked = (isFavorited: boolean) => ({
+    fill: isFavorited ? '#D2255F' : '#7D7D7D',
+});
+
+const rtChecked = (isRetweeted: boolean) => ({
+    fill: isRetweeted ? '#4EBD67' : '#7D7D7D',
+});
+
 const Buttons = pure((props: Props) => (
     <div className={props.classes.root}>
         <IconButton
@@ -74,17 +82,21 @@ const Buttons = pure((props: Props) => (
         </IconButton>
         <IconButton
             className={props.classes.button}
-            aria-label="Fav"
+            aria-label="RT"
             disableRipple={true}
             onClick={handleRTButtonClicked(props.service, props.data, props.ownerIndex, props.callApi)}>
-            <RepeatIcon className={props.classes.icon}/>
+            <RepeatIcon
+                className={props.classes.icon}
+                style={rtChecked(props.data.retweeted)}/>
         </IconButton>
         <IconButton
             className={props.classes.button}
-            aria-label="RT"
+            aria-label="Fav"
             disableRipple={true}
             onClick={handleFavButtonClicked(props.service, props.data, props.ownerIndex, props.callApi)}>
-            <FavoriteIcon className={props.classes.icon}/>
+            <FavoriteIcon
+                className={props.classes.icon}
+                style={favChecked(props.data.favorited)}/>
         </IconButton>
     </div>
 ));
