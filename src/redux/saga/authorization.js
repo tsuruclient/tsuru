@@ -13,14 +13,16 @@ export default function* pinAuthorization(action: Object): any {
         target.client = yield call(authApis.getOAuthAccessToken, target.client, action.payload.pin);
         yield put({ type: types.ADD_ACCOUNT, payload: target });
         yield put({ type: types.CLOSE_DIALOG, payload: {dialogName: AddAccountDialogName}});
+
         const userData = yield call(authApis.confirm, target.client, target.service);
         const addedAccountIndex = yield select((state: Object): number => state.account.length - 1);
         yield put({ type: types.UPDATE_USERDATA, payload: {
             data: userData,
-            index: addedAccountIndex,
+            accountIndex: addedAccountIndex,
         }});
-        yield call(storageApis.saveAccounts, yield select((state: Object): Array<Account> => 
-            state.account.map((item: Object): Account => 
+
+        yield call(storageApis.saveAccounts, yield select((state: Object): Array<Account> =>
+            state.account.map((item: Object): Account =>
                 item.account
         )));
     } catch (e) {
