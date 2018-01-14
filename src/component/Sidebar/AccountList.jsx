@@ -20,6 +20,7 @@ type Props = {
     accounts: Array<Object>,
     logout: Function,
     callApi: Function,
+    connectStream: Function,
 };
 
 const AccountList = pure((props: Props) => (
@@ -32,7 +33,8 @@ const AccountList = pure((props: Props) => (
                 data={item.userdata}
                 domain={item.client.domain}
                 logout={props.logout}
-                callApi={props.callApi}/>
+                callApi={props.callApi}
+                connectStream={props.connectStream}/>
         ))}
     </div>
 ));

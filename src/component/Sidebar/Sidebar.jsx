@@ -40,6 +40,7 @@ type Props = {
     openDialog: Function,
     logout: Function,
     callApi: Function,
+    connectStream: Function,
 };
 
 const openAddTimelineDialog = (openDialog: Function): Function => (
@@ -80,7 +81,8 @@ const Sidebar = pure((props: Props) => (
             <AccountList
                 accounts={props.accounts}
                 logout={props.logout}
-                callApi={props.callApi}/>
+                callApi={props.callApi}
+                connectStream={props.connectStream}/>
             <IconButton
                 aria-label="Add Account"
                 onClick={openAddAccountDialog(props.openDialog)}>

@@ -20,6 +20,10 @@ export const accountActions = createActions(
     types.UPDATE_USERDATA,
 );
 
+export const streamingActions = createActions(
+    types.REQUEST_CONNECT_STREAMING_API,
+);
+
 export const authActions = createActions(
     types.OPEN_PIN_AUTHORIZATION_WINDOW,
     types.REQUEST_AUTHORIZATION,
@@ -56,7 +60,7 @@ export const dialogActions = createActions(
     types.CREATE_AC_FORWARD_PIN_AUTH,
     types.CREATE_AC_RECEIVE_PIN_ERR,
     types.CREATE_AC_BACK_SECTION,
-)
+);
 
 export const devOptionActions = createActions(
     types.SET_DEV_DATA,

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import {withStyles} from 'material-ui/styles';
+import Divider from 'material-ui/Divider';
 import Menu, { MenuItem } from 'material-ui/Menu';
 
 import type User from '../../../core/value/User';
@@ -17,7 +18,10 @@ const styles = theme => ({
     menu: {
         marginLeft: '44px',
         marginTop: '48px',
-    }
+    },
+    divider: {
+        margin: '12px 0px',
+    },
 });
 
 type Props = {
@@ -28,6 +32,7 @@ type Props = {
     service: string,
     logout: Function,
     callApi: Function,
+    connectStream: Function,
 }
 
 type State = {
@@ -75,6 +80,15 @@ class AccountIcon extends React.PureComponent<Props, State> {
         this.handleClose();
     }
 
+    handleConnectStreamClick = () => {
+        const apidata = apis.get.stream.user(this.props.service);
+        this.props.connectStream({
+            apidata,
+            accountIndex: this.props.accountIndex,
+        });
+        this.handleClose();
+    }
+
     handleLogoutClick = () => {
         this.props.logout({accountIndex: this.props.accountIndex});
         this.handleClose();
@@ -95,6 +109,8 @@ class AccountIcon extends React.PureComponent<Props, State> {
                     open={this.state.open}
                     onClose={this.handleClose}>
                     <MenuItem onClick={this.handleUpdateUserdataClick}>Update UserData</MenuItem>
+                    <MenuItem onClick={this.handleConnectStreamClick}>{'Connect Streaming'}</MenuItem>
+                    <Divider className={props.classes.divider} />
                     <MenuItem onClick={this.handleLogoutClick}>Logout</MenuItem>
                 </Menu>
             </div>
