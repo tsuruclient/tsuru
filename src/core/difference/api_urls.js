@@ -81,6 +81,19 @@ export const get = {
             },
         },
     },
+    stream: {
+        user: {
+            url: {
+                [Services.Twitter]: 'https://userstream.twitter.com/1.1/user.json',
+                [Services.GnuSocial]: '',
+                [Services.Mastodon]: 'api/v1/streaming/user',
+            },
+            require_param: {
+            },
+            optional_param: {
+            },
+        }
+    }
 };
 
 export const post = {
