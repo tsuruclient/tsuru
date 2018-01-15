@@ -26,7 +26,6 @@ const style = (theme: Object): Object => ({
     body: {
         padding: 5,
         paddingLeft: 53,
-        minHeight: 60,
     }
 });
 
