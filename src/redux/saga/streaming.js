@@ -12,6 +12,7 @@ const request = remote.require('request');
 const StringDecoder = remote.require('string_decoder').StringDecoder;
 const decoder = new StringDecoder('utf8');
 const fs = remote.require('fs');
+const Buffer = remote.require('safe-buffer').Buffer;
 
 const errorlogger = fs.createWriteStream('streamerror.log', 'utf8');
 
@@ -22,24 +23,34 @@ function subscribe(stream: any, service: string, accountIndex: number, datatype:
             emit(streamingActions.setStreamingStatus({
                 isStreaming: true,
                 accountIndex
-            }));
-            stream.on('data', (mainData) => {
-                if(mainData.length > 16){
-                    try {
+            }))
+        });
+
+        let data= new Buffer('');
+        stream.on('data', (chunk) => {
+            if(decoder.write(chunk) !== '\n'){
+                try {
+                    if(data.length !== 0) {
                         emit(contentActions.updateContent({
                             accountIndex,
                             datatype: 'home',
-                            data: alloc(service, datatype, JSON.parse(decoder.write(mainData)))
+                            data: alloc(service, datatype, JSON.parse(decoder.write(chunk)))
                         }));
-                    } catch (e) {
-                        errorlogger.write(decoder.write(mainData) + '\n');
-                        errorlogger.write(decoder.write('--- ---'));
-                        console.warn(e);
-                        console.warn('何らかの理由により、正常に受信できませんでした。');
+                    } else {
+                        emit(contentActions.updateContent({
+                            accountIndex,
+                            datatype: 'home',
+                            data: alloc(service, datatype, JSON.parse(decoder.write(data)))
+                        }));
+                        console.log(JSON.parse(decoder.write(data)));
+                        data = new Buffer('');
                     }
+                } catch (e) {
+                    data += chunk;
                 }
-            });
+            }
         });
+
         stream.on('end', () => {
             console.log('Streaming APIから切断されました。');
             emit(streamingActions.setStreamingStatus({
@@ -48,6 +59,7 @@ function subscribe(stream: any, service: string, accountIndex: number, datatype:
             }));
             emit(END);
         });
+
         stream.on('close', (err) => {
             console.log('Streaming APIから切断されました。');
             console.warn(err);
