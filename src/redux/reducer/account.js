@@ -26,6 +26,12 @@ export default handleActions({
             record: item.record.setContentStatus(action.payload.target)
         }))
     ),
+    [types.SET_STREAMING_STATUS]: (state: Array<AccountItemType>, action: Object): Array<AccountItemType> => (
+        scanner(state, action.payload.accountIndex, (item: AccountItemType): AccountItemType => ({
+            account: item.account.setStreamingStatus(action.payload.isStreaming),
+            record: item.record
+        }))
+    ),
     [types.UPDATE_USERDATA]: (state: Array<AccountItemType>, action: Object): Array<AccountItemType> => (
         scanner(state, action.payload.accountIndex, (item: AccountItemType): AccountItemType => ({
             account: item.account.confirm(action.payload.data),

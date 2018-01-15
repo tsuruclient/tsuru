@@ -22,6 +22,7 @@ export const accountActions = createActions(
 
 export const streamingActions = createActions(
     types.REQUEST_CONNECT_STREAMING_API,
+    types.SET_STREAMING_STATUS,
 );
 
 export const authActions = createActions(

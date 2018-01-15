@@ -1,32 +1,71 @@
 // @flow
-import {eventChannel} from 'redux-saga';
+import {eventChannel, END} from 'redux-saga';
 import {take, fork, select, put, call} from 'redux-saga/effects';
 
 import * as Services from '../../core/Services';
 import * as types from '../constant';
 import alloc from '../../core/value/allocation';
-import Content from '../../core/value/Content';
+import {streamingActions, contentActions} from "../action";
 
 const {remote} = window.require('electron');
 const request = remote.require('request');
 const StringDecoder = remote.require('string_decoder').StringDecoder;
 const decoder = new StringDecoder('utf8');
+const fs = remote.require('fs');
 
-function subscribe(stream: any): any {
+const errorlogger = fs.createWriteStream('streamerror.log', 'utf8');
+
+function subscribe(stream: any, service: string, accountIndex: number, datatype: string): any {
     return eventChannel(emit => {
-        stream.on('data', (data) => {
-            console.log(decoder.write(data));
+        stream.once('data', (data) => {
+            console.log('Streaming APIに接続しました。');
+            emit(streamingActions.setStreamingStatus({
+                isStreaming: true,
+                accountIndex
+            }));
+            stream.on('data', (mainData) => {
+                if(mainData.length > 16){
+                    try {
+                        emit(contentActions.updateContent({
+                            accountIndex,
+                            datatype: 'home',
+                            data: alloc(service, datatype, JSON.parse(decoder.write(mainData)))
+                        }));
+                    } catch (e) {
+                        errorlogger.write(decoder.write(mainData) + '\n');
+                        errorlogger.write(decoder.write('--- ---'));
+                        console.warn(e);
+                        console.warn('何らかの理由により、正常に受信できませんでした。');
+                    }
+                }
+            });
+        });
+        stream.on('end', () => {
+            console.log('Streaming APIから切断されました。');
+            emit(streamingActions.setStreamingStatus({
+                isStreaming: false,
+                accountIndex
+            }));
+            emit(END);
+        });
+        stream.on('close', (err) => {
+            console.log('Streaming APIから切断されました。');
+            console.warn(err);
+            emit(streamingActions.setStreamingStatus({
+                isStreaming: false,
+                accountIndex
+            }));
+            emit(END);
         });
         return () => {};
     });
 }
 
-function* streamingProcess(oauth: Object): any {
+function* streamingProcess(target: Object): any {
     try{
-        const channel = yield call(subscribe, request.get({url: oauth.url, oauth: oauth.key}));
+        const channel = yield call(subscribe, request.get({url: target.url, oauth: target.key}), target.service, target.accountIndex, target.datatype);
         while(true){
             const action = yield take(channel);
-            console.log(action);
             yield put(action);
         }
     } catch(e) {
@@ -38,7 +77,7 @@ export default function* connectStreaming(action: Object): any {
     const {accountIndex, apidata} = action.payload;
     try{
         console.log('start streaming...');
-        const oauth = yield select((state: Object): Object => {
+        const target = yield select((state: Object): Object => {
             const account = state.account[accountIndex].account;
             const url = account.service === Services.Twitter ? apidata.url : (account.client.url + apidata.url);
             return {
@@ -48,10 +87,13 @@ export default function* connectStreaming(action: Object): any {
                     consumer_secret: account.client.consumerSecret,
                     token: account.client.accessToken,
                     token_secret: account.client.accessTokenSecret,
-                }
+                },
+                accountIndex,
+                service: apidata.service,
+                datatype: apidata.datatype
             };
         });
-        yield fork(streamingProcess, oauth);
+        yield fork(streamingProcess, target);
     } catch (e) {
         throw e;
     }
