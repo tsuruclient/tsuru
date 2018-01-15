@@ -26,6 +26,7 @@ type Props = {
     timeline: Object,
     timelineIndex: number,
     ownerInfo: Object,
+    isStreaming: boolean,
     contents: Array<any>,
     latestContentId: ?string,
     contentFormContent: Object,
@@ -42,6 +43,7 @@ const Timeline = pure((props: Props) => (
             timelineIndex={props.timelineIndex}
             timeline={props.timeline}
             ownerInfo={props.ownerInfo}
+            isStreaming={props.isStreaming}
             latestContentId={props.latestContentId}
             menuOpen={props.timeline.menuOpen}
             anchorEl={props.timeline.anchorEl}

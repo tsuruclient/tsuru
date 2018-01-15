@@ -36,6 +36,15 @@ export const ownerInfo = createSelector(
     )
 );
 
+export const isStreaming = createSelector(
+    [accountList],
+    (Accounts: Array<any>): Function => (
+        (index: number): Object => (
+            Accounts[index].account.isStreaming
+        )
+    )
+);
+
 export const contents = createSelector(
     [accountList],
     (AccountList: Array<any>): Function => (

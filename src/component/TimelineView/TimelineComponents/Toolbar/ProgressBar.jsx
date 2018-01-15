@@ -13,18 +13,28 @@ const styles = theme => ({
         width: '100%',
         height: '2px',
         background: 'rgba(0, 0, 0, 0.3)'
+    },
+    streaming: {
+        width: '100%',
+        height: '2px',
+        background: '#469AF0'
     }
 });
 
 type Props = {
     classes: Object,
     inProgressCount: number,
+    inStreaming: boolean,
 };
 
 const PropgressBar = pure((props: Props) => {
-    return props.inProgressCount !== 0 ?
-        <LinearProgress className={props.classes.root} /> :
-        <div className={props.classes.empty}></div>;
+    if(props.inStreaming){
+        return <div className={props.classes.streaming}></div>;
+    }else if(props.inProgressCount > 0) {
+        return <LinearProgress className={props.classes.root} />
+    }else {
+        return <div className={props.classes.empty}></div>;
+    }
 });
 
 export default withStyles(styles)(PropgressBar);

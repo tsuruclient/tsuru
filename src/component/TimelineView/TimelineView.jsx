@@ -21,6 +21,7 @@ type Props = {
     classes: Object,
     timelines: Array<Object>,
     ownerInfo: Function,
+    isStreaming: Function,
     contents: Function,
     latestContentId: Function,
     contentBoxText: Function,
@@ -39,6 +40,7 @@ const TimelineView = pure((props: Props) => (
                     timeline={item}
                     timelineIndex={index}
                     ownerInfo={props.ownerInfo(item.ownerIndex)}
+                    isStreaming={props.isStreaming(item.ownerIndex)}
                     contentFormContent={props.contentBoxText(index)}
                     contents={props.contents(item.ownerIndex, timelineTypes[item.timelineType].dataname)}
                     setTimelineMenu={props.setTimelineMenu}

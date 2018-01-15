@@ -18,6 +18,7 @@ type Props = {
     timelineIndex: number,
     timeline: Object,
     ownerInfo: Object,
+    isStreaming: boolean,
     latestContentId: ?string,
     menuOpen: boolean,
     anchorEl: Object,
@@ -47,7 +48,7 @@ const InfoBar = pure((props: Props) => (
                     deleteTimeline={props.deleteTimeline} />
             </div>
         </Toolbar>
-        <ProgressBar inProgressCount={props.timeline.inProgressCount} />
+        <ProgressBar inProgressCount={props.timeline.inProgressCount} inStreaming={props.isStreaming} />
     </div>
 ));
 

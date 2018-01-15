@@ -13,6 +13,7 @@ const mapStateToProps = (state: Object): Object => ({
     contents: selectors.contents(state),
     latestContentId: selectors.latestContentId(state),
     ownerInfo: selectors.ownerInfo(state),
+    isStreaming: selectors.isStreaming(state),
 });
 
 const mapDispatchToProps = (dispatch: Function): Object => ({
