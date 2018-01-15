@@ -16,6 +16,8 @@ const Buffer = remote.require('safe-buffer').Buffer;
 
 const errorlogger = fs.createWriteStream('streamerror.log', 'utf8');
 
+let data = new Buffer('');
+
 function subscribe(stream: any, service: string, accountIndex: number, datatype: string): any {
     return eventChannel(emit => {
         stream.once('data', (data) => {
@@ -26,11 +28,10 @@ function subscribe(stream: any, service: string, accountIndex: number, datatype:
             }))
         });
 
-        let data= new Buffer('');
         stream.on('data', (chunk) => {
             if(decoder.write(chunk) !== '\n'){
                 try {
-                    if(data.length !== 0) {
+                    if(data.length > 0) {
                         emit(contentActions.updateContent({
                             accountIndex,
                             datatype: 'home',
@@ -47,6 +48,7 @@ function subscribe(stream: any, service: string, accountIndex: number, datatype:
                     }
                 } catch (e) {
                     data += chunk;
+                    console.log(decoder.write(data));
                 }
             }
         });
