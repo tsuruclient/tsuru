@@ -8,11 +8,19 @@ export default class Account {
     service: string;
     client: any;
     userdata: ?User;
+    isStreaming: boolean;
 
     constructor(service: string, client: any, userdata: ?Object) {
         this.service = service;
         this.client = client;
         if (userdata) this.userdata = Object.assign(Object.create(Object.getPrototypeOf(new User(this.service))), userdata);
+        this.isStreaming = false;
+    }
+
+    setStreamingStatus(isStreaming: boolean){
+        const r = copyInstance(this);
+        r.isStreaming = isStreaming;
+        return r;
     }
 
     confirm(data: Object): Account {
