@@ -7,6 +7,7 @@
   "dependencies": {
     "electron-json-storage": "^4.0.2",
     "es6-promisify": "^5.0.0",
+    "log": "^1.4.0",
     "material-ui": "^1.0.0-beta.23",
     "material-ui-icons": "^1.0.0-beta.17",
     "moducks": "^0.2.3",
