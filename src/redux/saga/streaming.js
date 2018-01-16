@@ -6,6 +6,7 @@ import * as Services from '../../core/Services';
 import * as types from '../constant';
 import alloc from '../../core/value/allocation';
 import {streamingActions, contentActions} from "../action";
+import {streaming} from "../../core/constant/dataType";
 
 const {remote} = window.require('electron');
 const request = remote.require('request');
@@ -18,7 +19,19 @@ const errorlogger = fs.createWriteStream('streamerror.log', 'utf8');
 
 let data = new Buffer('');
 
-function subscribe(stream: any, service: string, accountIndex: number, datatype: string): any {
+function receiver(emitter: Function, service: string, accountIndex: number, target: Object) {
+    try{
+        emitter(contentActions.updateContent({
+            accountIndex,
+            datatype: 'home',
+            data: alloc(service, streaming, JSON.parse(decoder.write(target)))
+        }))
+    }catch(e){
+        throw e;
+    }
+}
+
+function subscribe(stream: any, service: string, accountIndex: number): any {
     return eventChannel(emit => {
         stream.once('data', (data) => {
             console.log('Streaming APIに接続しました。');
@@ -32,19 +45,12 @@ function subscribe(stream: any, service: string, accountIndex: number, datatype:
             if(decoder.write(chunk) !== '\n'){
                 try {
                     if(data.length > 0) {
-                        emit(contentActions.updateContent({
-                            accountIndex,
-                            datatype: 'home',
-                            data: alloc(service, datatype, JSON.parse(decoder.write(chunk)))
-                        }));
+                        receiver(emit, service, accountIndex, chunk);
+                        console.log('chunk is normal');
                     } else {
-                        emit(contentActions.updateContent({
-                            accountIndex,
-                            datatype: 'home',
-                            data: alloc(service, datatype, JSON.parse(decoder.write(data)))
-                        }));
-                        console.log(JSON.parse(decoder.write(data)));
+                        receiver(emit, service, accountIndex, chunk);
                         data = new Buffer('');
+                        console.log('success chunk push');
                     }
                 } catch (e) {
                     data += chunk;
@@ -77,7 +83,7 @@ function subscribe(stream: any, service: string, accountIndex: number, datatype:
 
 function* streamingProcess(target: Object): any {
     try{
-        const channel = yield call(subscribe, request.get({url: target.url, oauth: target.key}), target.service, target.accountIndex, target.datatype);
+        const channel = yield call(subscribe, request.get({url: target.url, oauth: target.key}), target.service, target.accountIndex);
         while(true){
             const action = yield take(channel);
             yield put(action);
