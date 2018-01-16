@@ -48,7 +48,7 @@ function subscribe(stream: any, service: string, accountIndex: number): any {
                         receiver(emit, service, accountIndex, chunk);
                         console.log('chunk is normal');
                     } else {
-                        receiver(emit, service, accountIndex, chunk);
+                        receiver(emit, service, accountIndex, data);
                         data = new Buffer('');
                         console.log('success chunk push');
                     }
