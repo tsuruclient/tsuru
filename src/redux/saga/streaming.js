@@ -33,7 +33,7 @@ function receiver(emitter: Function, service: string, accountIndex: number, targ
 
 function subscribe(stream: any, service: string, accountIndex: number): any {
     return eventChannel(emit => {
-        stream.once('data', (data) => {
+        stream.once('data', () => {
             console.log('Streaming APIに接続しました。');
             emit(streamingActions.setStreamingStatus({
                 isStreaming: true,
@@ -42,19 +42,15 @@ function subscribe(stream: any, service: string, accountIndex: number): any {
         });
 
         stream.on('data', (chunk) => {
-            if(decoder.write(chunk) !== '\n'){
-                try {
-                    if(data.length > 0) {
-                        receiver(emit, service, accountIndex, chunk);
-                        console.log('chunk is normal');
-                    } else {
-                        receiver(emit, service, accountIndex, data);
-                        data = new Buffer('');
-                        console.log('success chunk push');
-                    }
-                } catch (e) {
-                    data += chunk;
-                    console.log(decoder.write(data));
+            try{
+                receiver(emit, service, accountIndex, chunk);
+            }catch(e){
+                data += chunk;
+                try{
+                    receiver(emit, service, accountIndex, data);
+                    data = new Buffer('');
+                }catch(e){
+                    // くぁｗせｄｒｆｔｇｙふじこｌｐ；「’
                 }
             }
         });
