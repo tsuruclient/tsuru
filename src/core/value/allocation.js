@@ -15,7 +15,7 @@ export default (service: string, dataType: string, data: Array<Object> | Object)
         case dataTypes.streaming:
             if(Array.isArray(data)){
                 // 試験的にEventを無視しています
-                return data.filter(item => item.event === undefined).map(item => new Content(service, item));
+                return data.filter(item => item.text).map(item => new Content(service, item));
             }else {
                 return data.event === undefined ? [new Content(service, data)] : [];
             }
