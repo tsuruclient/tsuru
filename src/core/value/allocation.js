@@ -12,18 +12,18 @@ export default (service: string, dataType: string, data: Array<Object> | Object)
     switch (service) {
     case Services.Twitter:
         switch (dataType) {
-        case dataTypes.streaming:
-            if(Array.isArray(data)){
-                // 試験的にEventを無視しています
-                return data.filter(item => item.text).map(item => new Content(service, item));
-            }else {
-                return data.event === undefined ? [new Content(service, data)] : [];
-            }
-        case dataTypes.home:
-        case dataTypes.activity:
-            return data.map((item: Object): Content => new Content(service, item));
-        case dataTypes.directMail:
-            break;
+            case dataTypes.streaming:
+                if(Array.isArray(data)){
+                    // 試験的にEventを無視しています
+                    return data.filter(item => item.text !== undefined).map(item => new Content(service, item));
+                }else {
+                    return data.text !== undefined ? [new Content(service, data)] : [];
+                }
+            case dataTypes.home:
+            case dataTypes.activity:
+                return data.map((item: Object): Content => new Content(service, item));
+            case dataTypes.directMail:
+                break;
         }
         break;
     case Services.GnuSocial:
