@@ -12,10 +12,7 @@ const {remote} = window.require('electron');
 const request = remote.require('request');
 const StringDecoder = remote.require('string_decoder').StringDecoder;
 const decoder = new StringDecoder('utf8');
-const fs = remote.require('fs');
 const Buffer = remote.require('safe-buffer').Buffer;
-
-const errorlogger = fs.createWriteStream('streamerror.log', 'utf8');
 
 let data = new Buffer('');
 
