@@ -22,8 +22,8 @@ const receiver = (emitter: Function, service: string, accountIndex: number, targ
     }
 };
 
-export default (url: string, keys: Object, service: string, accountIndex: number): any => {
-    const stream = request.get({url: url, oauth: keys});
+export default (url: string, key: Object, token: Object, service: string, accountIndex: number): any => {
+    const stream = request.get({url: url, oauth: Object.assign({}, key, token)});
     let data = new Buffer('');
     return eventChannel(emit => {
         stream.once('data', () => {
