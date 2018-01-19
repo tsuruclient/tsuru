@@ -65,15 +65,6 @@ export const get = {
             method: 'GET',
         })
     },
-    stream: {
-        user: (service: string): Object => ({
-            url: apiUrls.get.stream.user.url[service],
-            target: undefined,
-            datatype: dataTypes.streaming,
-            service,
-            method: undefined,
-        })
-    }
 };
 
 export const post = {

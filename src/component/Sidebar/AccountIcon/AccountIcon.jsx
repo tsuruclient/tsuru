@@ -7,6 +7,7 @@ import Menu, { MenuItem } from 'material-ui/Menu';
 
 import type User from '../../../core/value/User';
 import * as apis from '../../../core/difference/api';
+import streamingApi, {mastodonStreamingTypes} from '../../../core/difference/streaming_api';
 
 import Icon from './Icon';
 
@@ -81,7 +82,10 @@ class AccountIcon extends React.PureComponent<Props, State> {
     }
 
     handleConnectStreamClick = () => {
-        const apidata = apis.get.stream.user(this.props.service);
+        const apidata = streamingApi(this.props.service, {
+            domain: this.props.domain,
+            stream: mastodonStreamingTypes.user_timeline,
+        });
         this.props.connectStream({
             apidata,
             accountIndex: this.props.accountIndex,
