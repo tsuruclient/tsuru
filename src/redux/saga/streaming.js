@@ -5,10 +5,30 @@ import * as Services from '../../core/Services';
 import * as types from '../constant';
 
 import twitterStreamApi from '../api/streaming/twitter_streaming';
+import mastodonStreamApi from '../api/streaming/mastodon_streaming';
 
 function* streamingProcess(target: Object): any {
     try{
-        const channel = yield call(twitterStreamApi, target.url, target.key, target.service, target.accountIndex);
+        let channel;
+        switch (target.service) {
+            case Services.Twitter:
+                channel = yield call(
+                    twitterStreamApi,
+                    target.url,
+                    target.key,
+                    target.token,
+                    target.service,
+                    target.accountIndex);
+                break;
+            case Services.Mastodon:
+                channel = yield call(
+                    mastodonStreamApi,
+                    target.url,
+                    target.token,
+                    target.accountIndex,
+                );
+                break;
+        }
         while(true){
             const action = yield take(channel);
             yield put(action);
@@ -24,20 +44,33 @@ export default function* connectStreaming(action: Object): any {
         console.log('start streaming...');
         const target = yield select((state: Object): Object => {
             const account = state.account[accountIndex].account;
-            const url = account.service === Services.Twitter ? apidata.url : (account.client.url + apidata.url);
+            let token;
+            switch (apidata.service){
+                case Services.Twitter:
+                    token = {
+                        token: account.client.accessToken,
+                        token_secret: account.client.accessTokenSecret,
+                    };
+                    break;
+                case Services.Mastodon:
+                    token = account.client.token;
+                    break;
+                default:
+                    throw 'unsupported service.'
+            }
             return {
-                url,
+                url: apidata.url,
                 key: {
                     consumer_key: account.client.consumerKey,
                     consumer_secret: account.client.consumerSecret,
-                    token: account.client.accessToken,
-                    token_secret: account.client.accessTokenSecret,
                 },
+                token,
                 accountIndex,
                 service: apidata.service,
-                datatype: apidata.datatype
+                streamType: apidata.streamType,
             };
         });
+        console.log(target);
         yield fork(streamingProcess, target);
     } catch (e) {
         throw e;

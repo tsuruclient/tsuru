@@ -6,35 +6,33 @@ import alloc from "../../../core/value/allocation";
 import {streaming} from "../../../core/constant/dataType";
 import {Mastodon} from '../../../core/Services';
 
-const {remote} = window.require('electron');
-const WebSocket = remote.require('ws');
-
-export default (domain: string, access_token: string, accountIndex: number, streamType: string) => {
-    const stream = new WebSocket('wss://' + domain + '/api/v1/streaming?' + qs.stringify({
-        access_token,
-        stream: streamType,
-    }));
+export default (url: string, access_token: string, accountIndex: number) => {
+    const stream = new WebSocket(url + '&' + qs.stringify({access_token}));
     return eventChannel(emit => {
-        stream.on('open', () => {
+        stream.onopen = () => {
             emit(streamingActions.setStreamingStatus({
                 isStreaming: true,
                 accountIndex
-            }));
-        });
-        stream.on('message', (event) => {
-            emit(contentActions.updateContent({
+            }))};
+
+        stream.onmessage = (event) => {
+            console.log(event);
+            /*emit(contentActions.updateContent({
                 accountIndex,
                 datatype: 'home',
-                data: alloc(Mastodon, streaming, JSON.parse(event.data))
-            }))
-        });
-        stream.on('close', () => {
+                data: alloc(Mastodon, streaming, JSON.parse(event))
+            }))*/
+        };
+
+        stream.onclose = () => {
             console.log('Disconnected Streaming API.');
             emit(streamingActions.setStreamingStatus({
                 isStreaming: false,
                 accountIndex
             }));
-        })
-    })
+        };
+
+        return () => {};
+    });
 }
 
