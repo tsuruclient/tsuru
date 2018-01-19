@@ -27,7 +27,7 @@ export default (url: string, keys: Object, service: string, accountIndex: number
     let data = new Buffer('');
     return eventChannel(emit => {
         stream.once('data', () => {
-            console.log('Streaming APIに接続しました。');
+            console.log('Successfully connected Streaming API.');
             emit(streamingActions.setStreamingStatus({
                 isStreaming: true,
                 accountIndex
@@ -49,7 +49,7 @@ export default (url: string, keys: Object, service: string, accountIndex: number
         });
 
         stream.on('end', () => {
-            console.log('Streaming APIから切断されました。');
+            console.log('Disconnected Streaming API.');
             emit(streamingActions.setStreamingStatus({
                 isStreaming: false,
                 accountIndex
@@ -58,7 +58,7 @@ export default (url: string, keys: Object, service: string, accountIndex: number
         });
 
         stream.on('close', (err) => {
-            console.log('Streaming APIから切断されました。');
+            console.log('Disconnected Streaming API.');
             console.warn(err);
             emit(streamingActions.setStreamingStatus({
                 isStreaming: false,
