@@ -25,8 +25,7 @@
     "redux-saga": "^0.16.0",
     "request": "^2.83.0",
     "reselect": "^3.0.1",
-    "safe-buffer": "^5.1.1",
-    "ws": "^4.0.0"
+    "safe-buffer": "^5.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
