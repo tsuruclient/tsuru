@@ -19,57 +19,74 @@ const createAllocedObject = (home: Array<any>, activity: Array<any>, directmail:
     directmail
 });
 
-// TODO: 各種dataTypeに合わせて書き加えてください
-export default (service: string, dataType: string, data: Array<Object> | Object): ?Array<any> => {
+// TODO: 真面目に書け
+export default (service: string, dataType: string, data: Array<Object> | Object): allocatedObject => {
     switch (service) {
     case Services.Twitter:
         switch (dataType) {
             case dataTypes.streaming:
                 if(Array.isArray(data)){
-                    // 試験的にEventを無視しています
-                    return data.filter(item => item.text !== undefined).map(item => new Content(service, item));
+                    return createAllocedObject(
+                        data.filter(item => item.text !== undefined).map(item => new Content(service, item)),
+                        [],
+                        []
+                    );
                 }else {
-                    return data.text !== undefined ? [new Content(service, data)] : [];
+                    return createAllocedObject(
+                        data.text !== undefined ? [new Content(service, data)] : [],
+                        [],
+                        []
+                    );
                 }
             case dataTypes.home:
+                return createAllocedObject(data.map((item: Object): Content => new Content(service, item)), [], []);
             case dataTypes.activity:
-                return data.map((item: Object): Content => new Content(service, item));
+                return createAllocedObject([],data.map((item: Object): Content => new Content(service, item)),[]);
             case dataTypes.directMail:
-                break;
+                return createAllocedObject([], [], []);
+            default:
+                console.warn('oops. something went wrong.');
+                throw 'allocation error';
         }
-        break;
     case Services.GnuSocial:
         switch (dataType) {
             case dataTypes.home:
+                return createAllocedObject(data.map((item: Object): Content => new Content(service, item)), [], []);
             case dataTypes.activity:
-                return data.map((item: Object): Content => new Content(service, item));
+                return createAllocedObject([], data.map((item: Object): Content => new Content(service, item)), []);
             case dataTypes.directMail:
-                break;
+                return createAllocedObject([], [], []);
+            default:
+                console.warn('oops. something went wrong.');
+                throw 'allocation error';
         }
-        break;
     case Services.Mastodon:
         switch (dataType) {
-            /* // バグります
             case dataTypes.streaming:
                 if(Array.isArray(data)){
-                    return data.filter(item => item.text !== undefined).map(item => new Content(service, item));
+                    return createAllocedObject(data.filter(item => item.text !== undefined).map(item => new Content(service, item)), [], []);
                 }else {
-                    return data.text !== undefined ? [new Content(service, data)] : [];
-                }*/
+                    return createAllocedObject(data.text !== undefined ? [new Content(service, data)] : [], [], []);
+                }
             case dataTypes.home:
-                return data.map((item: Object): Content => new Content(service, item));
+                return createAllocedObject(data.map((item: Object): Content => new Content(service, item)), [], []);
             case dataTypes.activity:
-                return data.map((item: Object): Content | Event =>
-                    item[notice.type[service]] === eventTypes.mention[service] ?
-                        new Content(service, item[notice.target[service]]):
-                        new Event(service, item, false)
+                return createAllocedObject(
+                    [],
+                    data.map((item: Object): Content | Event =>
+                        item[notice.type[service]] === eventTypes.mention[service] ?
+                            new Content(service, item[notice.target[service]]):
+                            new Event(service, item, false)),
+                    []
                 );
             case dataTypes.directMail:
-                break;
+                return createAllocedObject([], [], []);
+            default:
+                console.warn('oops. something went wrong.');
+                throw 'allocation error';
         }
-        break;
     default:
         console.warn('oops. something went wrong.');
-        throw 'allocation error.';
+        throw 'allocation error';
     }
 }
