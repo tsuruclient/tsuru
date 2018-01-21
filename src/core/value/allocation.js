@@ -7,6 +7,18 @@ import eventTypes from '../difference/eventType';
 import Content from './Content';
 import Event from './Event';
 
+export type allocatedObject = {
+    home: Array<any>,
+    activity: Array<any>,
+    directmail: Array<any>,
+};
+
+const createAllocedObject = (home: Array<any>, activity: Array<any>, directmail: Array<any>): allocatedObject => ({
+    home,
+    activity,
+    directmail
+});
+
 // TODO: 各種dataTypeに合わせて書き加えてください
 export default (service: string, dataType: string, data: Array<Object> | Object): ?Array<any> => {
     switch (service) {
