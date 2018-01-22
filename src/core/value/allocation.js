@@ -64,9 +64,15 @@ export default (service: string, dataType: string, data: Array<Object> | Object)
         switch (dataType) {
             case dataTypes.streaming:
                 if(Array.isArray(data)){
-                    return createAllocedObject(data.filter(item => item.event === 'update').map(item => new Content(service, JSON.parse(item.payload))), [], []);
+                    return createAllocedObject(
+                        data.filter(item => item.event === 'update').map(item => new Content(service, JSON.parse(item.payload))),
+                        data.filter(item => item.event === 'notification').map(item => new Event(service, JSON.parse(item.payload), true)),
+                        []);
                 }else {
-                    return createAllocedObject(data.event === 'update' ? [new Content(service, JSON.parse(data.payload))] : [], [], []);
+                    return createAllocedObject(
+                        data.event === 'update' ? [new Content(service, JSON.parse(data.payload))] : [],
+                        data.event === 'notification' ? [new Event(service, JSON.parse(data.payload), true)] : [],
+                        []);
                 }
             case dataTypes.home:
                 return createAllocedObject(data.map((item: Object): Content => new Content(service, item)), [], []);
