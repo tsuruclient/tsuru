@@ -1,7 +1,7 @@
 // @flow
+import type {allocatedObject} from "../value/allocation";
 
 import copyInstance from '../../helper/copyInstance';
-import * as dataTypes from '../constant/dataType';
 import Content, {Retweeted} from '../value/Content';
 
 export default class Record {
@@ -17,18 +17,18 @@ export default class Record {
         this.directMail = [];
     }
 
-    unshift(dataType: string, data: Array<any>): Record {
+    unshift(data: allocatedObject): Record {
+        const _unshift = (source: Array<any>, target: Array<any>): Array<any> => {
+            let s = this.home.concat();
+            s.unshift(...target);
+            return s;
+        };
+
         const r = copyInstance(this);
-        switch (dataType){
-        case dataTypes.home:
-            r.home = this.home.concat();
-            r.home.unshift(...data);
-            break;
-        case dataTypes.activity:
-            r.activity = this.activity.concat();
-            r.activity.unshift(...data);
-            break;
-        }
+        r.home = _unshift(r.home, data.home);
+        r.activity = _unshift(r.activity, data.activity);
+        r.directMail = _unshift(r.directMail, data.directmail);
+
         return r;
     }
 
