@@ -18,7 +18,7 @@ export default handleActions({
     [types.UPDATE_CONTENT]: (state: Array<AccountItemType>, action: Object): Array<AccountItemType> => (
         scanner(state, action.payload.accountIndex, (item: AccountItemType): AccountItemType => ({
             account: item.account,
-            record: item.record.unshift(action.payload.datatype, action.payload.data)}))
+            record: item.record.unshift(action.payload.data)}))
     ),
     [types.UPDATE_CONTENT_ATTRIBUTE]: (state: Array<AccountItemType>, action: Object): Array<AccountItemType> => (
         scanner(state, action.payload.accountIndex, (item: AccountItemType): AccountItemType => ({

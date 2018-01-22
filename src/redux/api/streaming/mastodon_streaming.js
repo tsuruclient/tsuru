@@ -16,12 +16,11 @@ export default (url: string, access_token: string, accountIndex: number) => {
             }))};
 
         stream.onmessage = (event) => {
-            console.log(event);
-            /*emit(contentActions.updateContent({
+            emit(contentActions.updateContent({
                 accountIndex,
                 datatype: 'home',
-                data: alloc(Mastodon, streaming, JSON.parse(event))
-            }))*/
+                data: alloc(Mastodon, streaming, JSON.parse(event.data))
+            }));
         };
 
         stream.onclose = () => {
