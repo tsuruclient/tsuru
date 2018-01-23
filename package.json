@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "dotenv": "^4.0.0",
-    "electron": "^1.7.9",
+    "electron": "^1.8.1",
     "electron-load-devtool": "^1.0.0",
     "electron-packager": "^10.1.0",
     "flow-bin": "^0.61.0",
