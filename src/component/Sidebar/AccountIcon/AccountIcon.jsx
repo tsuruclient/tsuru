@@ -44,7 +44,6 @@ type State = {
 class AccountIcon extends React.PureComponent<Props, State> {
     constructor(props: Props){
         super(props);
-        console.log(props);
         this.handleClick = this.handleClick.bind(this);
         this.handleClose = this.handleClose.bind(this);
         this.handleLogoutClick = this.handleLogoutClick.bind(this);
