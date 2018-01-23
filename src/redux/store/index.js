@@ -8,7 +8,8 @@ import reducer from '../reducer';
 import rootSagas from '../saga';
 
 const logger = createLogger({
-    //options
+    collapsed: true,
+    duration: true,
 });
 
 const sagaMiddleware = createSagaMiddleware();
@@ -20,6 +21,5 @@ export default function configureStore(initialState) {
         applyMiddleware(sagaMiddleware, logger)
     );
     sagaMiddleware.run(rootSagas);
-    
     return store;
 }
