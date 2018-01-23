@@ -31,6 +31,7 @@ type Props = {
     data: ?User,
     domain: string,
     service: string,
+    isStreaming: boolean,
     logout: Function,
     callApi: Function,
     connectStream: Function,
@@ -83,7 +84,7 @@ class AccountIcon extends React.PureComponent<Props, State> {
     handleConnectStreamClick = () => {
         const apidata = streamingApi(this.props.service, {
             domain: this.props.domain,
-            stream: mastodonStreamingTypes.user_timeline,
+            stream: mastodonStreamingTypes.local_timeline,
         });
         this.props.connectStream({
             apidata,
@@ -111,8 +112,10 @@ class AccountIcon extends React.PureComponent<Props, State> {
                     anchorEl={this.state.anchorEl}
                     open={this.state.open}
                     onClose={this.handleClose}>
-                    <MenuItem onClick={this.handleUpdateUserdataClick}>Update UserData</MenuItem>
-                    <MenuItem onClick={this.handleConnectStreamClick}>{'Connect Streaming'}</MenuItem>
+                    <MenuItem onClick={this.handleUpdateUserdataClick}>{'Update UserData'}</MenuItem>
+                    <MenuItem
+                        onClick={this.handleConnectStreamClick}
+                        disabled={props.isStreaming}>{props.isStreaming ? 'Now Streaming...' : 'Connect Streaming'}</MenuItem>
                     <Divider className={props.classes.divider} />
                     <MenuItem onClick={this.handleLogoutClick}>Logout</MenuItem>
                 </Menu>

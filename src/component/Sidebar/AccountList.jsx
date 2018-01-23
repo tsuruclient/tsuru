@@ -30,6 +30,7 @@ const AccountList = pure((props: Props) => (
                 key={index}
                 accountIndex={index}
                 service={item.service}
+                isStreaming={item.isStreaming}
                 data={item.userdata}
                 domain={item.client.domain}
                 logout={props.logout}
