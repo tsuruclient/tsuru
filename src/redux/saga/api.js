@@ -74,6 +74,6 @@ export function* apiRequest(action: Object): any {
                 yield put({type: types.SET_IN_POSTING_STATUS, payload: {timelineIndex, status: false}});
             }
         }
-        yield call({type: types.CALL_API_FAILED, error: e});
+        yield put({type: types.CALL_API_FAILED, error: e});
     }
 }
