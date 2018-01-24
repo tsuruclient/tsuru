@@ -11,7 +11,9 @@ import MenuIcon from 'material-ui-icons/Menu';
 import timelineTypes from '../../../../core/constant/timelineType';
 
 const styles = theme => ({
-
+    divider: {
+        margin: '12px 0px',
+    },
 });
 
 type Props = {
@@ -62,7 +64,7 @@ const TimelineMenu = pure((props: Props) => (
             onClose={handleRequestClose(props.timelineIndex, props.setTimelineMenu)} >
                 <MenuItem onClick={callApi(props)}>{'Update'}</MenuItem>
                 <MenuItem>{'Timeline Option'}</MenuItem>
-                <Divider />
+                <Divider className={props.classes.divider} />
                 <MenuItem onClick={handleDeleteTimeline(props.timelineIndex, props.deleteTimeline)}>{'Delete Timeline'}</MenuItem>
         </Menu>
     </div>
