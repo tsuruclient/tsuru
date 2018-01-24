@@ -84,7 +84,7 @@ class AccountIcon extends React.PureComponent<Props, State> {
     handleConnectStreamClick = () => {
         const apidata = streamingApi(this.props.service, {
             domain: this.props.domain,
-            stream: mastodonStreamingTypes.local_timeline,
+            stream: mastodonStreamingTypes.user_timeline,
         });
         this.props.connectStream({
             apidata,
