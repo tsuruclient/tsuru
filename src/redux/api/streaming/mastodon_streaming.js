@@ -18,7 +18,7 @@ export default (url: string, access_token: string, accountIndex: number) => {
         stream.onmessage = (event) => {
             emit(contentActions.updateContent({
                 accountIndex,
-                datatype: 'home',
+                datatype: streaming,
                 data: alloc(Mastodon, streaming, JSON.parse(event.data))
             }));
         };
