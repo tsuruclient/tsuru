@@ -12,6 +12,7 @@ export const contentBoxText = createSelector(
         (index: number): Object => ({
             text: Timelines[index].contentText,
             imageList: Timelines[index].image,
+            inPosting: Timelines[index].inPosting,
         })),
 );
 

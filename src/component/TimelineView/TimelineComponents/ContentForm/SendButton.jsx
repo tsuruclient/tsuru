@@ -41,7 +41,8 @@ const handleSendButtonClicked = (props: Props): Function => () => {
 const SendButton = (props: Props) => (
     <IconButton
         className={props.classes.root}
-        onClick={handleSendButtonClicked(props)} >
+        onClick={handleSendButtonClicked(props)}
+        disabled={props.formContent.inPosting}>
         <SendIcon/>
     </IconButton>
 );

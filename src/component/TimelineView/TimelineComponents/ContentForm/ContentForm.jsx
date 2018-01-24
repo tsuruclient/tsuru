@@ -52,7 +52,7 @@ const ContentForm = pure((props: Props) => (
                 replySource={props.replySource}
                 callApi={props.callApi} />
         </div>
-        {props.replySource ? 
+        {props.replySource ?
             <ReplySource
                 tlIndex={props.timelineIndex}
                 data={props.replySource}

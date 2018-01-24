@@ -24,6 +24,9 @@ export default handleActions({
     [types.CONTENT_SET_REPLY]: (state: Array<Timeline>, action: Object): Array<Timeline> =>(
         scanner(state, action.payload.timelineIndex, (item: Timeline): Timeline => item.setReply(action.payload.target))
     ),
+    [types.SET_IN_POSTING_STATUS]: (state: Array<Timeline>, action: Object): Array<Timeline> =>(
+        scanner(state, action.payload.timelineIndex, (item: Timeline): Timeline => item.setInPosting(action.payload.status))
+    ),
     [types.ADD_TIMELINE]: (state: Array<Timeline>, action: Object): Array<Timeline> => {
         const nextState = [...state, new Timeline(action.payload.accountIndex, action.payload.timelineType)];
         saveTimelines(nextState);

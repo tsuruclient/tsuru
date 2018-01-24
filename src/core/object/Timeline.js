@@ -6,7 +6,7 @@ import type Content from '../value/Content';
 export default class Timeline {
     ownerIndex: number;
     timelineType: string;
-    
+
     filtering: Object; // TODO: 頼む
     contentText: string;
     replySource: ?Content;
@@ -14,7 +14,8 @@ export default class Timeline {
     error: ?string;
 
     inProgressCount: number; // if not 0, something is in progress.
-    
+    inPosting: boolean;
+
     inStreaming: boolean;
 
     menuOpen: boolean;
@@ -29,6 +30,7 @@ export default class Timeline {
         this.image = [];
         this.error = null;
         this.inProgressCount = 0;
+        this.inPosting = false;
         this.inStreaming = false;
         this.menuOpen = false;
         this.anchorEl = null;
@@ -56,7 +58,7 @@ export default class Timeline {
 
     setMenu(anchorEl: ?Object): Timeline {
         const r = copyInstance(this);
-        r.menuOpen = anchorEl ? true : false;
+        r.menuOpen = !!anchorEl;
         r.anchorEl = anchorEl;
         return r;
     }
@@ -64,6 +66,12 @@ export default class Timeline {
     setIsStreaming(isStreaming: boolean): Timeline {
         const r = copyInstance(this);
         r.isStreaming = isStreaming;
+        return r;
+    }
+
+    setInPosting(isPosting: boolean): Timeline {
+        const r = copyInstance(this);
+        r.inPosting = isPosting;
         return r;
     }
 
@@ -76,7 +84,7 @@ export default class Timeline {
     filterling(data: Array<any>): Array<any> {
         return data;
     }
-    
+
     updateOwnerindex(num: number): Timeline {
         const r = copyInstance(this);
         r.ownerIndex = num;

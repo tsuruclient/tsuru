@@ -12,7 +12,12 @@ import type Account from "../../core/object/Account";
 export function* apiRequest(action: Object): any {
     const { accountIndex, timelineIndex, apidata, payload } = action.payload;
     try{
-        if (typeof(timelineIndex) === 'number') yield put({type: types.SET_IN_PROGRESS_STATUS, payload: {timelineIndex, status: true}});
+        if (typeof(timelineIndex) === 'number'){
+            yield put({type: types.SET_IN_PROGRESS_STATUS, payload: {timelineIndex, status: true}});
+            if(apidata.target === requestTypes.POST.update_status){
+                yield put({type: types.SET_IN_POSTING_STATUS, payload: {timelineIndex, status: true}});
+            }
+        }
         const client = yield select((state: Object) => state.account[accountIndex].account.client);
         let data;
         switch(apidata.method){
@@ -46,6 +51,7 @@ export function* apiRequest(action: Object): any {
                 case requestTypes.POST.update_status:
                     yield put({type: types.CLEAR_FORM, payload: {timelineIndex}});
                     yield put({type: types.SET_IN_PROGRESS_STATUS, payload: {timelineIndex, status: false}});
+                    yield put({type: types.SET_IN_POSTING_STATUS, payload: {timelineIndex, status: false}});
                     break;
                 case requestTypes.POST.create_fav:
                 case requestTypes.POST.create_rt:
@@ -62,7 +68,12 @@ export function* apiRequest(action: Object): any {
             throw 'unknown http method error: '+apidata.method;
         }
     } catch (e) {
-        if (typeof(timelineIndex) === 'number') yield put({type: types.SET_IN_PROGRESS_STATUS, payload: {timelineIndex, status: false}});
+        if (typeof(timelineIndex) === 'number') {
+            yield put({type: types.SET_IN_PROGRESS_STATUS, payload: {timelineIndex, status: false}});
+            if (apidata.target === requestTypes.POST.update_status) {
+                yield put({type: types.SET_IN_POSTING_STATUS, payload: {timelineIndex, status: false}});
+            }
+        }
         yield call({type: types.CALL_API_FAILED, error: e});
     }
 }
