@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import ReactList from 'react-list';
+import {WindowScroller, AutoSizer, CellMeasurer, CellMeasurerCache, List} from 'react-virtualized';
 import {onlyUpdateForKeys} from 'recompose';
 import {withStyles} from 'material-ui/styles';
 import Divider from 'material-ui/Divider'
@@ -27,6 +27,7 @@ type Props = {
     setReply: Function,
 };
 
+/*
 class ContentList extends React.PureComponent<Props> {
     constructor(props: Props) {
         super(props);
@@ -65,10 +66,9 @@ class ContentList extends React.PureComponent<Props> {
             </div>
         )
     }
-}
+}*/
 
 /*
-
 const ContentList = onlyUpdateForKeys(['contents'])((props: Props) => (
     <div className={props.classes.root}>
         {props.contents.map((item, index) => (
@@ -90,7 +90,81 @@ const ContentList = onlyUpdateForKeys(['contents'])((props: Props) => (
         ))}
     </div>
 ));
-
 */
+
+const cache = new CellMeasurerCache({
+    defaultHeight: 120,
+    fixedWidth: true
+});
+
+class ContentList extends React.PureComponent<Props> {
+    constructor(props: Props) {
+        super(props);
+
+        this._cache = new CellMeasurerCache({
+            fixedWidth: true,
+            minHeight: 50,
+        });
+    }
+    _cache : any;
+
+    _rowRenderer({index, key, parent, style}) {
+        const renderTarget = this.props.contents[index];
+        const props = this.props;
+        return (
+            <CellMeasurer
+                cache={this._cache}
+                columnIndex={0}
+                key={key}
+                rowIndex={index}
+                parent={parent}>
+                {({measure}) => {
+                    return renderTarget instanceof ContentObject ?
+                        <div key={index} style={style} onLoad={measure}>
+                            <Content
+                                service={props.service}
+                                timelineIndex={props.timelineIndex}
+                                ownerIndex={props.ownerIndex}
+                                data={renderTarget}
+                                callApi={props.callApi}
+                                setReply={props.setReply}/>
+                            <Divider/>
+                        </div> :
+                        <div key={index}>
+                            <Event data={renderTarget}/>
+                            <Divider/>
+                        </div>
+                }}
+            </CellMeasurer>
+
+        )
+    }
+
+    render() {
+        return (
+            <div style={{height: '100%'}}>
+                <WindowScroller>
+                    {({isScrolling, onChildScroll, scrollTop}) => (
+                        <AutoSizer>
+                            {({width, height}) => (
+                                <List
+                                    width={width}
+                                    height={height}
+                                    isScrolling={isScrolling}
+                                    onScroll={onChildScroll}
+                                    scrollTop={scrollTop}
+                                    overscanRowCount={2}
+                                    deferredMeasurementCache={this._cache}
+                                    rowHeight={this._cache.rowHeight}
+                                    rowCount={this.props.contents.length}
+                                    rowRenderer={this._rowRenderer.bind(this)} />
+                            )}
+                        </AutoSizer>
+                    )}
+                </WindowScroller>
+            </div>
+        );
+    }
+}
 
 export default withStyles(styles)(ContentList);
