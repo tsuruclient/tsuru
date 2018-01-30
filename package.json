@@ -23,7 +23,6 @@
     "recompose": "^0.26.0",
     "redux": "^3.7.2",
     "redux-actions": "^2.2.1",
-    "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.0",
     "request": "^2.83.0",
     "reselect": "^3.0.1",
@@ -47,6 +46,7 @@
     "foreman": "^2.0.0",
     "react-devtools": "^3.0.0",
     "redux-devtools": "^3.4.1",
+    "redux-logger": "^3.0.6",
     "webpack": "^3.10.0"
   }
 }
