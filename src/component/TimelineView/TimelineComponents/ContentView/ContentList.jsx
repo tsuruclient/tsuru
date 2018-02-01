@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import {WindowScroller, AutoSizer, CellMeasurer, CellMeasurerCache, List} from 'react-virtualized';
+import {AutoSizer, CellMeasurer, CellMeasurerCache, List} from 'react-virtualized';
 import {onlyUpdateForKeys} from 'recompose';
 import {withStyles} from 'material-ui/styles';
 import Divider from 'material-ui/Divider'
@@ -142,25 +142,19 @@ class ContentList extends React.PureComponent<Props> {
     render() {
         return (
             <div style={{height: '100%'}}>
-                <WindowScroller>
-                    {({isScrolling, onChildScroll, scrollTop}) => (
-                        <AutoSizer>
-                            {({width, height}) => (
-                                <List
-                                    width={width}
-                                    height={height}
-                                    isScrolling={isScrolling}
-                                    onScroll={onChildScroll}
-                                    scrollTop={scrollTop}
-                                    overscanRowCount={10}
-                                    deferredMeasurementCache={this._cache}
-                                    rowHeight={this._cache.rowHeight}
-                                    rowCount={this.props.contents.length}
-                                    rowRenderer={this._rowRenderer.bind(this)} />
-                            )}
-                        </AutoSizer>
+                <AutoSizer>
+                    {({width, height}) => (
+                        <List
+                            width={width}
+                            height={height}
+                            overscanRowCount={6}
+                            deferredMeasurementCache={this._cache}
+                            rowHeight={this._cache.rowHeight}
+                            rowCount={this.props.contents.length}
+                            rowRenderer={this._rowRenderer.bind(this)}
+                            onScroll={(e) => {console.log(e)}}/>
                     )}
-                </WindowScroller>
+                </AutoSizer>
             </div>
         );
     }
