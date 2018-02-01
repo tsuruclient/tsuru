@@ -7,7 +7,6 @@ import Icon from '../Parts/Icon';
 import Buttons from '../Parts/Buttons';
 
 import CommonItem from './Common';
-import ReplyItem from './Reply';
 import RetweetedItem from './Retweeted';
 
 import type Content from '../../../../../core/value/Content'
@@ -33,9 +32,8 @@ type Props = {
 const selectComponent = (data: Content) => {
     switch (data.type) {
         case Normal:
-            return (<CommonItem data={data} />);
         case Reply:
-            return (<ReplyItem data={data} />);
+            return (<CommonItem data={data} />);
         case Retweeted:
             return (<RetweetedItem data={data} />);
         default:
