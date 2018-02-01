@@ -59,7 +59,7 @@ class ContentList extends React.PureComponent<Props> {
                 parent={parent}>
                 {({measure}) => {
                     return renderTarget instanceof ContentObject ?
-                        <div key={index} style={style}>
+                        <div key={index} style={style} onLoad={measure}>
                             <Content
                                 service={props.service}
                                 timelineIndex={props.timelineIndex}
@@ -69,7 +69,7 @@ class ContentList extends React.PureComponent<Props> {
                                 setReply={props.setReply}/>
                             <Divider/>
                         </div> :
-                        <div key={index} style={style}>
+                        <div key={index} style={style} onLoad={measure}>
                             <Event data={renderTarget}/>
                             <Divider/>
                         </div>
