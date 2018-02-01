@@ -108,6 +108,10 @@ class ContentList extends React.PureComponent<Props> {
     }
     _cache : any;
 
+    _onScroll({ clientHeight, scrollHeight, scrollTop }) {
+        console.log(scrollTop)
+    }
+
     _rowRenderer({index, key, parent, style}) {
         const renderTarget = this.props.contents[index];
         const props = this.props;
@@ -152,7 +156,7 @@ class ContentList extends React.PureComponent<Props> {
                             rowHeight={this._cache.rowHeight}
                             rowCount={this.props.contents.length}
                             rowRenderer={this._rowRenderer.bind(this)}
-                            onScroll={(e) => {console.log(e)}}/>
+                            onScroll={this._onScroll}/>
                     )}
                 </AutoSizer>
             </div>
