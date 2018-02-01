@@ -114,13 +114,12 @@ class ContentList extends React.PureComponent<Props> {
         return (
             <CellMeasurer
                 cache={this._cache}
-                columnIndex={0}
                 key={key}
                 rowIndex={index}
                 parent={parent}>
                 {({measure}) => {
                     return renderTarget instanceof ContentObject ?
-                        <div key={index} style={style} onLoad={measure}>
+                        <div key={index} style={style}>
                             <Content
                                 service={props.service}
                                 timelineIndex={props.timelineIndex}
@@ -130,7 +129,7 @@ class ContentList extends React.PureComponent<Props> {
                                 setReply={props.setReply}/>
                             <Divider/>
                         </div> :
-                        <div key={index}>
+                        <div key={index} style={style}>
                             <Event data={renderTarget}/>
                             <Divider/>
                         </div>
@@ -153,7 +152,7 @@ class ContentList extends React.PureComponent<Props> {
                                     isScrolling={isScrolling}
                                     onScroll={onChildScroll}
                                     scrollTop={scrollTop}
-                                    overscanRowCount={2}
+                                    overscanRowCount={10}
                                     deferredMeasurementCache={this._cache}
                                     rowHeight={this._cache.rowHeight}
                                     rowCount={this.props.contents.length}
