@@ -12,7 +12,10 @@ Roadmapや進捗状況は以下から確認できます。
 ## 自前でビルドする際の注意点
 ### アプリの起動  
 `npm run dev`あるいは`yarn dev`コマンドで起動してください。`start`では正常に起動しません。  
-    
+  
+### ビルド
+`npm run build`の実行後に`npm run package`を行ってください。  
+  
 ### instanceList.jsについて
 `src/core/constant/instanceList.js` は意図的に除外してあり、import errorを起こします。  
 そのため、各自でビルドする際は`src/core/constant/_instanceList.js`を`instanceList.js`にリネームしてください。
