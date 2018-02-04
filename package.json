@@ -5,26 +5,12 @@
   "main": "src/main/electron-starter.js",
   "homepage": "./",
   "dependencies": {
-    "electron": "^1.8.2-beta.5",
     "electron-json-storage": "^4.0.2",
     "es6-promisify": "^5.0.0",
     "log": "^1.4.0",
-    "material-ui": "^1.0.0-beta.30",
-    "material-ui-icons": "^1.0.0-beta.17",
-    "moducks": "^0.2.3",
     "oauth": "^0.9.15",
     "opn": "^5.2.0",
-    "query-string": "^5.0.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-redux": "^5.0.6",
-    "react-virtualized": "^9.18.0",
-    "recompose": "^0.26.0",
-    "redux": "^3.7.2",
-    "redux-actions": "^2.2.1",
-    "redux-saga": "^0.16.0",
     "request": "^2.83.0",
-    "reselect": "^3.0.1",
     "safe-buffer": "^5.1.1"
   },
   "scripts": {
@@ -36,7 +22,7 @@
     "dev": "nf start",
     "flow": "flow",
     "package": "electron-packager . Tsuru --platform=all --arch=x64 --out=release --overwrite",
-    "pack-win": "electron-packager . Tsuru --platform=win32 --arch=x64 --out=release --overwrite"
+    "pack-win": "electron-packager . Tsuru --platform=win32 --arch=x64 --prune --out=release --overwrite"
   },
   "devDependencies": {
     "dotenv": "^4.0.0",
@@ -45,10 +31,22 @@
     "electron-packager": "^10.1.1",
     "flow-bin": "^0.61.0",
     "foreman": "^2.0.0",
+    "material-ui": "^1.0.0-beta.31",
+    "material-ui-icons": "^1.0.0-beta.17",
+    "query-string": "^5.1.0",
+    "react": "^16.2.0",
     "react-devtools": "^3.0.0",
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
     "react-scripts": "1.0.17",
+    "react-virtualized": "^9.18.5",
+    "recompose": "^0.26.0",
+    "redux": "^3.7.2",
+    "redux-actions": "^2.2.1",
     "redux-devtools": "^3.4.1",
     "redux-logger": "^3.0.6",
+    "redux-saga": "^0.16.0",
+    "reselect": "^3.0.1",
     "webpack": "^3.10.0"
   }
 }
