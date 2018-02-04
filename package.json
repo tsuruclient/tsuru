@@ -17,9 +17,7 @@
     "query-string": "^5.0.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-list": "^0.8.8",
     "react-redux": "^5.0.6",
-    "react-scripts": "1.0.17",
     "react-virtualized": "^9.18.0",
     "recompose": "^0.26.0",
     "redux": "^3.7.2",
@@ -30,6 +28,7 @@
     "safe-buffer": "^5.1.1"
   },
   "scripts": {
+    "install": "npm install --global-style",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
@@ -47,6 +46,7 @@
     "flow-bin": "^0.61.0",
     "foreman": "^2.0.0",
     "react-devtools": "^3.0.0",
+    "react-scripts": "1.0.17",
     "redux-devtools": "^3.4.1",
     "redux-logger": "^3.0.6",
     "webpack": "^3.10.0"
