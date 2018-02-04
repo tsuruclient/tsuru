@@ -2,7 +2,9 @@ const { app, BrowserWindow, Menu } = require('electron');
 const path = require('path');
 const url = require('url');
 
-const loadDevtool = require('electron-load-devtool');
+if(process.env.ELECTRON_DEBUG_BUILD){
+    var loadDevtool = require('electron-load-devtool');
+}
 
 module.exports = class Application {
     createWindow() {
@@ -21,8 +23,10 @@ module.exports = class Application {
             this.mainWindow = null;
         });
 
-        loadDevtool(loadDevtool.REDUX_DEVTOOLS);
-        loadDevtool(loadDevtool.REACT_DEVELOPER_TOOLS);
+        if(process.env.ELECTRON_DEBUG_BUILD) {
+            loadDevtool(loadDevtool.REDUX_DEVTOOLS);
+            loadDevtool(loadDevtool.REACT_DEVELOPER_TOOLS);
+        }
 
         this.mainWindow.webContents.openDevTools();
         const template = [{
