@@ -44,6 +44,7 @@ export const timelineActions = createActions(
     types.CLEAR_FORM,
     types.SET_TIMELINE_MENU,
     types.SET_IN_PROGRESS_STATUS,
+    types.SET_SCROLL_STATUS,
 );
 
 export const apiActions = createActions(

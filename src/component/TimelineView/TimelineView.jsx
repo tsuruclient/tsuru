@@ -30,6 +30,7 @@ type Props = {
     setReply: Function,
     callApi: Function,
     deleteTimeline: Function,
+    setScrollPosition: Function,
 };
 
 const TimelineView = pure((props: Props) => (
@@ -48,7 +49,8 @@ const TimelineView = pure((props: Props) => (
                     updateContentText={props.updateContentText}
                     setReply={props.setReply}
                     callApi={props.callApi}
-                    deleteTimeline={props.deleteTimeline}/>
+                    deleteTimeline={props.deleteTimeline}
+                    setScrollPosition={props.setScrollPosition}/>
         ))}
     </div>
 ));

@@ -12,6 +12,9 @@ export default handleActions({
     [types.UPDATE_CONTENT_TEXT]: (state: Array<Timeline>, action: Object): Array<Timeline> => (
         scanner(state, action.payload.timelineIndex, (item: Timeline): Timeline => item.updateContentText(action.payload.text))
     ),
+    [types.SET_SCROLL_STATUS]: (state: Array<Timeline>, action: Object): Array<Timeline> => (
+        scanner(state, action.payload.timelineIndex, (item: Timeline): Timeline => item.setScrollPositionStatus(action.payload.length))
+    ),
     [types.SET_IN_PROGRESS_STATUS]: (state: Array<Timeline>, action: Object): Array<Timeline> => (
         scanner(state, action.payload.timelineIndex, (item: Timeline): Timeline => item.setInProgress(action.payload.status))
     ),

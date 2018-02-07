@@ -18,6 +18,8 @@ export default class Timeline {
 
     inStreaming: boolean;
 
+    latestContentLength: ?number;
+
     menuOpen: boolean;
     anchorEl: ?Object;
 
@@ -32,6 +34,7 @@ export default class Timeline {
         this.inProgressCount = 0;
         this.inPosting = false;
         this.inStreaming = false;
+        this.latestContentLength = null;
         this.menuOpen = false;
         this.anchorEl = null;
     }
@@ -81,7 +84,20 @@ export default class Timeline {
         return r;
     }
 
+    setScrollPositionStatus(length: ?number): Timeline {
+        const r = copyInstance(this);
+        r.latestContentLength = length;
+        return r;
+    }
+
     filterling(data: Array<any>): Array<any> {
+        let r = data.concat();
+        if(this.latestContentLength){
+            r.splice(0, r.length - this.latestContentLength);
+        }
+
+        // TODO: Filteringをするようにしてください
+
         return data;
     }
 

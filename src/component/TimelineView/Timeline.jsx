@@ -35,6 +35,7 @@ type Props = {
     setReply: Function,
     callApi: Function,
     deleteTimeline: Function,
+    setScrollPosition: Function,
 };
 
 const Timeline = pure((props: Props) => (
@@ -64,9 +65,11 @@ const Timeline = pure((props: Props) => (
             service={props.ownerInfo.service}
             timelineIndex={props.timelineIndex}
             ownerIndex={props.timeline.ownerIndex}
+            isScrolled={!!props.timeline.latestContentLength}
             callApi={props.callApi}
             setReply={props.setReply}
-            contents={props.contents} />
+            contents={props.contents}
+            setScrollPosition={props.setScrollPosition}/>
     </Paper>
 ));
 

@@ -22,6 +22,7 @@ const mapDispatchToProps = (dispatch: Function): Object => ({
     setReply: bindActionCreators(contentActions.contentSetReply, dispatch),
     callApi: bindActionCreators(apiActions.requestCallApi, dispatch),
     deleteTimeline: bindActionCreators(timelineActions.deleteTimeline, dispatch),
+    setScrollPosition: bindActionCreators(timelineActions.setScrollStatus, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TimelineView);

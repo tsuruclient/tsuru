@@ -21,10 +21,12 @@ type Props = {
     classes: Object,
     timelineIndex: number,
     ownerIndex: number,
+    isScrolled: boolean,
     service: string,
     contents: Array<any>,
     callApi: Function,
     setReply: Function,
+    setScrollPosition: Function,
 };
 
 
@@ -41,11 +43,17 @@ class ContentList extends React.PureComponent<Props> {
             fixedWidth: true,
             minHeight: 50,
         });
+        this._onScroll = this._onScroll.bind(this);
     }
     _cache : any;
+    _onScroll: Function;
 
     _onScroll({ clientHeight, scrollHeight, scrollTop }) {
-        console.log(scrollTop)
+        if(scrollTop > 64 && !this.props.isScrolled) {
+            this.props.setScrollPosition({timelineIndex: this.props.timelineIndex, length: this.props.contents.length});
+        }else if(scrollTop <= 64 && this.props.isScrolled) {
+            this.props.setScrollPosition({timelineIndex: this.props.timelineIndex, length: null})
+        }
     }
 
     _rowRenderer({index, key, parent, style}) {
@@ -87,7 +95,6 @@ class ContentList extends React.PureComponent<Props> {
                         <List
                             width={width}
                             height={height}
-                            overscanRowCount={6}
                             deferredMeasurementCache={this._cache}
                             rowHeight={this._cache.rowHeight}
                             rowCount={this.props.contents.length}
