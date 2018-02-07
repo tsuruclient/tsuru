@@ -21,8 +21,8 @@
     "electron": "electron .",
     "dev": "nf start",
     "flow": "flow",
-    "package": "electron-packager . Tsuru --platform=all --arch=x64 --out=release --overwrite",
-    "pack-win": "electron-packager . Tsuru --platform=win32 --arch=x64 --prune --out=release --overwrite"
+    "package": "electron-packager . Tsuru --platform=all --arch=x64 --prune --out=release --overwrite --asar",
+    "pack-win": "electron-packager . Tsuru --platform=win32 --arch=x64 --prune --out=release --overwrite --asar"
   },
   "devDependencies": {
     "dotenv": "^4.0.0",
