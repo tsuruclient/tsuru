@@ -43,7 +43,7 @@ const TimelineView = pure((props: Props) => (
                     ownerInfo={props.ownerInfo(item.ownerIndex)}
                     isStreaming={props.isStreaming(item.ownerIndex)}
                     contentFormContent={props.contentBoxText(index)}
-                    contents={props.contents(item.ownerIndex, timelineTypes[item.timelineType].dataname)}
+                    contents={props.contents(item.ownerIndex, index, timelineTypes[item.timelineType].dataname)}
                     setTimelineMenu={props.setTimelineMenu}
                     latestContentId={props.latestContentId(item.ownerIndex, timelineTypes[item.timelineType].dataname)}
                     updateContentText={props.updateContentText}

@@ -98,7 +98,7 @@ export default class Timeline {
 
         // TODO: Filteringをするようにしてください
 
-        return data;
+        return r;
     }
 
     updateOwnerindex(num: number): Timeline {

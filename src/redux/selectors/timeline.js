@@ -47,10 +47,10 @@ export const isStreaming = createSelector(
 );
 
 export const contents = createSelector(
-    [accountList],
-    (AccountList: Array<any>): Function => (
-        (index: number, dataType: string): Array<any> => (
-            AccountList[index].record[dataType]
+    [accountList, timelineList],
+    (AccountList: Array<any>, TimelineList: Array<any>): Function => (
+        (accountIndex: number, timelineIndex: number, dataType: string): Array<any> => (
+            TimelineList[timelineIndex].filterling(AccountList[accountIndex].record[dataType])
         )
     )
 );
