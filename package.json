@@ -14,15 +14,15 @@
     "safe-buffer": "^5.1.1"
   },
   "scripts": {
-    "install": "npm install --global-style",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "electron": "electron .",
     "dev": "nf start",
     "flow": "flow",
-    "package": "electron-packager . Tsuru --platform=all --arch=x64 --prune --out=release --overwrite --asar",
-    "pack-win": "electron-packager . Tsuru --platform=win32 --arch=x64 --prune --out=release --overwrite --asar"
+    "package": "electron-packager . Tsuru --platform=all --arch=x64 --prune --out=release --overwrite",
+    "pack-win": "electron-packager . Tsuru --platform=win32 --arch=x64 --prune --out=release --overwrite",
+    "pack-mac": "electron-packager . Tsuru --platform=darwin --arch=x64 --prune --out=release --overwrite"
   },
   "devDependencies": {
     "dotenv": "^4.0.0",
