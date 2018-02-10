@@ -1,7 +1,7 @@
 // @flow
 import {END, eventChannel} from "redux-saga";
 import {contentActions, streamingActions} from "../../action";
-import alloc from "../../../core/value/allocation";
+import alloc from "../../../core/alloc/allocation";
 import {streaming} from "../../../core/constant/dataType";
 
 const {remote} = window.require('electron');

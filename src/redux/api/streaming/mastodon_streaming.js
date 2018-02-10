@@ -2,7 +2,7 @@
 import {END, eventChannel} from "redux-saga";
 import {contentActions, streamingActions} from "../../action";
 import qs from 'query-string';
-import alloc from "../../../core/value/allocation";
+import alloc from "../../../core/alloc/allocation";
 import {streaming} from "../../../core/constant/dataType";
 import {Mastodon} from '../../../core/Services';
 

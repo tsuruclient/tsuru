@@ -4,8 +4,8 @@ import * as Services from '../Services';
 import * as dataTypes from '../constant/dataType';
 import notice from '../difference/notice';
 import eventTypes from '../difference/eventType';
-import Content from './Content';
-import Event from './Event';
+import Content from '../value/Content';
+import Event from '../value/Event';
 
 export type allocatedObject = {
     home: Array<any>,

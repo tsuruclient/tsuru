@@ -4,7 +4,7 @@ import { put, call, select } from 'redux-saga/effects';
 import * as types from '../constant';
 import * as dataTypes from '../../core/constant/dataType';
 import * as requestTypes from '../../core/constant/requestType';
-import alloc from '../../core/value/allocation';
+import alloc from '../../core/alloc/allocation';
 import Content from '../../core/value/Content';
 import * as storageApis from '../api/storage';
 import type Account from "../../core/object/Account";
