@@ -7,17 +7,9 @@ import eventTypes from '../difference/eventType';
 import Content from '../value/Content';
 import Event from '../value/Event';
 
-export type allocatedObject = {
-    home: Array<any>,
-    activity: Array<any>,
-    directmail: Array<any>,
-};
+import type {allocatedObject} from './allocatedObjectType';
+import createAllocatedObject from "./createAllocatedObject";
 
-const createAllocedObject = (home: Array<any>, activity: Array<any>, directmail: Array<any>): allocatedObject => ({
-    home,
-    activity,
-    directmail
-});
 
 // TODO: 真面目に書け
 export default (service: string, dataType: string, data: Array<Object> | Object): allocatedObject => {
