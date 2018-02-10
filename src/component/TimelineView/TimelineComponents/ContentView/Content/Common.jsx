@@ -26,8 +26,8 @@ type Props = {
 const Common = pure((props: Props) => (
     <div className={props.classes.body}>
         <Icon src={props.data.user.avatar}/>
-        <Typography type="caption">{props.data.user.displayName + "@"+ props.data.user.screenName}</Typography>
-        <Typography type="body1">{props.data.content}</Typography>
+        <Typography variant="caption">{props.data.user.displayName + "@"+ props.data.user.screenName}</Typography>
+        <Typography variant="body1">{props.data.content}</Typography>
     </div>
 ));
 

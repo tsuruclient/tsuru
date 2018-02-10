@@ -38,12 +38,12 @@ const Retweeted = pure((props: Props) => (
     <div className={props.classes.root}>
         <span className={props.classes.header}>
             <RepeatIcon className={props.classes.repeatIcon} />
-            <Typography type="body1">{props.data.user.screenName + ' retweeted'}</Typography>
+            <Typography variant="body1">{props.data.user.screenName + ' retweeted'}</Typography>
         </span>
         <div className={props.classes.body}>
             <Icon src={props.data.target.user.avatar}/>
-            <Typography type="caption">{props.data.target.user.displayName + "@"+ props.data.target.user.screenName}</Typography>
-            <Typography type="body1">{props.data.target.content}</Typography>
+            <Typography variant="caption">{props.data.target.user.displayName + "@"+ props.data.target.user.screenName}</Typography>
+            <Typography variant="body1">{props.data.target.content}</Typography>
         </div>
     </div>
 ));

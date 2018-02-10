@@ -52,8 +52,8 @@ const miniAccountInfo = pure((props: Props) => (
             <div className={props.classes.info}>
                 <Avatar className={props.classes.avatar} src={props.user.avatar} />
                 <div className={props.classes.text}>
-                    <Typography type={"body1"}>{props.user.displayName}</Typography>
-                    <Typography type={'caption'}>{props.user.screenName}</Typography>
+                    <Typography variant={"body1"}>{props.user.displayName}</Typography>
+                    <Typography variant={'caption'}>{props.user.screenName}</Typography>
                 </div>
             </div>
         </Paper>

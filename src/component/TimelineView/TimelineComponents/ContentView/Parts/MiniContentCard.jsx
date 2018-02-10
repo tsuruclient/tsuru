@@ -30,7 +30,7 @@ const styles = theme => ({
 const MiniContentCard = (props: Props) => (
     <Paper className={props.classes.root}>
         <Avatar className={props.classes.avatar} src={props.avatar} />
-        <Typography type="body1">{props.content}</Typography>
+        <Typography variant="body1">{props.content}</Typography>
     </Paper>
 )
 

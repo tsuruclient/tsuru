@@ -63,7 +63,7 @@ const FavRtContent = pure((props: Props) => (
         <div className={props.classes.info}>
             {eventIcon(props.data.type, props.classes.starIcon, props.classes.repeatIcon)}
             <Avatar className={props.classes.avatar} src={props.data.sourceUser.avatar} />
-            <Typography type="body1">
+            <Typography variant="body1">
                 {props.data.sourceUser.displayName + eventContent(props.data.type) + 'your tweet'}
             </Typography>
         </div>

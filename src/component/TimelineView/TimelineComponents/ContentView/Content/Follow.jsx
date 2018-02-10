@@ -40,7 +40,7 @@ const FollowContent = pure((props: Props) => (
     <div className={props.classes.root}>
         <div className={props.classes.info}>
             <PersonAddIcon className={props.classes.icon} />
-            <Typography type="body1">
+            <Typography variant="body1">
                 {props.user.displayName + ' followed you'}
             </Typography>
         </div>

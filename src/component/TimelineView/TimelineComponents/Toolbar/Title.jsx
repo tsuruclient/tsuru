@@ -19,11 +19,11 @@ type Props = {
 
 const Title = pure((props: Props) => (
     <div className={props.classes.root}>
-        <Typography type="headline" style={{marginBottom: "-8px"}}>
+        <Typography variant="headline" style={{marginBottom: "-8px"}}>
             {props.timelineName}
         </Typography>
         <br />
-        <Typography type="caption" style={{marginTop: "-8px"}}>
+        <Typography variant="caption" style={{marginTop: "-8px"}}>
             {props.ownerInfo.screenName + '@' + props.ownerInfo.domain}
         </Typography>
     </div>
