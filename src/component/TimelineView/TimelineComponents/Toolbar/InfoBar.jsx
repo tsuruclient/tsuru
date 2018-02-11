@@ -40,6 +40,7 @@ const InfoBar = pure((props: Props) => (
                     services={props.ownerInfo.service}
                     timelineIndex={props.timelineIndex}
                     timeline={props.timeline}
+                    isStreaming={props.isStreaming}
                     latestContentId={props.latestContentId}
                     open={props.menuOpen}
                     anchorEl={props.anchorEl}

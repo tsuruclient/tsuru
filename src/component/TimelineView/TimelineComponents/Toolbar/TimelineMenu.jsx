@@ -21,6 +21,7 @@ type Props = {
     timeline: Object,
     timelineIndex: number,
     services: string,
+    isStreaming: boolean,
     latestContentId: ?string,
     open: boolean,
     anchorEl: Object,
@@ -62,8 +63,8 @@ const TimelineMenu = pure((props: Props) => (
             anchorEl={props.anchorEl}
             open={props.open}
             onClose={handleRequestClose(props.timelineIndex, props.setTimelineMenu)} >
-                <MenuItem onClick={callApi(props)}>{'Update'}</MenuItem>
-                <MenuItem>{'Timeline Option'}</MenuItem>
+                <MenuItem onClick={callApi(props)} disabled={props.isStreaming}>{props.isStreaming ? 'Now Streaming...' : 'Update'}</MenuItem>
+                <MenuItem disabled={true}>{'Timeline Option'}</MenuItem>
                 <Divider className={props.classes.divider} />
                 <MenuItem onClick={handleDeleteTimeline(props.timelineIndex, props.deleteTimeline)}>{'Delete Timeline'}</MenuItem>
         </Menu>
