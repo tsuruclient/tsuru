@@ -15,7 +15,7 @@ type Props = {
 
 const styles = (theme: Object): any => ({
     root: {
-        width: "100%",
+        width: "100vw",
         height: "100vh",
     },
     mainView: {
