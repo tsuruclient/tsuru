@@ -4,7 +4,6 @@ import React from 'react';
 import {AutoSizer, CellMeasurer, CellMeasurerCache, List} from 'react-virtualized';
 import {onlyUpdateForKeys} from 'recompose';
 import {withStyles} from 'material-ui/styles';
-import Divider from 'material-ui/Divider'
 
 import ContentObject from '../../../../core/value/Content';
 
@@ -67,20 +66,21 @@ class ContentList extends React.PureComponent<Props> {
                 parent={parent}>
                 {({measure}) => {
                     return renderTarget instanceof ContentObject ?
-                        <div key={index} style={style} onLoad={measure}>
-                            <Content
-                                service={props.service}
-                                timelineIndex={props.timelineIndex}
-                                ownerIndex={props.ownerIndex}
-                                data={renderTarget}
-                                callApi={props.callApi}
-                                setReply={props.setReply}/>
-                            <Divider/>
-                        </div> :
-                        <div key={index} style={style} onLoad={measure}>
-                            <Event data={renderTarget}/>
-                            <Divider/>
-                        </div>
+                        <Content
+                            key={key}
+                            style={style}
+                            measure={measure}
+                            service={props.service}
+                            timelineIndex={props.timelineIndex}
+                            ownerIndex={props.ownerIndex}
+                            data={renderTarget}
+                            callApi={props.callApi}
+                            setReply={props.setReply}/> :
+                        <Event
+                            key={key}
+                            style={style}
+                            measure={measure}
+                            data={renderTarget}/>
                 }}
             </CellMeasurer>
 

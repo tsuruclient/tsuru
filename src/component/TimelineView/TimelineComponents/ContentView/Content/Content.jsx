@@ -5,6 +5,7 @@ import {withStyles} from 'material-ui/styles';
 
 import Icon from '../Parts/Icon';
 import Buttons from '../Parts/Buttons';
+import Divider from 'material-ui/Divider'
 
 import CommonItem from './Common';
 import RetweetedItem from './Retweeted';
@@ -21,6 +22,8 @@ const styles = theme => ({
 
 type Props = {
     classes: Object,
+    style: any,
+    measure: Function,
     service: string,
     timelineIndex: number,
     ownerIndex: number,
@@ -42,7 +45,7 @@ const selectComponent = (data: Content) => {
 }
 
 const NormalContent = pure((props: Props) => (
-    <div className={props.classes.root}>
+    <div className={props.classes.root} style={props.style} onLoad={props.measure}>
         {selectComponent(props.data)}
         <Buttons
             service={props.service}
@@ -51,6 +54,7 @@ const NormalContent = pure((props: Props) => (
             data={props.data}
             callApi={props.callApi}
             setReply={props.setReply} />
+        <Divider />
     </div>
 ));
 
