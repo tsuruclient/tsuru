@@ -6,7 +6,6 @@ import {withStyles} from 'material-ui/styles';
 import Sidebar from '../container/Sidebar';
 import TimelineView from '../container/TimelineView';
 import Dialog from '../container/Dialog';
-import Notification from './Notification/Notification';
 
 type Props = {
     classes: Object,
@@ -33,7 +32,6 @@ const App = (props: Props) => {
                 <Sidebar />
                 <TimelineView />
             </div>
-            <Notification />
             <Dialog />
         </div>
     )
