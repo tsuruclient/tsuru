@@ -11,7 +11,7 @@ const isReplyNotification = (data: Object, owner_id: string): boolean => (
 );
 
 const isRetweetNotification = (data: Object, owner_id: string): boolean => (
-    data.retweeted_status ? data.retweeted_status.user.id_str === owner_id : false
+    data.retweeted_status ? (data.retweeted_status.user.id_str === owner_id && data.user.id_str !== owner_id ): false
 );
 
 const filterHomeTimeline = (data: Object, owner_id: string): boolean => (
@@ -22,7 +22,7 @@ const filterNotification = (data: Object, owner_id: string): boolean => {
     if(data.text){ // reply and retweet
         return isReplyNotification(data, owner_id) || isRetweetNotification(data, owner_id);
     }else{ // User Stream Events
-        return data.event ? eventFilter(data.event): false;
+        return data.event ? (eventFilter(data.event) && data.source.id_str !== owner_id): false;
     }
 };
 
