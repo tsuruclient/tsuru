@@ -36,11 +36,10 @@ export default class Event {
 
     constructor(service: string, data: Object, isStream: boolean) {
         if(service === Twitter && isStream){
-            console.log(data);
             if(data.text){
                 this.type = RetweetEvent;
                 this.sourceUser = new User(service, data.user);
-                this.target = new Content(service, data.target_object);
+                this.target = new Content(service, data.retweeted_status);
             }else{
                 this.sourceUser = new User(service, data.source);
                 switch (data.event){
