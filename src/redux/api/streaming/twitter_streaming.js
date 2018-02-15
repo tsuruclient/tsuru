@@ -10,19 +10,19 @@ const StringDecoder = remote.require('string_decoder').StringDecoder;
 const decoder = new StringDecoder('utf8');
 const Buffer = remote.require('safe-buffer').Buffer;
 
-const receiver = (emitter: Function, service: string, accountIndex: number, target: Object) => {
+const receiver = (emitter: Function, service: string, accountIndex: number, account_id: string, target: Object) => {
     try{
         emitter(contentActions.updateContent({
             accountIndex,
             datatype: 'home',
-            data: alloc(service, streaming, JSON.parse(decoder.write(target)))
+            data: alloc(service, streaming, JSON.parse(decoder.write(target)), account_id)
         }))
     }catch(e){
         throw e;
     }
 };
 
-export default (url: string, key: Object, token: Object, service: string, accountIndex: number): any => {
+export default (url: string, key: Object, token: Object, service: string, accountIndex: number, accountId: string): any => {
     const stream = request.get({url: url, oauth: Object.assign({}, key, token)});
     let data = new Buffer('');
     return eventChannel(emit => {
@@ -36,11 +36,11 @@ export default (url: string, key: Object, token: Object, service: string, accoun
 
         stream.on('data', (chunk) => {
             try{
-                receiver(emit, service, accountIndex, chunk);
+                receiver(emit, service, accountIndex, accountId, chunk);
             }catch(e){
                 data += chunk;
                 try{
-                    receiver(emit, service, accountIndex, data);
+                    receiver(emit, service, accountIndex, accountId, data);
                     data = new Buffer('');
                 }catch(e){
                     // くぁｗせｄｒｆｔｇｙふじこｌｐ；「’

@@ -10,7 +10,7 @@ const mentionOrEvent = (payload: Object) => {
     return payload.type === 'mention' ? new Content(Mastodon, payload.status) : new Event(Mastodon, payload, true)
 };
 
-export default (data: Array<Object> | Object, ownerId: string): allocatedObject => {
+export default (data: Array<Object> | Object): allocatedObject => {
     if(Array.isArray(data)){
         return createAllocatedObject(
             data.filter(item => item.event === 'update').map(item => new Content(Mastodon, item)),

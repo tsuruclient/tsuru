@@ -18,7 +18,8 @@ function* streamingProcess(target: Object): any {
                     target.key,
                     target.token,
                     target.service,
-                    target.accountIndex);
+                    target.accountIndex,
+                    target.accountId);
                 break;
             case Services.Mastodon:
                 channel = yield call(
@@ -66,6 +67,7 @@ export default function* connectStreaming(action: Object): any {
                 },
                 token,
                 accountIndex,
+                accountId: account.userdata.id,
                 service: apidata.service,
                 streamType: apidata.streamType,
             };

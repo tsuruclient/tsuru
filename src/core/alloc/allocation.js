@@ -13,12 +13,12 @@ import createAllocatedObject from "./createAllocatedObject";
 import allocTwitter from './twitter_streaming_data';
 import allocMstdn from './mstdn_streaming_data';
 
-export default (service: string, dataType: string, data: Array<Object> | Object): allocatedObject => {
+export default (service: string, dataType: string, data: Array<Object> | Object, account_id: ?string): allocatedObject => {
     switch (service) {
     case Services.Twitter:
         switch (dataType) {
             case dataTypes.streaming:
-                return allocTwitter(data, 'dummy');
+                return allocTwitter(data, account_id);
             case dataTypes.home:
                 return createAllocatedObject(data.map((item: Object): Content => new Content(service, item)), [], []);
             case dataTypes.activity:
@@ -44,7 +44,7 @@ export default (service: string, dataType: string, data: Array<Object> | Object)
     case Services.Mastodon:
         switch (dataType) {
             case dataTypes.streaming:
-                return allocMstdn(data, 'dummy');
+                return allocMstdn(data);
             case dataTypes.home:
                 return createAllocatedObject(data.map((item: Object): Content => new Content(service, item)), [], []);
             case dataTypes.activity:
