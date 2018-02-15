@@ -22,7 +22,7 @@ export const oauth = {
 
 /* ---- 警告 ----
 各関数のoptional paramはnullableですが、nullでは恐らくAPI呼び出しに失敗します。
-必ずundefinedになるよう、nullはnullable parameterに入れないでください。undefinedが推奨です
+必ずundefinedになるよう、nullはnullable parameterに入れないでください。
 // ---- ---- */
 
 export const get = {
@@ -93,6 +93,18 @@ export const post = {
                 service,
                 method: 'POST',
             };
+        },
+        unretweet: (service: string, id: string): Object => {
+            const retweet = apiUrls.post.statuses.unretweet;
+            const path = retweet.url[service] + id + (service === Services.Mastodon ?
+                retweet.require_param.id[service] : '.json');
+            return {
+                url: path,
+                target: requestTypes.POST.destroy_rt,
+                datatype: dataTypes.home,
+                service,
+                method: 'POST',
+            };
         }
     },
     favorite: {
@@ -114,5 +126,23 @@ export const post = {
                 method: 'POST',
             };
         },
+        destroy: (service: string, id: string): Object => {
+            const create = apiUrls.post.favorite.destroy;
+            let path = create.url[service];
+            if (service === Services.Mastodon) {
+                path = path + id + create.require_param.id[service];
+            } else {
+                path = path + '?' + querystring.stringify({
+                    [create.require_param.id[service]] : id
+                });
+            }
+            return {
+                url: path,
+                target: requestTypes.POST.destroy_fav,
+                datatype: dataTypes.home,
+                service,
+                method: 'POST',
+            };
+        }
     }
 };

@@ -42,8 +42,7 @@ const setReply = (tlIndex: number, data: Object, setReply: Function): Function =
 );
 
 const handleFavButtonClicked = (service: string, data: Object, ownerIndex: number, callApi: Function): Function => () => {
-    const apidata = data.favorited ? undefined : apis.post.favorite.create(service, data.id);
-    console.log(apidata);
+    const apidata = data.favorited ? apis.post.favorite.destroy(service, data.id) : apis.post.favorite.create(service, data.id);
     callApi({
         accountIndex: ownerIndex,
         timelineIndex: undefined,
@@ -53,8 +52,7 @@ const handleFavButtonClicked = (service: string, data: Object, ownerIndex: numbe
 };
 
 const handleRTButtonClicked = (service: string, data: Object, ownerIndex: number, callApi: Function): Function => () => {
-    const apidata = data.retweeted ? undefined : apis.post.statuses.retweet(service, data.id);
-    console.log(apidata);
+    const apidata = data.retweeted ? apis.post.statuses.unretweet(service, data.id) : apis.post.statuses.retweet(service, data.id);
     callApi({
         accountIndex: ownerIndex,
         timelineIndex: undefined,

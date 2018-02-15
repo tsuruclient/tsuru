@@ -144,7 +144,23 @@ export const post = {
             },
             optional_param: {
             },
-        }
+        },
+        unretweet: {
+            url: {
+                [Services.Twitter]: '1.1/statuses/unretweet/',
+                [Services.GnuSocial]: 'api/statuses/unretweet/',
+                [Services.Mastodon]: 'api/v1/statuses/',
+            },
+            require_param:{
+                id: {
+                    [Services.Twitter]: '',
+                    [Services.GnuSocial]: '',
+                    [Services.Mastodon]: '/unreblog',
+                },
+            },
+            optional_param: {
+            },
+        },
     },
     favorite: {
         create: {

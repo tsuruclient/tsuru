@@ -55,6 +55,8 @@ export function* apiRequest(action: Object): any {
                     break;
                 case requestTypes.POST.create_fav:
                 case requestTypes.POST.create_rt:
+                case requestTypes.POST.destroy_fav:
+                case requestTypes.POST.destroy_rt:
                     yield put({type: types.UPDATE_CONTENT_ATTRIBUTE, payload: {
                         accountIndex,
                         target: new Content(apidata.service, data),
