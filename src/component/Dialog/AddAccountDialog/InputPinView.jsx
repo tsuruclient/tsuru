@@ -10,7 +10,7 @@ import TextField from 'material-ui/TextField';
 
 const styles = () => ({
     root: {
-        
+
     },
 });
 
@@ -34,7 +34,7 @@ class InputPinView extends PureComponent<Props, State> {
     state = {
         pin: '',
     }
-    
+
     handleCancelClick() {
         this.props.onRequestClose();
     }
@@ -62,7 +62,7 @@ class InputPinView extends PureComponent<Props, State> {
                     <Button raised onClick={this.handleCancelClick}>
                         {"Cancel"}
                     </Button>
-                    <Button raised color="primary" onClick={this.handleAuthClick}>
+                    <Button variant="raised" color="primary" onClick={this.handleAuthClick}>
                         {"Activate"}
                     </Button>
                 </DialogActions>

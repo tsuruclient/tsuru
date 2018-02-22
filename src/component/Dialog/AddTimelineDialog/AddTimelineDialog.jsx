@@ -64,7 +64,7 @@ const AddTimelineDialog = pure((props: Props) => (
         </DialogContent>
         <DialogActions>
             <Button
-                raised
+                variant="raised"
                 color='primary'
                 onClick={handleAddButtonClicked(props.dialogData, props.addTimeline, props.closeDialog)}>
                 {'Confirm'}

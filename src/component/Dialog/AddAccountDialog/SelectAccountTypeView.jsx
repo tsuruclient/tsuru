@@ -69,7 +69,7 @@ const SelectAccountTypeView = pure((props: Props) => (
             </List>
         </DialogContent>
         <DialogActions>
-            <Button raised onClick={handleClickForwardButton(props)}>
+            <Button variant="raised" onClick={handleClickForwardButton(props)}>
                 {'そうですか'}
             </Button>
         </DialogActions>

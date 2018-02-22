@@ -68,7 +68,7 @@ class InputInstanceView extends PureComponent<Props, State> {
             this.props.openPinAuthWindow(status);
             this.props.forwardPinAuthSection();
         }catch(e){
-            this.setState({err: e}); 
+            this.setState({err: e});
         }
     }
 
@@ -104,7 +104,7 @@ class InputInstanceView extends PureComponent<Props, State> {
                         fullWidth />
                 </DialogContent>
                 <DialogActions>
-                    <Button raised onClick={this.handleNextButton}>{'そうですか'}</Button>
+                    <Button variant="raised" onClick={this.handleNextButton}>{'そうですか'}</Button>
                 </DialogActions></div>
         );
     }
