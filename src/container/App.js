@@ -3,10 +3,11 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { generalActions } from '../redux/action';
-
+import {theme} from '../redux/selectors/app';
 import App from '../component/App';
 
 const mapStateToProps = (state: Object): Object => ({
+    theme: theme(state),
 });
 
 const mapDispatchToProps = (dispatch: Function): Object => ({
