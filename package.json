@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "asar": "^0.14.2",
+    "colors": "^1.1.2",
     "dotenv": "^4.0.0",
     "electron": "^1.8.2",
     "electron-load-devtool": "^1.0.0",
