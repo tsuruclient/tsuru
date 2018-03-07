@@ -5,6 +5,7 @@
   "main": "src/main/electron-starter.js",
   "homepage": "./",
   "dependencies": {
+    "about-window": "^1.10.0",
     "electron-json-storage": "^4.0.2",
     "es6-promisify": "^5.0.0",
     "log": "^1.4.0",
