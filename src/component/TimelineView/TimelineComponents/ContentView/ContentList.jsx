@@ -28,12 +28,6 @@ type Props = {
     setScrollPosition: Function,
 };
 
-
-const cache = new CellMeasurerCache({
-    defaultHeight: 120,
-    fixedWidth: true
-});
-
 class ContentList extends React.PureComponent<Props> {
     constructor(props: Props) {
         super(props);
