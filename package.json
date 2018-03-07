@@ -25,15 +25,15 @@
     "pack-mac": "electron-packager . Tsuru --platform=darwin --arch=x64 --prune --out=release --overwrite"
   },
   "devDependencies": {
-    "asar": "^0.14.2",
+    "asar": "^0.14.3",
     "dotenv": "^4.0.0",
-    "electron": "^1.8.2",
+    "electron": "^1.8.3",
     "electron-load-devtool": "^1.0.0",
     "electron-packager": "^10.1.2",
     "flow-bin": "^0.61.0",
     "foreman": "^2.0.0",
-    "material-ui": "^1.0.0-beta.34",
-    "material-ui-icons": "^1.0.0-beta.17",
+    "material-ui": "^1.0.0-beta.36",
+    "material-ui-icons": "^1.0.0-beta.36",
     "query-string": "^5.1.0",
     "react": "^16.2.0",
     "react-devtools": "^3.1.0",
@@ -43,12 +43,12 @@
     "react-virtualized": "^9.18.5",
     "recompose": "^0.26.0",
     "redux": "^3.7.2",
-    "redux-actions": "^2.2.1",
+    "redux-actions": "^2.3.0",
     "redux-devtools": "^3.4.1",
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.0",
     "reselect": "^3.0.1",
-    "styled-components": "^3.1.6",
+    "styled-components": "^3.2.1",
     "webpack": "^3.11.0"
   }
 }
