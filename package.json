@@ -22,7 +22,8 @@
     "flow": "flow",
     "package": "electron-packager . Tsuru --platform=all --arch=x64 --prune --out=release --overwrite",
     "pack-win": "electron-packager . Tsuru --platform=win32 --arch=x64 --prune --out=release --overwrite",
-    "pack-mac": "electron-packager . Tsuru --platform=darwin --arch=x64 --prune --out=release --overwrite"
+    "pack-mac": "electron-packager . Tsuru --platform=darwin --arch=x64 --prune --out=release --overwrite",
+    "release": "node ./build-script/build"
   },
   "devDependencies": {
     "asar": "^0.14.2",
