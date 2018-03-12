@@ -28,6 +28,8 @@ const data = {
         'src/helper',
         'src/redux',
         'src/index.js',
+        'build/static/css/*.css.map',
+        'build/static/js/*.js.map'
     ],
     file: {
         [platform.win32]: undefined,
