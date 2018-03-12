@@ -22,6 +22,7 @@ const data = {
         'public',
         'package-lock.json',
         'yarn.lock',
+        '.travis.yaml',
         'src/component',
         'src/container',
         'src/core',
@@ -29,7 +30,8 @@ const data = {
         'src/redux',
         'src/index.js',
         'build/static/css/*.css.map',
-        'build/static/js/*.js.map'
+        'build/static/js/*.js.map',
+        '*.log',
     ],
     file: {
         [platform.win32]: undefined,
