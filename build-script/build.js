@@ -1,16 +1,26 @@
 const promisify = require("es6-promisify");
-const exec = promisify(require('child_process').exec);
+const child_process = require('child_process');
+const exec = promisify(child_process.exec);
+const execSync = child_process.execSync;
+
+const exec_platform = require('./exec_platform');
 require('colors');
 
-exec('npm run build').then((stats) => {
-    console.log(stats);
-    console.log('"build" succeeded.\n\n now executed "package"'.blue);
-    return exec('npm run package');
-}).then((stats) => {
-    console.log(stats);
+console.log('Start build...'.green);
+exec('npm run build').then((status)=>{
+    console.log(status);
+    console.log('"build" succeeded.'.blue);
+    console.log('now executed "package"'.green);
+    try{
+        execSync('npm run package');
+        console.log('successfully packaging'.blue);
+    }catch (e){
+        console.log('skipped something build'.red);
+    }
     console.log('"package" succeeeded.\n'.blue);
+    exec_platform();
 }).catch((err) => {
-    console.error("error occurred.".red);
-    console.error(err);
+    console.log(err);
+    console.log('build failed.'.red);
+    throw err;
 });
-
