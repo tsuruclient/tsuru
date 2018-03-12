@@ -24,6 +24,7 @@
     "release": "node ./build-script/build"
   },
   "devDependencies": {
+    "adm-zip": "^0.4.7",
     "asar": "^0.14.2",
     "colors": "^1.1.2",
     "del": "^3.0.0",
@@ -49,6 +50,7 @@
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.0",
     "reselect": "^3.0.1",
+    "targz": "^1.0.1",
     "webpack": "^3.11.0"
   }
 }
