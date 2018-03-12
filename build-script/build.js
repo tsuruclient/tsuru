@@ -18,7 +18,9 @@ exec('npm run build').then((status)=>{
         console.log('skipped something build'.red);
     }
     console.log('"package" succeeeded.\n'.blue);
-    exec_platform();
+    return exec_platform();
+}).then(() => {
+    // ....?
 }).catch((err) => {
     console.error(err);
     console.error('build failed.'.red);
