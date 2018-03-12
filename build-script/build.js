@@ -13,7 +13,7 @@ exec('npm run build').then((status)=>{
     console.log('now executed "package"'.green);
     try{
         execSync('npm run package');
-        console.log('successfully packaging'.blue);
+        console.log('successfully packing'.blue);
     }catch (e){
         console.log('skipped something build'.red);
     }
