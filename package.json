@@ -20,7 +20,7 @@
     "electron": "electron .",
     "dev": "nf start",
     "flow": "flow",
-    "package": "electron-packager . Tsuru --platform=all --icon=./assets/icon --arch=x64 --prune --out=release --overwrite",
+    "package": "electron-packager . Tsuru --platform=all --arch=x64 --prune --out=release --overwrite",
     "release": "node ./build-script/build"
   },
   "devDependencies": {
