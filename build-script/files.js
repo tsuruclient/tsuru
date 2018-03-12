@@ -2,6 +2,12 @@ const platform = require('./platform');
 
 const data = {
     release_directory: './release/',
+    release_dir: {
+        [platform.win32]: 'Tsuru-'+ platform.win32 +'-x64',
+        [platform.darwin]: 'Tsuru-' + platform.darwin+ '-x64',
+        [platform.mas]: 'Tsuru-' + platform.mas + '-x64',
+        [platform.linux]: 'Tsuru-' + platform.linux + '-x64',
+    },
     app_dir: {
         [platform.win32]: 'Tsuru-'+ platform.win32 +'-x64/resources/app',
         [platform.darwin]: 'Tsuru-' + platform.darwin+ '-x64/Tsuru.app/Contents/Resources/app',
