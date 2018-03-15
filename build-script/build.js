@@ -21,6 +21,7 @@ exec('npm run build').then((status)=>{
     return exec_platform();
 }).then(() => {
     console.log("build succeeded!".blue);
+    process.exit(0);
 }).catch((err) => {
     console.error(err);
     console.error('build failed.'.red);
