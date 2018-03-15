@@ -1,6 +1,6 @@
-# Tsuru
-Twitter, GNU Social, Mastodonのアカウントを一つの画面にまとめて表示できるTweetdeck風クライアントです。  
-開発者の資金が枯渇し、労働が必要になったため3月初めまで更新を停止しています。    
+# Tsuru  
+[![Build Status](https://travis-ci.org/tsuruclient/tsuru.svg?branch=dev)](https://travis-ci.org/tsuruclient/tsuru)  
+Twitter, GNU Social, Mastodonのアカウントを一つの画面にまとめて表示できるTweetdeck風クライアントです。   
 ![Tsuru動作画像](./images/ss.png "はい")  
   
 Roadmapや進捗状況は以下から確認できます。
