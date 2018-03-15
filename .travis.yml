@@ -8,19 +8,14 @@ before_install:
     - wget -nc https://dl.winehq.org/wine-builds/Release.key
     - sudo apt-key add Release.key
     - sudo apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
-    - sudo apt-get update
-    - sudo apt-get install --install-recommends winehq-stable
+    - sudo apt update
+    - sudo apt install --install-recommends -y winehq-stable
 install:
-    - "npm install -g create-react-app"
     - "npm install"
-    - "npm install react-scripts"
-script:
-    - npm run release
+before_deploy:
+    - "npm run release"
 branches:
     only:
-        - dev
-        - release/minor
-        - release/major
         - develop/build-script
 notifications:
     email:
