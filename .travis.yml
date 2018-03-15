@@ -1,0 +1,39 @@
+sudo: required
+dist: trusty
+language: node_js
+node_js:
+    - "8"
+cache:
+    directories:
+        - node_modules
+before_install:
+    - sudo dpkg --add-architecture i386
+    - wget -nc https://dl.winehq.org/wine-builds/Release.key
+    - sudo apt-key add Release.key
+    - sudo apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
+    - sudo apt-get update
+    - sudo apt-get install --install-recommends winehq-stable
+install:
+    - npm i
+script:
+    - npm run release
+branches:
+    only:
+        - dev
+        - release/minor
+        - release/major
+        - develop/build-script
+deploy:
+  provider: releases
+  api_key: "XiWFC6B8yzgvT7hMDrodcDdUAGJps3nGmQJZZjZghCuSC5iBccuxp8TaSHylHtdwFiWfbmjkBxDS2UJzMa42zKTbfUu56yi2xgQBgUH6bS6eQ8v8HiTb96dt5cIkGtJbPfftGnWCvniukbvp7M5N8zDGUUeEVZ6T32223LSt6JgaMFX1oErmmeY4LXy/LoHJyUKVW674uyEF/XYt09UTwtSqTc5/Akvw6I1RJIE8X+i65o6DUViY7N+znfSeC86UiSbS07HC8MoBE/KgZnTTpAYHHpiNcXWLK5RepzLcM9RzgS7443VC7FbK47gv8t+XTOMW9Kl6HqM+JnqF7879EkxQ5lMMblb3vvZt2IwYxQEXcBJ+YHrQxeFZez0NbJDtWl17XM2km2FqyVRCtC7Nze6HFBwUDx44xAkl1vu0JVXXDOTPtfC8SRqI/Gp6c4IFfTEz9CEXz9WRbJRPDW4T3r86UrslyP0OzsOYEcFvRKgiZYAd2aE5QDyLvuNHIq7XWpF4e/PYnNK/TQvkKtm+R6jtMvcHcOgYQtlQvVNT/vmfXcMdwTGevWXYfwbh7j/mGe3DtorVWlDJjJEqnLftukWr8N6Q1uPRn+XMOz8CYWy1/cGCtU65926iP2SHC5uLVy6fqexUyFRLTD0plZOtaTwvDcmvRZqZJihKqpZshsI="
+  file:
+    - release/Tsuru-linux-x64.tar.gz
+    - release/Tsuru-win32-x64.zip
+    - release/Tsuru-mas-x64.zip
+    - release/Tsuru-darwin-x64.zip
+  on:
+    tags: false
+  skip_cleanup: true
+notifications:
+    email:
+        thnpt926+travis@gmail.com
