@@ -20,9 +20,9 @@ exec('npm run build').then((status)=>{
     console.log('"package" succeeeded.\n'.blue);
     return exec_platform();
 }).then(() => {
-    // ....?
+    console.log("build succeeded!".blue);
 }).catch((err) => {
     console.error(err);
     console.error('build failed.'.red);
-    throw err;
+    process.exit(1);
 });
