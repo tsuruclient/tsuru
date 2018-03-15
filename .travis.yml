@@ -14,7 +14,7 @@ before_install:
     - sudo apt-get update
     - sudo apt-get install --install-recommends winehq-stable
 install:
-    - npm install
+    - npm install -D
 script:
     - npm run release
 branches:
