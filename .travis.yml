@@ -3,9 +3,6 @@ dist: trusty
 language: node_js
 node_js:
     - "8"
-cache:
-    directories:
-        - node_modules
 before_install:
     - sudo dpkg --add-architecture i386
     - wget -nc https://dl.winehq.org/wine-builds/Release.key
@@ -13,8 +10,6 @@ before_install:
     - sudo apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
     - sudo apt-get update
     - sudo apt-get install --install-recommends winehq-stable
-install:
-    - npm install -D
 script:
     - npm run release
 branches:
