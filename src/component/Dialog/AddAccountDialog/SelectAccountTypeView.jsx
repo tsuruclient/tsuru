@@ -13,7 +13,7 @@ import { DialogActions,
     DialogTitle } from 'material-ui/Dialog';
 import Radio from 'material-ui/Radio';
 
-import instances from '../../../core/constant/instanceList';
+import instances from '../../../core/constant/_instanceList';
 
 const styles = () => ({
     list: {
