@@ -16,17 +16,12 @@ before_deploy:
     - "npm run release"
 deploy:
   provider: releases
-  api_key: "XiWFC6B8yzgvT7hMDrodcDdUAGJps3nGmQJZZjZghCuSC5iBccuxp8TaSHylHtdwFiWfbmjkBxDS2UJzMa42zKTbfUu56yi2xgQBgUH6bS6eQ8v8HiTb96dt5cIkGtJbPfftGnWCvniukbvp7M5N8zDGUUeEVZ6T32223LSt6JgaMFX1oErmmeY4LXy/LoHJyUKVW674uyEF/XYt09UTwtSqTc5/Akvw6I1RJIE8X+i65o6DUViY7N+znfSeC86UiSbS07HC8MoBE/KgZnTTpAYHHpiNcXWLK5RepzLcM9RzgS7443VC7FbK47gv8t+XTOMW9Kl6HqM+JnqF7879EkxQ5lMMblb3vvZt2IwYxQEXcBJ+YHrQxeFZez0NbJDtWl17XM2km2FqyVRCtC7Nze6HFBwUDx44xAkl1vu0JVXXDOTPtfC8SRqI/Gp6c4IFfTEz9CEXz9WRbJRPDW4T3r86UrslyP0OzsOYEcFvRKgiZYAd2aE5QDyLvuNHIq7XWpF4e/PYnNK/TQvkKtm+R6jtMvcHcOgYQtlQvVNT/vmfXcMdwTGevWXYfwbh7j/mGe3DtorVWlDJjJEqnLftukWr8N6Q1uPRn+XMOz8CYWy1/cGCtU65926iP2SHC5uLVy6fqexUyFRLTD0plZOtaTwvDcmvRZqZJihKqpZshsI="
+  api_key: P14z8zIfPqtYIBI0kZVyGN38WF9Zv/Osw8a2YdsmVyQCbVRZ+j6nbxoGTepc8PfjFzh6cu2mMQHnJNPMhx5nxqmvnOBL9PWPuYw+q/ncvgLGrWUCgMY+C3OiDUjHVegUk0n2meOjNlYAvAo7vrdpt5TExnhScxsl3BO7dDWwYba4ixng/EXgLZr0QeHfnaZpuCESm6SRNHA1ocYSdTIx+d9GJ9TY/ZcgQm0fts6oUfkDG707qcOWnfJFKzwuD0yxsNMEmy2JKbxS9cd3odby3tiI3jJpQgbQOD0cpayBDozrvphisDdssIjhLyc/ba3AJ9sUpUtyC+zPpfgJ7I+INJUuBp2o5b3Gczezz0l3Pt49xvfIUKUnDLz70wBjF0O7TDXADzt4ytrcBQ+nj5lKjwSchYcE0Ic3LspZJs0EcBCYFr8zpT0htD0Mkdx5J6Gb4pZCffwEPXy3ZpGEtYAGqR8qNl3bOU74r/mQVBLustuQICBU7rzKLwqpXuYSoNsHCHDh3ZaEY4ZwxIYZRGv5CLTWbLHGslE9zfrirb4gwkfjCh+ByOfRVoSILOuXbwMgXoGjMyT7Y2RuvuhlMz0cXZ6z2IBXu/kX8Q9IMp+qPYkghAKjEGSrVX7zmGYyY8wknXZ4UYlF1cnbuqHWl8jETn8Zk6MRi1NbrKNcdG3BkXw=
   file:
     - release/Tsuru-linux-x64.tar.gz
     - release/Tsuru-win32-x64.zip
     - release/Tsuru-mas-x64.zip
     - release/Tsuru-darwin-x64.zip
-  on:
-    tags: false
-    branches:
-        only:
-            - develop/build-script
   skip_cleanup: true
 notifications:
     email:
