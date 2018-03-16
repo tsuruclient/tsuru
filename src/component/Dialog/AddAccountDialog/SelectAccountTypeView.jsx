@@ -9,8 +9,7 @@ import List, { ListItem,
     ListItemSecondaryAction } from 'material-ui/List';
 import { DialogActions,
     DialogContent,
-    DialogContentText,
-    DialogTitle } from 'material-ui/Dialog';
+    DialogContentText } from 'material-ui/Dialog';
 import Radio from 'material-ui/Radio';
 
 import instances from '../../../core/constant/_instanceList';
@@ -74,6 +73,6 @@ const SelectAccountTypeView = pure((props: Props) => (
             </Button>
         </DialogActions>
     </div>
-))
+));
 
 export default withStyles(styles)(SelectAccountTypeView);

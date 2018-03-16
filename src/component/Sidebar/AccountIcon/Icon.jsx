@@ -13,7 +13,7 @@ const styles = theme => ({
         fontSize: 16,
         padding: "6px 12px"
     },
-    tooltipRight: {
+    tooltipPlacementRight: {
         marginLeft: 12,
     },
     popper: {
@@ -47,7 +47,7 @@ const Icon = pure((props: Props) => (
         disableTriggerFocus={true}
         classes={{
             tooltip: props.classes.tooltip,
-            tooltipRight: props.classes.tooltipRight,
+            tooltipPlacementRight: props.classes.tooltipPlacementRight,
             popper: props.classes.popper }}>
         <ButtonBase
             disableRipple

@@ -18,10 +18,6 @@ type Props = {
 }
 
 class Contents extends React.PureComponent<Props> {
-    constructor(props: Props) {
-        super(props);
-    }
-
     render() {
         const props = this.props;
         return (<div onLoad={props.measure} style={props.style}>

@@ -2,7 +2,6 @@
 
 import { createActions } from 'redux-actions';
 import * as types from '../constant';
-import { REQUEST_SAVE_TIMELINE } from '../constant';
 
 export const generalActions = createActions(
     types.INIT_APP,

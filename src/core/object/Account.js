@@ -1,7 +1,6 @@
 // @flow
 
 import User from '../value/User';
-import Client from '../client/client';
 import copyInstance from '../../helper/copyInstance';
 
 export default class Account {

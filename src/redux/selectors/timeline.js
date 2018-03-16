@@ -1,7 +1,6 @@
 // @flow
 
 import { createSelector } from 'reselect';
-import content from '../../core/difference/content';
 
 const timelineList = (state: Object): Array<any> => (state.timeline);
 const accountList = (state: Object): Array<any> => (state.account);

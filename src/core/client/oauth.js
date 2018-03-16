@@ -7,7 +7,6 @@ import type { Social, KeyObject, TokenObject } from './client';
 const { remote } = window.require('electron');
 const { OAuth } = remote.require('oauth');
 const opn = remote.require('opn');
-const querystring = remote.require('querystring');
 
 export default class client implements Social {
     type: string;

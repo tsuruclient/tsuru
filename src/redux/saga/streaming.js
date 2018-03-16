@@ -2,7 +2,6 @@
 import {take, fork, select, put, call} from 'redux-saga/effects';
 
 import * as Services from '../../core/Services';
-import * as types from '../constant';
 
 import twitterStreamApi from '../api/streaming/twitter_streaming';
 import mastodonStreamApi from '../api/streaming/mastodon_streaming';
@@ -29,6 +28,8 @@ function* streamingProcess(target: Object): any {
                     target.accountIndex,
                 );
                 break;
+            default:
+                throw new Error(target.service + " is not available streaming api");
         }
         while(true){
             const action = yield take(channel);
@@ -57,7 +58,7 @@ export default function* connectStreaming(action: Object): any {
                     token = account.client.token;
                     break;
                 default:
-                    throw 'unsupported service.'
+                    throw new Error(target.service + " is not available streaming api");
             }
             return {
                 url: apidata.url,

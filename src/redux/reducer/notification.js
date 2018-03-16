@@ -1,9 +1,9 @@
 // @flow
 
 import { handleActions } from 'redux-actions';
-import * as types from '../constant';
+//import * as types from '../constant';
 
-const initState = {} // TODO: Notificationどうしましょうか…
+const initState = {}; // TODO: Notificationどうしましょうか…
 
 export default handleActions({
 
