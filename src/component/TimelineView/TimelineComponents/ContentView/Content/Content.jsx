@@ -1,9 +1,8 @@
 // @flow
 import React from 'react'
+import styled from 'styled-components';
 import {pure} from 'recompose';
-import {withStyles} from 'material-ui/styles';
 
-import Icon from '../Parts/Icon';
 import Buttons from '../Parts/Buttons';
 import Divider from 'material-ui/Divider'
 
@@ -13,15 +12,12 @@ import RetweetedItem from './Retweeted';
 import type Content from '../../../../../core/value/Content'
 import {Normal, Reply, Retweeted} from '../../../../../core/value/Content';
 
-const styles = theme => ({
-    root: {
-        wordWrap : 'break-word',
-        overflowWrap: 'break-word',
-    }
-});
+const Section = styled.section`
+        word-wrap : 'break-word';
+        overflow-wrap: 'break-word';
+`;
 
 type Props = {
-    classes: Object,
     style: any,
     measure: Function,
     service: string,
@@ -42,10 +38,10 @@ const selectComponent = (data: Content) => {
         default:
             return (<CommonItem data={data} />);
     }
-}
+};
 
 const NormalContent = pure((props: Props) => (
-    <div className={props.classes.root} style={props.style} onLoad={props.measure}>
+    <Section>
         {selectComponent(props.data)}
         <Buttons
             service={props.service}
@@ -55,7 +51,7 @@ const NormalContent = pure((props: Props) => (
             callApi={props.callApi}
             setReply={props.setReply} />
         <Divider />
-    </div>
+    </Section>
 ));
 
-export default withStyles(styles)(NormalContent);
+export default NormalContent;

@@ -1,23 +1,16 @@
 // @flow
 
 import React from 'react';
+import styled from 'styled-components';
 import {AutoSizer, CellMeasurer, CellMeasurerCache, List} from 'react-virtualized';
-import {onlyUpdateForKeys} from 'recompose';
-import {withStyles} from 'material-ui/styles';
 
-import ContentObject from '../../../../core/value/Content';
+import Contents from './Content/Contents';
 
-import Content from './Content/Content';
-import Event from './Content/Notification';
-
-const styles = theme => ({
-    root: {
-        overflowY: 'auto'
-    }
-});
+const Row = styled.article`
+    height: 100%;
+`;
 
 type Props = {
-    classes: Object,
     timelineIndex: number,
     ownerIndex: number,
     isScrolled: boolean,
@@ -28,24 +21,20 @@ type Props = {
     setScrollPosition: Function,
 };
 
-
-const cache = new CellMeasurerCache({
-    defaultHeight: 120,
-    fixedWidth: true
-});
-
 class ContentList extends React.PureComponent<Props> {
     constructor(props: Props) {
         super(props);
 
         this._cache = new CellMeasurerCache({
             fixedWidth: true,
-            minHeight: 50,
+            defaultHeight: 50,
         });
         this._onScroll = this._onScroll.bind(this);
+        this._rowRenderer = this._rowRenderer.bind(this);
     }
     _cache : any;
     _onScroll: Function;
+    _rowRenderer: Function;
 
     _onScroll({ clientHeight, scrollHeight, scrollTop }) {
         if(scrollTop > 64 && !this.props.isScrolled) {
@@ -56,7 +45,6 @@ class ContentList extends React.PureComponent<Props> {
     }
 
     _rowRenderer({index, key, parent, style}) {
-        const renderTarget = this.props.contents[index];
         const props = this.props;
         return (
             <CellMeasurer
@@ -64,24 +52,18 @@ class ContentList extends React.PureComponent<Props> {
                 key={key}
                 rowIndex={index}
                 parent={parent}>
-                {({measure}) => {
-                    return renderTarget instanceof ContentObject ?
-                        <Content
-                            key={key}
-                            style={style}
-                            measure={measure}
-                            service={props.service}
-                            timelineIndex={props.timelineIndex}
-                            ownerIndex={props.ownerIndex}
-                            data={renderTarget}
-                            callApi={props.callApi}
-                            setReply={props.setReply}/> :
-                        <Event
-                            key={key}
-                            style={style}
-                            measure={measure}
-                            data={renderTarget}/>
-                }}
+                {({measure}) => (
+                    <Contents
+                        key={key}
+                        data={this.props.contents[index]}
+                        style={style}
+                        measure={measure}
+                        service={props.service}
+                        timelineIndex={props.timelineIndex}
+                        ownerIndex={props.ownerIndex}
+                        callApi={props.callApi}
+                        setReply={props.setReply}/>
+                )}
             </CellMeasurer>
 
         )
@@ -89,7 +71,7 @@ class ContentList extends React.PureComponent<Props> {
 
     render() {
         return (
-            <div style={{height: '100%'}}>
+            <Row>
                 <AutoSizer>
                     {({width, height}) => (
                         <List
@@ -98,13 +80,13 @@ class ContentList extends React.PureComponent<Props> {
                             deferredMeasurementCache={this._cache}
                             rowHeight={this._cache.rowHeight}
                             rowCount={this.props.contents.length}
-                            rowRenderer={this._rowRenderer.bind(this)}
+                            rowRenderer={this._rowRenderer}
                             onScroll={this._onScroll}/>
                     )}
                 </AutoSizer>
-            </div>
+            </Row>
         );
     }
 }
 
-export default withStyles(styles)(ContentList);
+export default ContentList;

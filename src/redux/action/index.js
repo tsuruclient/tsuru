@@ -64,6 +64,10 @@ export const dialogActions = createActions(
     types.CREATE_AC_BACK_SECTION,
 );
 
+export const styleActions = createActions(
+    types.APPLY_THEME,
+);
+
 export const devOptionActions = createActions(
     types.SET_DEV_DATA,
 );

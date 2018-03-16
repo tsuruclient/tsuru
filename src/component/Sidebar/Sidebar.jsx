@@ -41,6 +41,7 @@ type Props = {
     logout: Function,
     callApi: Function,
     connectStream: Function,
+    applyTheme: Function,
 };
 
 const openAddTimelineDialog = (openDialog: Function): Function => (
@@ -52,7 +53,7 @@ const openAddAccountDialog = (openDialog: Function): Function => (
 );
 
 const openSettingDialog = (openDialog: Function): Function => (
-    () => console.warn('まだないよ')
+    () => openDialog()
 );
 
 const Sidebar = pure((props: Props) => (
@@ -91,7 +92,7 @@ const Sidebar = pure((props: Props) => (
         </div>
         <IconButton
             aria-label="General Setting"
-            onClick={openSettingDialog(props.openDialog)}>
+            onClick={openSettingDialog(props.applyTheme)}>
             <SettingsIcon/>
         </IconButton>
     </Paper>
