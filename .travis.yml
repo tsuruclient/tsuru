@@ -31,10 +31,6 @@ deploy:
         repo: tsuruclient/tsuru
         branches:
             only:
-            - dev
-            - release/minor
-            - release/major
-            - develop/build-script
-            - /^Release ?[0-9\\.]+/
+                - dev
 notifications:
     email: thnpt926+travis@gmail.com
