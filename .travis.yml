@@ -2,8 +2,8 @@ language: node_js
 node_js:
     - "8"
 cache:
-   directories:
-     - node_modules
+    directories:
+         - node_modules
 before_install:
     - sudo dpkg --add-architecture i386
     - wget -nc https://dl.winehq.org/wine-builds/Release.key
@@ -18,26 +18,23 @@ script:
 before_deploy:
     - npm run release
 deploy:
-  provider: releases
-  skip_cleanup: true
-  api_key:
-    secure: fZOQ8wgmX7mTsPPRnAElvRhtxN59xCByxXhBjp/GWjVI2raFcUvNDoVwRveeUzsSIM962eaHVR50MmiRQZgKEZDcD6iUykUvmN3tpM++gPHe4B9igs3crZ8TsH2wBJYG/zIvLNv0xgdqQS82I83JU30M2skm6aYnSxZWNCr4HxAgeVTiZbYpqhGNLXmKyExoCKTAF55Wiakv/vOp/n3dIi8y9hhc2ea05ZjEJKm7ezzf+C71z8MudzFWygX9SMKIWrhq8FRlaXDii9RluvJ2ampWiB6s3ZuJ8Raki6Ema/m4BObDlkKYUQm5fCCnSBONTsJcmjhtu+Tm6cutwlZ354ngRts7JAfhoY6IWf3iLTpFDpdbcXTZ10WOWjK0U41+K3Ffcc9EZQL5pLfllznG+4Cs04Jh+nUVZ5xu7K5dpoIlFTY1isMawrdebW2VOyHKVD7v08VZwN7lqXbcP7i7oEMOHv57zgzudpuj3wLA5INjnABnm8jxd25iH/9y07OxC5gJtSnq9dBuaQbj/7kvD0d9fzTp0dxRqm0gE95Rsuw7KWcgznwBkUjto9+ebSi9EkQYbo70vKqFrrvXf1rU7tZt02b4dNkqBLRsBT6LrQ/2/ukFyVYHelZAWdHdn6j7w1uOXZXF3/tkxSykzX4fKoAlYhVUMa1bTVelNVi73D4=
-  file:
-      - './release/Tsuru-linux-x64.tar.gz'
-      - './release/Tsuru-win32-x64.zip'
-      - './release/Tsuru-mas-x64.zip'
-      - './release/Tsuru-darwin-x64.zip'
-  on:
-    repo: tsuruclient/tsuru
-    branches:
-      only:
-        - master
-        - dev
-        - release/minor
-        - release/major
-        - develop/build-script
-        - "/^Release ?[0-9\\.]+/"
+    provider: releases
+    skip_cleanup: true
+    api_key:
+        secure: fZOQ8wgmX7mTsPPRnAElvRhtxN59xCByxXhBjp/GWjVI2raFcUvNDoVwRveeUzsSIM962eaHVR50MmiRQZgKEZDcD6iUykUvmN3tpM++gPHe4B9igs3crZ8TsH2wBJYG/zIvLNv0xgdqQS82I83JU30M2skm6aYnSxZWNCr4HxAgeVTiZbYpqhGNLXmKyExoCKTAF55Wiakv/vOp/n3dIi8y9hhc2ea05ZjEJKm7ezzf+C71z8MudzFWygX9SMKIWrhq8FRlaXDii9RluvJ2ampWiB6s3ZuJ8Raki6Ema/m4BObDlkKYUQm5fCCnSBONTsJcmjhtu+Tm6cutwlZ354ngRts7JAfhoY6IWf3iLTpFDpdbcXTZ10WOWjK0U41+K3Ffcc9EZQL5pLfllznG+4Cs04Jh+nUVZ5xu7K5dpoIlFTY1isMawrdebW2VOyHKVD7v08VZwN7lqXbcP7i7oEMOHv57zgzudpuj3wLA5INjnABnm8jxd25iH/9y07OxC5gJtSnq9dBuaQbj/7kvD0d9fzTp0dxRqm0gE95Rsuw7KWcgznwBkUjto9+ebSi9EkQYbo70vKqFrrvXf1rU7tZt02b4dNkqBLRsBT6LrQ/2/ukFyVYHelZAWdHdn6j7w1uOXZXF3/tkxSykzX4fKoAlYhVUMa1bTVelNVi73D4=
+    file:
+    - release/Tsuru-linux-x64.tar.gz
+    - release/Tsuru-win32-x64.zip
+    - release/Tsuru-mas-x64.zip
+    - release/Tsuru-darwin-x64.zip
+    on:
+        repo: tsuruclient/tsuru
+branches:
+    only:
+    - dev
+    - release/minor
+    - release/major
+    - develop/build-script
+    - /^Release ?[0-9\\.]+/
 notifications:
     email: thnpt926+travis@gmail.com
-    on_success: always
-    on_failure: always
