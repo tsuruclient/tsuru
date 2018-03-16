@@ -11,9 +11,10 @@ before_install:
     - sudo apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/
     - sudo apt update
     - sudo apt install --install-recommends -y winehq-stable
-    - nvm ls-remote
 install:
     - npm install
+script:
+    - ''
 before_deploy:
     - npm run release
 deploy:
