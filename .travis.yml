@@ -29,7 +29,14 @@ deploy:
       - './release/Tsuru-darwin-x64.zip'
   on:
     repo: tsuruclient/tsuru
-    branch: develop/build-script
+    branches:
+      only:
+      - master
+      - dev
+      - release/minor
+      - release/major
+      - develop/build-script
+      - "/^R?[0-9\\.]+/"
 notifications:
     email: thnpt926+travis@gmail.com
     on_success: always
