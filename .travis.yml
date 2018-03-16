@@ -12,7 +12,6 @@ before_install:
 install:
     - 'npm install'
 before_deploy:
-    - 'npm run build'
     - 'npm run release'
 deploy:
   provider: releases

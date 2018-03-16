@@ -7,7 +7,7 @@ const exec_platform = require('./exec_platform');
 require('colors');
 
 console.log('Start build...'.green);
-exec('npm run build').then((status)=>{
+exec('CI=false npm run build').then((status)=>{ //TODO: CI=falseはあんまりよろしくない
     console.log(status);
     console.log('"build" succeeded.'.blue);
     console.log('now executed "package"'.green);
