@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import {pure, lifecycle} from 'recompose';
+import {lifecycle} from 'recompose';
 import styled from 'styled-components';
 import {MuiThemeProvider} from 'material-ui/styles';
 

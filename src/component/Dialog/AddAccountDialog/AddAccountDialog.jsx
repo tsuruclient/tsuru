@@ -3,19 +3,14 @@
 import React from 'react';
 import {pure} from 'recompose';
 import {withStyles} from 'material-ui/styles';
-import Dialog, { DialogActions,
-    DialogContent,
-    DialogTitle } from 'material-ui/Dialog';
-import Button from 'material-ui/Button';
-import Typography from 'material-ui/Typography';
-import Divider from 'material-ui/Divider';
+import Dialog from 'material-ui/Dialog';
 
 import {AddAccountDialogName} from '../../../redux/constant/dialogs';
 import SelectAccountTypeView from './SelectAccountTypeView';
 import InputInstanceView from './InputInstanceView';
 import InputPinView from './InputPinView';
 
-const styles = theme => ({
+const styles = () => ({
     root: {
 
     },
@@ -38,11 +33,11 @@ type Props = {
 
 const handleRequestClose = (step: number, closeDialog: Function): Function => (
     () => step !== 2 ? closeDialog({dialogName: AddAccountDialogName}) : null
-)
+);
 
 const handleClose = (closeDialog: Function): Function => (
     () => closeDialog({dialogName: AddAccountDialogName})
-)
+);
 
 const AddAccountDialog = pure((props: Props) => (
     <Dialog

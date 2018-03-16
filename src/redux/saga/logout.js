@@ -6,26 +6,28 @@ import type Timeline from '../../core/object/Timeline';
 
 import {saveAccounts} from '../api/storage';
 
-function* tryDelete(ownerIndex: number, accountIndex: number) {
+/*function* tryDelete(ownerIndex: number, accountIndex: number) {
     if(ownerIndex === accountIndex) {
         yield put({type: types.DELETE_TIMELINE});
     }
-}
+}*/
 
 export default function* logout(action: Object): any {
     try{
         const timelineList = yield select((state: Object): Timeline => state.timeline);
         let deleteTimelineIndexes = timelineList.map((item, index): ?number => (
-            item.ownerIndex === action.payload.accountIndex ? 
+            item.ownerIndex === action.payload.accountIndex ?
                 index : undefined
         ));
         deleteTimelineIndexes.reverse();
         for(let [i, v] of deleteTimelineIndexes.entries()){
             if(v !== undefined){
+
                 yield put({
                     type: types.DELETE_TIMELINE,
                     payload: {
-                        timelineIndex: v
+                        timelineIndex: v,
+                        dummyIndex: i,
                     }
                 });
             }
@@ -45,8 +47,8 @@ export default function* logout(action: Object): any {
             }
         });
 
-        yield call(saveAccounts, yield select((state: Object): Array<Object> => 
-            state.account.map((item: Object): Object => 
+        yield call(saveAccounts, yield select((state: Object): Array<Object> =>
+            state.account.map((item: Object): Object =>
                 item.account
         )));
     } catch (e) {

@@ -7,7 +7,6 @@ import Dialog, { DialogActions,
     DialogContent,
     DialogTitle } from 'material-ui/Dialog';
 import Button from 'material-ui/Button';
-import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
 
 import AccountList from './AccountList';
@@ -15,7 +14,7 @@ import TimelineTypeList from './TimelineTypeList';
 
 import {AddTimelineDialogName} from '../../../redux/constant/dialogs';
 
-const styles = theme => ({
+const styles = (theme) => ({
     root: {
 
     },
@@ -36,7 +35,7 @@ type Props = {
 
 const handleRequestClose = (closeDialog: Function): Function => (
     () => closeDialog({dialogName: AddTimelineDialogName})
-)
+);
 
 const handleAddButtonClicked = (dialogData: Object, addTimeline: Function, closeDialog: Function): Function => (
     () => {

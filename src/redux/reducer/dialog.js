@@ -4,7 +4,7 @@ import { handleActions } from 'redux-actions';
 import * as types from '../constant';
 
 import * as dialogTypes from '../constant/dialogs';
-import timelineTypes, {Home} from '../../core/constant/timelineType';
+import {Home} from '../../core/constant/timelineType';
 
 const AddAccountDialogDefaultState = {
     open: true,

@@ -26,8 +26,7 @@ export default (service: string, dataType: string, data: Array<Object> | Object,
             case dataTypes.directMail:
                 return createAllocatedObject([], [], []);
             default:
-                console.warn('oops. something went wrong.');
-                throw 'allocation error';
+                throw new Error('allocation error');
         }
     case Services.GnuSocial:
         switch (dataType) {
@@ -38,8 +37,7 @@ export default (service: string, dataType: string, data: Array<Object> | Object,
             case dataTypes.directMail:
                 return createAllocatedObject([], [], []);
             default:
-                console.warn('oops. something went wrong.');
-                throw 'allocation error';
+                throw new Error('allocation error');
         }
     case Services.Mastodon:
         switch (dataType) {
@@ -59,11 +57,9 @@ export default (service: string, dataType: string, data: Array<Object> | Object,
             case dataTypes.directMail:
                 return createAllocatedObject([], [], []);
             default:
-                console.warn('oops. something went wrong.');
-                throw 'allocation error';
+                throw new Error('allocation error');
         }
     default:
-        console.warn('oops. something went wrong.');
-        throw 'allocation error';
+        throw new Error('allocation error');
     }
 }

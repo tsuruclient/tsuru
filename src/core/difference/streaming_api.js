@@ -23,6 +23,6 @@ export default (service: string, option: Object): Object => {
                 streamType: option.stream
             }
         default:
-            throw 'unsupported service.';
+            throw new Error('unsupported service.');
     }
 };

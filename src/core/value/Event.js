@@ -51,7 +51,7 @@ export default class Event {
                         this.type = FollowEvent;
                         break;
                     default:
-                        throw 'unsupported event.';
+                        throw new Error('unsupported event.');
 
                 }
             }
@@ -70,6 +70,8 @@ export default class Event {
                 case eventTypes.follow[service]:
                     this.type = FollowEvent;
                     break;
+                default:
+                    throw new Error('unsupported event.');
             }
         }
     }

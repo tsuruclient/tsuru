@@ -2,7 +2,6 @@
 
 import { put, call, select } from 'redux-saga/effects';
 import * as types from '../constant';
-import * as dataTypes from '../../core/constant/dataType';
 import * as requestTypes from '../../core/constant/requestType';
 import alloc from '../../core/alloc/allocation';
 import Content from '../../core/value/Content';
@@ -41,7 +40,7 @@ export function* apiRequest(action: Object): any {
                 yield call(storageApis.saveAccounts, yield select((state: Object): Array<Account> => state.account.map((item: Object): Account =>item.account)));
                 break;
             default:
-                throw '不正なtargetです: ' + apidata.target;
+                throw new Error('不正なtargetです: ' + apidata.target);
             }
             break;
         case 'POST':
@@ -63,11 +62,11 @@ export function* apiRequest(action: Object): any {
                     }});
                     break;
                 default:
-                    throw '不正なtargetです: ' + apidata.target;
+                    throw new Error('不正なtargetです: ' + apidata.target);
             }
             break;
         default:
-            throw 'unknown http method error: '+apidata.method;
+            throw new Error('unknown http method error: '+apidata.method);
         }
     } catch (e) {
         if (typeof(timelineIndex) === 'number') {

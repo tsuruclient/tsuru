@@ -10,7 +10,7 @@ import RepeatIcon from 'material-ui-icons/Repeat';
 
 import MiniContentCard from '../Parts/MiniContentCard';
 
-import {FavoriteEvent, RetweetEvent} from '../../../../../core/value/Event';
+import {FavoriteEvent} from '../../../../../core/value/Event';
 
 const style = theme => ({
     root: {

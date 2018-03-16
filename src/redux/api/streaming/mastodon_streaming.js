@@ -29,6 +29,7 @@ export default (url: string, access_token: string, accountIndex: number) => {
                 isStreaming: false,
                 accountIndex
             }));
+            emit(END);
         };
 
         return () => {};
