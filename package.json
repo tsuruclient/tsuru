@@ -22,11 +22,13 @@
     "dev": "nf start",
     "flow": "flow",
     "package": "electron-packager . Tsuru --platform=all --arch=x64 --prune --out=release --overwrite",
-    "pack-win": "electron-packager . Tsuru --platform=win32 --arch=x64 --prune --out=release --overwrite",
-    "pack-mac": "electron-packager . Tsuru --platform=darwin --arch=x64 --prune --out=release --overwrite"
+    "release": "node ./build-script/build"
   },
   "devDependencies": {
+    "adm-zip": "^0.4.7",
     "asar": "^0.14.3",
+    "colors": "^1.1.2",
+    "del": "^3.0.0",
     "dotenv": "^4.0.0",
     "electron": "^1.8.3",
     "electron-load-devtool": "^1.0.0",
@@ -49,6 +51,7 @@
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.0",
     "reselect": "^3.0.1",
+    "targz": "^1.0.1",
     "styled-components": "^3.2.1",
     "webpack": "^3.11.0"
   }

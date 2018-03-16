@@ -9,7 +9,7 @@ import { DialogActions,
     DialogTitle } from 'material-ui/Dialog';
 import TextField from 'material-ui/TextField';
 
-import instances from '../../../core/constant/instanceList';
+import instances from '../../../core/constant/_instanceList';
 
 const styles = theme => ({
     root: {
