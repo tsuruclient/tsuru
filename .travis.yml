@@ -31,12 +31,12 @@ deploy:
     repo: tsuruclient/tsuru
     branches:
       only:
-      - master
-      - dev
-      - release/minor
-      - release/major
-      - develop/build-script
-      - "/^Release ?[0-9\\.]+/"
+        - 'master'
+        - 'dev'
+        - 'release/minor'
+        - 'release/major'
+        - 'develop/build-script'
+        - "/^Release ?[0-9\\.]+/"
 notifications:
     email: thnpt926+travis@gmail.com
     on_success: always
