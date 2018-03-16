@@ -36,7 +36,7 @@ deploy:
       - release/minor
       - release/major
       - develop/build-script
-      - "/^R?[0-9\\.]+/"
+      - "/^Release ?[0-9\\.]+/"
 notifications:
     email: thnpt926+travis@gmail.com
     on_success: always
