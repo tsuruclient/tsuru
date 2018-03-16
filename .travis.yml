@@ -11,18 +11,27 @@ before_install:
     - sudo apt update
     - sudo apt install --install-recommends -y winehq-stable
 install:
-    - "npm install"
+    - 'npm install'
 before_deploy:
-    - "npm run release"
+    - 'npm run release'
 deploy:
   provider: releases
-  api_key: P14z8zIfPqtYIBI0kZVyGN38WF9Zv/Osw8a2YdsmVyQCbVRZ+j6nbxoGTepc8PfjFzh6cu2mMQHnJNPMhx5nxqmvnOBL9PWPuYw+q/ncvgLGrWUCgMY+C3OiDUjHVegUk0n2meOjNlYAvAo7vrdpt5TExnhScxsl3BO7dDWwYba4ixng/EXgLZr0QeHfnaZpuCESm6SRNHA1ocYSdTIx+d9GJ9TY/ZcgQm0fts6oUfkDG707qcOWnfJFKzwuD0yxsNMEmy2JKbxS9cd3odby3tiI3jJpQgbQOD0cpayBDozrvphisDdssIjhLyc/ba3AJ9sUpUtyC+zPpfgJ7I+INJUuBp2o5b3Gczezz0l3Pt49xvfIUKUnDLz70wBjF0O7TDXADzt4ytrcBQ+nj5lKjwSchYcE0Ic3LspZJs0EcBCYFr8zpT0htD0Mkdx5J6Gb4pZCffwEPXy3ZpGEtYAGqR8qNl3bOU74r/mQVBLustuQICBU7rzKLwqpXuYSoNsHCHDh3ZaEY4ZwxIYZRGv5CLTWbLHGslE9zfrirb4gwkfjCh+ByOfRVoSILOuXbwMgXoGjMyT7Y2RuvuhlMz0cXZ6z2IBXu/kX8Q9IMp+qPYkghAKjEGSrVX7zmGYyY8wknXZ4UYlF1cnbuqHWl8jETn8Zk6MRi1NbrKNcdG3BkXw=
   file:
     - release/Tsuru-linux-x64.tar.gz
     - release/Tsuru-win32-x64.zip
     - release/Tsuru-mas-x64.zip
     - release/Tsuru-darwin-x64.zip
   skip_cleanup: true
+  api_key:
+    secure: fZOQ8wgmX7mTsPPRnAElvRhtxN59xCByxXhBjp/GWjVI2raFcUvNDoVwRveeUzsSIM962eaHVR50MmiRQZgKEZDcD6iUykUvmN3tpM++gPHe4B9igs3crZ8TsH2wBJYG/zIvLNv0xgdqQS82I83JU30M2skm6aYnSxZWNCr4HxAgeVTiZbYpqhGNLXmKyExoCKTAF55Wiakv/vOp/n3dIi8y9hhc2ea05ZjEJKm7ezzf+C71z8MudzFWygX9SMKIWrhq8FRlaXDii9RluvJ2ampWiB6s3ZuJ8Raki6Ema/m4BObDlkKYUQm5fCCnSBONTsJcmjhtu+Tm6cutwlZ354ngRts7JAfhoY6IWf3iLTpFDpdbcXTZ10WOWjK0U41+K3Ffcc9EZQL5pLfllznG+4Cs04Jh+nUVZ5xu7K5dpoIlFTY1isMawrdebW2VOyHKVD7v08VZwN7lqXbcP7i7oEMOHv57zgzudpuj3wLA5INjnABnm8jxd25iH/9y07OxC5gJtSnq9dBuaQbj/7kvD0d9fzTp0dxRqm0gE95Rsuw7KWcgznwBkUjto9+ebSi9EkQYbo70vKqFrrvXf1rU7tZt02b4dNkqBLRsBT6LrQ/2/ukFyVYHelZAWdHdn6j7w1uOXZXF3/tkxSykzX4fKoAlYhVUMa1bTVelNVi73D4=
+  file:
+      - 'release/Tsuru-linux-x64.tar.gz'
+      - 'release/Tsuru-win32-x64.zip'
+      - 'release/Tsuru-mas-x64.zip'
+      - 'release/Tsuru-darwin-x64.zip'
+  on:
+    repo: tsuruclient/tsuru
+    branch: develop/build-script
 notifications:
     email:
         thnpt926+travis@gmail.com
