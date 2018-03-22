@@ -2,7 +2,7 @@
 
 import { put, call, select } from 'redux-saga/effects';
 import * as types from '../constant';
-import type Timeline from '../../core/object/Timeline';
+import type Timeline from '../../core/view/object/Timeline';
 
 import {saveAccounts} from '../api/storage';
 

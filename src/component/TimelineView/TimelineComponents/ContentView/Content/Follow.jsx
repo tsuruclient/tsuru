@@ -8,7 +8,7 @@ import Typography from 'material-ui/Typography';
 import PersonAddIcon from 'material-ui-icons/PersonAdd';
 
 import MiniAccountCard from '../Parts/MiniAccountCard';
-import type User from '../../../../../core/value/User';
+import type User from '../../../../../core/view/value/User';
 
 const style = theme => ({
     root: {

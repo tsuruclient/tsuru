@@ -1,7 +1,7 @@
 // @flow
-import type {allocatedObject} from "../alloc/allocation";
+import type {allocatedObject} from "../../alloc/allocation";
 
-import copyInstance from '../../helper/copyInstance';
+import copyInstance from '../../../helper/copyInstance';
 import Content, {Retweeted} from '../value/Content';
 
 export default class Record {

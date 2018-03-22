@@ -1,9 +1,9 @@
 // @flow
 
-import {Twitter} from '../Services';
-import noticeAttr from '../difference/notice';
-import contentAttr from '../difference/content';
-import eventTypes from '../difference/eventType';
+import {Twitter} from '../../Services';
+import noticeAttr from '../../difference/notice';
+import contentAttr from '../../difference/content';
+import eventTypes from '../../difference/eventType';
 import User from './User';
 import Content from './Content';
 

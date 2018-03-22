@@ -8,7 +8,7 @@ import Typography from 'material-ui/Typography';
 import Icon from '../Parts/Icon';
 import RepeatIcon from 'material-ui-icons/Repeat';
 
-import type Content from '../../../../../core/value/Content'
+import type Content from '../../../../../core/view/value/Content'
 
 const style = (theme: Object): Object => ({
     root: {

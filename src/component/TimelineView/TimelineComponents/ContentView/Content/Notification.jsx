@@ -6,7 +6,7 @@ import Divider from 'material-ui/Divider'
 import Event, {
     FavoriteEvent,
     RetweetEvent,
-    FollowEvent} from '../../../../../core/value/Event';
+    FollowEvent} from '../../../../../core/view/value/Event';
 
 import FavRtContent from './FavRt';
 import FollowContent from './Follow';

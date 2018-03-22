@@ -6,7 +6,7 @@ import Typography from 'material-ui/Typography';
 
 import Icon from '../Parts/Icon';
 
-import type Content from '../../../../../core/value/Content'
+import type Content from '../../../../../core/view/value/Content'
 
 const styles = theme => ({
     root: {

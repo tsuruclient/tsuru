@@ -4,8 +4,8 @@ import { handleActions } from 'redux-actions';
 import scanner from '../../helper/scanner';
 import * as types from '../constant';
 
-import Account from '../../core/object/Account';
-import Record from '../../core/object/Record';
+import Account from '../../core/view/object/Account';
+import Record from '../../core/view/object/Record';
 
 type AccountItemType = {
     account: Account,

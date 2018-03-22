@@ -9,8 +9,8 @@ import Divider from 'material-ui/Divider'
 import CommonItem from './Common';
 import RetweetedItem from './Retweeted';
 
-import type Content from '../../../../../core/value/Content'
-import {Normal, Reply, Retweeted} from '../../../../../core/value/Content';
+import type Content from '../../../../../core/view/value/Content'
+import {Normal, Reply, Retweeted} from '../../../../../core/view/value/Content';
 
 const Section = styled.section`
         word-wrap : 'break-word';

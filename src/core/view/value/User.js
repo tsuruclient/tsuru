@@ -1,6 +1,6 @@
 // @flow
 
-import Account from '../difference/account';
+import Account from '../../difference/account';
 
 export default class user {
     instance: ?string;
@@ -26,10 +26,10 @@ export default class user {
             this.displayName = data[Account.displayName[service]];
             this.screenName = data[Account.screenName[service]];
             this.id = data[Account.id[service]];
-    
+
             this.avatar = data[Account.icon[service]];
             this.header = data[Account.header[service]];
-            
+
             this.isLocked = data[Account.protected[service]];
         }
     }

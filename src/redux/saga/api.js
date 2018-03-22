@@ -4,9 +4,9 @@ import { put, call, select } from 'redux-saga/effects';
 import * as types from '../constant';
 import * as requestTypes from '../../core/constant/requestType';
 import alloc from '../../core/alloc/allocation';
-import Content from '../../core/value/Content';
+import Content from '../../core/view/value/Content';
 import * as storageApis from '../api/storage';
-import type Account from "../../core/object/Account";
+import type Account from "../../core/view/object/Account";
 
 export function* apiRequest(action: Object): any {
     const { accountIndex, timelineIndex, apidata, payload } = action.payload;
