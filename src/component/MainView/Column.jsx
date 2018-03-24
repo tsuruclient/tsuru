@@ -4,9 +4,9 @@ import {pure} from 'recompose';
 import styled from 'styled-components';
 import Paper from 'material-ui/Paper';
 
-import InfoBar from './TimelineComponents/Toolbar/InfoBar';
-import ContentForm from './TimelineComponents/ContentForm/ContentForm';
-import ContentList from './TimelineComponents/ContentView/ContentList';
+import InfoBar from './Timeline/Toolbar/InfoBar';
+import ContentForm from './Timeline/ContentForm/ContentForm';
+import ContentList from './Timeline/ContentView/ContentList';
 
 const Body = styled(Paper)`
     margin: 3px;

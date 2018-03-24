@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import * as selectors from '../redux/selectors/timeline';
 import { timelineActions, apiActions, contentActions } from '../redux/action';
-import TimelineView from '../component/TimelineView/MainView';
+import MainView from '../component/MainView/MainView';
 
 const mapStateToProps = (state: Object): Object => ({
     timelines: state.timeline,
@@ -25,4 +25,4 @@ const mapDispatchToProps = (dispatch: Function): Object => ({
     setScrollPosition: bindActionCreators(timelineActions.setScrollStatus, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(TimelineView);
+export default connect(mapStateToProps, mapDispatchToProps)(MainView);

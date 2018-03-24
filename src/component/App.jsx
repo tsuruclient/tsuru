@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import {MuiThemeProvider} from 'material-ui/styles';
 
 import Sidebar from '../container/Sidebar';
-import TimelineView from '../container/MainView';
+import MainView from '../container/MainView';
 import Dialog from '../container/Dialog';
 
 type Props = {
@@ -26,7 +26,7 @@ const App = (props: Props) => (
     <MuiThemeProvider theme={props.theme}>
         <Main theme={props.theme}>
             <Sidebar />
-            <TimelineView />
+            <MainView />
         </Main>
         <Dialog />
     </MuiThemeProvider>
