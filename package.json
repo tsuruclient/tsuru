@@ -20,7 +20,7 @@
     "test": "react-scripts test --env=jsdom",
     "electron": "electron .",
     "dev": "nf start",
-    "flow": "flow",
+    "flow": "flow --show-all-errors",
     "package": "electron-packager . Tsuru --platform=all --arch=x64 --prune --out=release --overwrite",
     "release": "node ./build-script/build"
   },
@@ -34,6 +34,7 @@
     "electron-load-devtool": "^1.0.0",
     "electron-packager": "^10.1.2",
     "flow-bin": "^0.61.0",
+    "flow-typed": "^2.4.0",
     "foreman": "^2.0.0",
     "material-ui": "^1.0.0-beta.36",
     "material-ui-icons": "^1.0.0-beta.36",
@@ -51,8 +52,8 @@
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.0",
     "reselect": "^3.0.1",
-    "targz": "^1.0.1",
     "styled-components": "^3.2.1",
+    "targz": "^1.0.1",
     "webpack": "^3.11.0"
   }
 }
