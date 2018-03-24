@@ -1,25 +1,23 @@
 
 import React from 'react';
 import {pure} from 'recompose';
-import {withStyles} from 'material-ui/styles';
+import styled from 'styled-components';
 import Paper from 'material-ui/Paper';
 
 import InfoBar from './TimelineComponents/Toolbar/InfoBar';
 import ContentForm from './TimelineComponents/ContentForm/ContentForm';
 import ContentList from './TimelineComponents/ContentView/ContentList';
 
-const styles = theme => ({
-    root: {
-        margin: 3,
-        width: 320,
-        minWidth: 320,
-        maxWidth: 320,
-        height: "calc(100% - 6px)",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: 'flex-start',
-    }
-})
+const Body = styled(Paper)`
+    margin: 3px;
+    width: 320px;
+    maxWidth: 320px;
+    minWidth: 320px;
+    height: calc(100% - 6px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+`;
 
 type Props = {
     classes: Object,
@@ -38,8 +36,8 @@ type Props = {
     setScrollPosition: Function,
 };
 
-const Timeline = pure((props: Props) => (
-    <Paper className={props.classes.root}>
+const Column = (props: Props) => (
+    <Body>
         <InfoBar
             timelineIndex={props.timelineIndex}
             timeline={props.timeline}
@@ -70,7 +68,7 @@ const Timeline = pure((props: Props) => (
             setReply={props.setReply}
             contents={props.contents}
             setScrollPosition={props.setScrollPosition}/>
-    </Paper>
-));
+    </Body>
+);
 
-export default withStyles(styles)(Timeline);
+export default pure(Column);
