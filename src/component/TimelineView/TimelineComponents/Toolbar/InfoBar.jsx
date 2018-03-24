@@ -2,19 +2,14 @@
 
 import React from 'react'
 import {pure} from 'recompose';
-import {withStyles} from 'material-ui/styles';
 import Toolbar from 'material-ui/Toolbar';
 
 import Title from './Title';
 import TimelineMenu from './TimelineMenu';
 import ProgressBar from './ProgressBar';
 
-const styles = theme => ({
-
-});
 
 type Props = {
-    classes: Object,
     timelineIndex: number,
     timeline: Object,
     ownerInfo: Object,
@@ -27,7 +22,7 @@ type Props = {
     deleteTimeline: Function,
 };
 
-const InfoBar = pure((props: Props) => (
+const InfoBar = (props: Props) => (
     <div>
         <Toolbar>
             <div style={{marginRight: 'auto'}}>
@@ -51,6 +46,6 @@ const InfoBar = pure((props: Props) => (
         </Toolbar>
         <ProgressBar inProgressCount={props.timeline.inProgressCount} inStreaming={props.isStreaming} />
     </div>
-));
+);
 
-export default withStyles(styles)(InfoBar);
+export default pure(InfoBar);

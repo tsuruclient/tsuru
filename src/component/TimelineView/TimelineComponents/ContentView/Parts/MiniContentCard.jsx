@@ -1,37 +1,36 @@
 // @flow
 
 import React from 'react';
-import { withStyles } from 'material-ui/styles';
+import { pure } from 'recompose';
+import styled from 'styled-components';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Avatar from 'material-ui/Avatar';
 
+const Root = styled(Paper)`
+    width: 260px;
+    maxHeight: 60px;
+    margin: 4px;
+    display: flex;
+    overflow: hidden;
+`;
+
+const AvatarIcon = styled(Avatar)`
+    margin: 6px;
+    width: 32px;
+    height: 32px;
+`;
+
 type Props = {
-    classes: Object,
     avatar: Object,
     content: string,
-}
-
-const styles = theme => ({
-    root: {
-        width: '260px',
-        maxHeight: '60px',
-        margin: '4px',
-        display: 'flex',
-        overflow: 'hidden'
-    },
-    avatar: {
-        margin: '6px',
-        width: '32px',
-        height: '32px',
-    }
-});
+};
 
 const MiniContentCard = (props: Props) => (
-    <Paper className={props.classes.root}>
-        <Avatar className={props.classes.avatar} src={props.avatar} />
+    <Root>
+        <AvatarIcon src={props.avatar} />
         <Typography variant="body1">{props.content}</Typography>
-    </Paper>
-)
+    </Root>
+);
 
-export default withStyles(styles)(MiniContentCard);
+export default pure(MiniContentCard);

@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import {pure} from 'recompose';
+import styled from 'styled-components';
 import {withStyles} from 'material-ui/styles';
 import IconButton from 'material-ui/IconButton';
 
@@ -10,17 +11,19 @@ import RepeatIcon from 'material-ui-icons/Repeat';
 
 import * as apis from '../../../../../core/difference/api';
 
+const Root = styled.div`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2px 0px;
+`;
+
+const Button = styled(IconButton)`
+    width: 20px;
+    height: 20px;
+`;
+
 const styles = {
-    root: {
-        display: 'flex',
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        padding: '2px 0px',
-    },
-    button: {
-        width: 20,
-        height: 20,
-    },
     icon: {
         width: 18,
         height: 18,
@@ -69,34 +72,31 @@ const rtChecked = (isRetweeted: boolean) => ({
     fill: isRetweeted ? '#4EBD67' : '#7D7D7D',
 });
 
-const Buttons = pure((props: Props) => (
-    <div className={props.classes.root}>
-        <IconButton
-            className={props.classes.button}
+const Buttons = (props: Props) => (
+    <Root>
+        <Button
             aria-label="Reply"
             disableRipple={true}
             onClick={setReply(props.timelineIndex, props.data, props.setReply)}>
             <ReplyIcon className={props.classes.icon}/>
-        </IconButton>
-        <IconButton
-            className={props.classes.button}
+        </Button>
+        <Button
             aria-label="RT"
             disableRipple={true}
             onClick={handleRTButtonClicked(props.service, props.data, props.ownerIndex, props.callApi)}>
             <RepeatIcon
                 className={props.classes.icon}
                 style={rtChecked(props.data.retweeted)}/>
-        </IconButton>
-        <IconButton
-            className={props.classes.button}
+        </Button>
+        <Button
             aria-label="Fav"
             disableRipple={true}
             onClick={handleFavButtonClicked(props.service, props.data, props.ownerIndex, props.callApi)}>
             <FavoriteIcon
                 className={props.classes.icon}
                 style={favChecked(props.data.favorited)}/>
-        </IconButton>
-    </div>
-));
+        </Button>
+    </Root>
+);
 
-export default withStyles(styles)(Buttons);
+export default pure(withStyles(styles)(Buttons));

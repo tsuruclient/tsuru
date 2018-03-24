@@ -2,6 +2,7 @@
 
 import React from 'react'
 import {pure} from 'recompose';
+import styled from 'styled-components';
 import { withStyles } from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 
@@ -10,22 +11,24 @@ import RepeatIcon from 'material-ui-icons/Repeat';
 
 import type Content from '../../../../../core/view/value/Content'
 
+const Styled = {
+    Root: styled.div``,
+    Header: styled.div`
+        display: flex;
+        margin: 2px 0px 0px 48px;
+    `,
+    Body: styled.div`
+        padding: 5px;
+        padding-left: 53px;
+    `,
+};
+
 const style = (theme: Object): Object => ({
-    root: {
-    },
-    header: {
-        display: 'flex',
-        margin: '2px 0px 0px 48px',
-    },
     repeatIcon: {
         width: '20px',
         height: '20px',
         fill: '#4EBD67',
         margin: '0px 4px'
-    },
-    body: {
-        padding: 5,
-        paddingLeft: 53,
     }
 });
 
@@ -34,18 +37,18 @@ type Props = {
     data: Content,
 };
 
-const Retweeted = pure((props: Props) => (
-    <div className={props.classes.root}>
-        <span className={props.classes.header}>
+const Retweeted = (props: Props) => (
+    <Styled.Root >
+        <Styled.Header>
             <RepeatIcon className={props.classes.repeatIcon} />
             <Typography variant="body1">{props.data.user.screenName + ' retweeted'}</Typography>
-        </span>
-        <div className={props.classes.body}>
+        </Styled.Header>
+        <Styled.Body>
             <Icon src={props.data.target.user.avatar}/>
             <Typography variant="caption">{props.data.target.user.displayName + "@"+ props.data.target.user.screenName}</Typography>
             <Typography variant="body1">{props.data.target.content}</Typography>
-        </div>
-    </div>
-));
+        </Styled.Body>
+    </Styled.Root>
+);
 
-export default withStyles(style)(Retweeted);
+export default pure(withStyles(style)(Retweeted));

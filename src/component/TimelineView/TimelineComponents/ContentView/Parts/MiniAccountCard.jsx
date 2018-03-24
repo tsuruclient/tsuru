@@ -1,63 +1,59 @@
 // @flow
 import React from 'react';
 import {pure} from 'recompose';
-import { withStyles } from 'material-ui/styles';
+import styled from 'styled-components';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Avatar from 'material-ui/Avatar';
 
-const styles = theme => ({
-    root: {
-        width: '260px',
-        height: '100px',
-        position: 'relative',
-        margin: '4px'
-    },
-    info: {
-        width: '100%',
-        position: 'absolute',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        marginTop: '10px',
-    },
-    text: {
-        background: 'rgba(255, 255, 255, 0.7)',
-        minWidth: '80px',
-        padding: '4px',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center'
-    }
-});
+const Root = styled(Paper)`
+    width: 260px;
+    height: 100px;
+    position: relative;
+    margin: 4px;
+`;
 
-const imageStyle = (header: string): any => (
-    {
-        background: 'url(' + header + ')',
-        backgroundSize: 'cover',
-        width: '100%',
-        height: '100px',
-        position: 'absolute',
-    }
-)
+const Header = styled.div`
+    background-image: ${props => 'url(' + props.src + ')'};
+    background-size: cover;
+    width: 100%;
+    height: 100px;
+    position: absolute;
+`;
+
+const Info = styled.div`
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+`;
+
+const Text = styled.div`
+    background-color: rgba(255, 255, 255, 0.7);
+    minWidth: 80px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
 
 type Props = {
-    classes: Object,
     user: Object,
 }
 
-const miniAccountInfo = pure((props: Props) => (
-        <Paper className={props.classes.root}>
-            <div style={imageStyle(props.user.header)} />
-            <div className={props.classes.info}>
-                <Avatar className={props.classes.avatar} src={props.user.avatar} />
-                <div className={props.classes.text}>
-                    <Typography variant={"body1"}>{props.user.displayName}</Typography>
-                    <Typography variant={'caption'}>{props.user.screenName}</Typography>
-                </div>
-            </div>
-        </Paper>
-    )
+const miniAccountInfo = (props: Props) => (
+    <Root>
+        <Header src={props.user.header} />
+        <Info>
+            <Avatar src={props.user.avatar} />
+            <Text>
+                <Typography variant={"body1"}>{props.user.displayName}</Typography>
+                <Typography variant={'caption'}>{props.user.screenName}</Typography>
+            </Text>
+        </Info>
+    </Root>
 );
 
-export default withStyles(styles)(miniAccountInfo);
+export default pure(miniAccountInfo);

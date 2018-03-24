@@ -15,24 +15,22 @@ type Props = {
 };
 
 const Main = styled.div`
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-        flex-direction: row;
-        background-color: ${props => props.theme.palette.background.default};
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    background-color: ${props => props.theme.palette.background.default};
 `;
 
-const App = (props: Props) => {
-    return (
-        <MuiThemeProvider theme={props.theme}>
-            <Main theme={props.theme}>
-                <Sidebar />
-                <TimelineView />
-            </Main>
-            <Dialog />
-        </MuiThemeProvider>
-    )
-};
+const App = (props: Props) => (
+    <MuiThemeProvider theme={props.theme}>
+        <Main theme={props.theme}>
+            <Sidebar />
+            <TimelineView />
+        </Main>
+        <Dialog />
+    </MuiThemeProvider>
+);
 
 const AppComponent = lifecycle({
     componentWillMount(){

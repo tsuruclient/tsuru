@@ -13,8 +13,8 @@ import type Content from '../../../../../core/view/value/Content'
 import {Normal, Reply, Retweeted} from '../../../../../core/view/value/Content';
 
 const Section = styled.section`
-        word-wrap : 'break-word';
-        overflow-wrap: 'break-word';
+    word-wrap : 'break-word';
+    overflow-wrap: 'break-word';
 `;
 
 type Props = {
@@ -40,7 +40,7 @@ const selectComponent = (data: Content) => {
     }
 };
 
-const NormalContent = pure((props: Props) => (
+const NormalContent = (props: Props) => (
     <Section>
         {selectComponent(props.data)}
         <Buttons
@@ -52,6 +52,6 @@ const NormalContent = pure((props: Props) => (
             setReply={props.setReply} />
         <Divider />
     </Section>
-));
+);
 
-export default NormalContent;
+export default pure(NormalContent);

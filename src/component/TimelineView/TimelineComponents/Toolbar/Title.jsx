@@ -2,23 +2,20 @@
 
 import React from 'react'
 import {pure} from 'recompose'
-import {withStyles} from 'material-ui/styles';
+import styled from 'styled-components';
 import Typography from 'material-ui/Typography';
 
-const styles = theme => ({
-    root: {
-        userSelect: 'none',
-    }
-});
+const Root = styled.div`
+    user-select: none;
+`;
 
 type Props = {
-    classes: Object,
     timelineName: string,
     ownerInfo: Object,
 };
 
-const Title = pure((props: Props) => (
-    <div className={props.classes.root}>
+const Title = (props: Props) => (
+    <Root>
         <Typography variant="headline" style={{marginBottom: "-8px"}}>
             {props.timelineName}
         </Typography>
@@ -26,7 +23,7 @@ const Title = pure((props: Props) => (
         <Typography variant="caption" style={{marginTop: "-8px"}}>
             {props.ownerInfo.screenName + '@' + props.ownerInfo.domain}
         </Typography>
-    </div>
-));
+    </Root>
+);
 
-export default withStyles(styles)(Title);
+export default pure(Title);

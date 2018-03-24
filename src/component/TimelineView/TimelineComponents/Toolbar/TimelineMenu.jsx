@@ -2,7 +2,7 @@
 
 import React from 'react'
 import {pure} from 'recompose';
-import {withStyles} from 'material-ui/styles';
+import styled from 'styled-components';
 import IconButton from 'material-ui/IconButton';
 import Menu, { MenuItem } from 'material-ui/Menu';
 import Divider from 'material-ui/Divider';
@@ -10,14 +10,13 @@ import MenuIcon from 'material-ui-icons/Menu';
 
 import timelineTypes from '../../../../core/constant/timelineType';
 
-const styles = theme => ({
-    divider: {
-        margin: '12px 0px',
-    },
-});
+const Styled = {
+    Divider: styled(Divider)`
+        margin: 12px 0px;
+    `
+};
 
 type Props = {
-    classes: Object,
     timeline: Object,
     timelineIndex: number,
     services: string,
@@ -53,7 +52,7 @@ const handleDeleteTimeline = (timelineIndex: number, deleteTimeline: Function) =
     deleteTimeline({timelineIndex})
 );
 
-const TimelineMenu = pure((props: Props) => (
+const TimelineMenu = (props: Props) => (
     <div>
         <IconButton onClick={handleOpenMenuClicked(props.timelineIndex, props.open, props.setTimelineMenu)}>
             <MenuIcon/>
@@ -65,10 +64,10 @@ const TimelineMenu = pure((props: Props) => (
             onClose={handleRequestClose(props.timelineIndex, props.setTimelineMenu)} >
                 <MenuItem onClick={callApi(props)} disabled={props.isStreaming}>{props.isStreaming ? 'Now Streaming...' : 'Update'}</MenuItem>
                 <MenuItem disabled={true}>{'Timeline Option'}</MenuItem>
-                <Divider className={props.classes.divider} />
+                <Styled.Divider />
                 <MenuItem onClick={handleDeleteTimeline(props.timelineIndex, props.deleteTimeline)}>{'Delete Timeline'}</MenuItem>
         </Menu>
     </div>
-));
+);
 
-export default withStyles(styles)(TimelineMenu);
+export default pure(TimelineMenu);

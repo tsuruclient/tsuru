@@ -8,7 +8,7 @@ import Event, {
     RetweetEvent,
     FollowEvent} from '../../../../../core/view/value/Event';
 
-import FavRtContent from './FavRt';
+import FavRtContent from './Reaction';
 import FollowContent from './Follow';
 
 type Props = {

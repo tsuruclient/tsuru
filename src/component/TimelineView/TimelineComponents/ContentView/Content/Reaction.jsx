@@ -1,6 +1,7 @@
 // @flow
 import React from 'react'
 import {pure} from 'recompose';
+import styled from 'styled-components';
 import {withStyles} from 'material-ui/styles';
 import Typography from 'material-ui/Typography';
 import Avatar from 'material-ui/Avatar';
@@ -12,19 +13,28 @@ import MiniContentCard from '../Parts/MiniContentCard';
 
 import {FavoriteEvent} from '../../../../../core/view/value/Event';
 
+const Styled = {
+    Root: styled.div`
+        padding: 2px 5px;
+    `,
+    Info: styled.div`
+        display: flex;
+        margin: 4px 0px;
+    `,
+    Card: styled.div`
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    `,
+    Avatar: styled(Avatar)`
+        width: 20px !important;
+        height: 20px !important;
+        margin: 0px 4px;
+    `
+};
+
 const style = theme => ({
-    root: {
-        padding: '2px 5px',
-    },
-    info: {
-        display: 'flex',
-        margin: '4px 0px'
-    },
-    avatar: {
-        width: '20px',
-        height: '20px',
-        margin: '0px 4px',
-    },
     starIcon: {
         width: '20px',
         height: '20px',
@@ -37,12 +47,6 @@ const style = theme => ({
         fill: '#4EBD67',
         margin: '0px 4px'
     },
-    card: {
-        width: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center'
-    }
 });
 
 type Props = {
@@ -52,27 +56,27 @@ type Props = {
 
 const eventIcon = (type: string, likeclass: Object, rtclass: Object) => {
     return type === FavoriteEvent ? (<StarIcon className={likeclass} />) : (<RepeatIcon className={rtclass} />)
-}
+};
 
 const eventContent = (type: string) => {
     return type === FavoriteEvent ? ' liked ' : ' retweeted ';
-}
+};
 
-const FavRtContent = pure((props: Props) => (
-    <div className={props.classes.root}>
-        <div className={props.classes.info}>
+const ReactionContent = (props: Props) => (
+    <Styled.Root>
+        <Styled.Info>
             {eventIcon(props.data.type, props.classes.starIcon, props.classes.repeatIcon)}
-            <Avatar className={props.classes.avatar} src={props.data.sourceUser.avatar} />
+            <Styled.Avatar src={props.data.sourceUser.avatar} />
             <Typography variant="body1">
                 {props.data.sourceUser.displayName + eventContent(props.data.type) + 'your tweet'}
             </Typography>
-        </div>
-        <div className={props.classes.card}>
+        </Styled.Info>
+        <Styled.Card>
             <MiniContentCard
                 avatar={props.data.target.user.avatar}
                 content={props.data.target.content} />
-        </div>
-    </div>
-));
+        </Styled.Card>
+    </Styled.Root>
+);
 
-export default withStyles(style)(FavRtContent);
+export default pure(withStyles(style)(ReactionContent));

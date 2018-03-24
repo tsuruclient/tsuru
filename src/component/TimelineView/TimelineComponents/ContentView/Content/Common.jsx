@@ -1,34 +1,29 @@
 // @flow
 import React from 'react'
 import {pure} from 'recompose';
-import {withStyles} from 'material-ui/styles';
+import styled from 'styled-components';
 import Typography from 'material-ui/Typography';
 
 import Icon from '../Parts/Icon';
 
 import type Content from '../../../../../core/view/value/Content'
 
-const styles = theme => ({
-    root: {
-        paddingBottom: '4px',
-    },
-    body: {
-        padding: 5,
-        paddingLeft: 53,
-    },
-});
+const Body = styled.div`
+    padding: 5px;
+    padding-left: 53px;
+    padding-bottom: 4px;
+`;
 
 type Props = {
-    classes: Object,
     data: Content,
 };
 
-const Common = pure((props: Props) => (
-    <div className={props.classes.body}>
+const Common = (props: Props) => (
+    <Body>
         <Icon src={props.data.user.avatar}/>
         <Typography variant="caption">{props.data.user.displayName + "@"+ props.data.user.screenName}</Typography>
         <Typography variant="body1">{props.data.content}</Typography>
-    </div>
-));
+    </Body>
+);
 
-export default withStyles(styles)(Common);
+export default pure(Common);
