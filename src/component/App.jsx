@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import {MuiThemeProvider} from 'material-ui/styles';
 
 import Sidebar from '../container/Sidebar';
-import TimelineView from '../container/TimelineView';
+import TimelineView from '../container/MainView';
 import Dialog from '../container/Dialog';
 
 type Props = {

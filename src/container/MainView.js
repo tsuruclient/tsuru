@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import * as selectors from '../redux/selectors/timeline';
 import { timelineActions, apiActions, contentActions } from '../redux/action';
-import TimelineView from '../component/TimelineView/TimelineView';
+import TimelineView from '../component/TimelineView/MainView';
 
 const mapStateToProps = (state: Object): Object => ({
     timelines: state.timeline,

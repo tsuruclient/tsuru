@@ -4,7 +4,7 @@ import React from 'react';
 import {pure} from 'recompose';
 import {withStyles} from 'material-ui/styles';
 
-import Timeline from './Timeline';
+import Timeline from './Column';
 
 import timelineTypes from '../../core/constant/timelineType';
 
