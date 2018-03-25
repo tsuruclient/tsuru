@@ -8,7 +8,7 @@ import Menu, { MenuItem } from 'material-ui/Menu';
 import Divider from 'material-ui/Divider';
 import MenuIcon from 'material-ui-icons/Menu';
 
-import timelineTypes from '../../../../core/constant/timelineType';
+import timelineTypes from '../../../../../core/constant/timelineType';
 
 const Styled = {
     Divider: styled(Divider)`

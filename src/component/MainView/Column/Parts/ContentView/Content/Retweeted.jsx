@@ -9,7 +9,7 @@ import Typography from 'material-ui/Typography';
 import Icon from '../Parts/Icon';
 import RepeatIcon from 'material-ui-icons/Repeat';
 
-import type Content from '../../../../../core/view/value/Content'
+import type Content from '../../../../../../core/view/value/Content'
 
 const Styled = {
     Root: styled.div``,

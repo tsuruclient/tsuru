@@ -6,7 +6,7 @@ import Typography from 'material-ui/Typography';
 
 import Icon from '../Parts/Icon';
 
-import type Content from '../../../../../core/view/value/Content'
+import type Content from '../../../../../../core/view/value/Content'
 
 const Body = styled.div`
     padding: 5px;

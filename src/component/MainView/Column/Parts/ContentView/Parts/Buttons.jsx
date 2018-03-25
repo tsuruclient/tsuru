@@ -9,7 +9,7 @@ import ReplyIcon from 'material-ui-icons/Reply';
 import FavoriteIcon from 'material-ui-icons/FavoriteBorder';
 import RepeatIcon from 'material-ui-icons/Repeat';
 
-import * as apis from '../../../../../core/difference/api';
+import * as apis from '../../../../../../core/difference/api';
 
 const Root = styled.div`
     display: flex;

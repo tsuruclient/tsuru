@@ -1,12 +1,12 @@
-
+// @flow
 import React from 'react';
 import {pure} from 'recompose';
 import styled from 'styled-components';
 import Paper from 'material-ui/Paper';
 
-import InfoBar from './Timeline/Toolbar/InfoBar';
-import ContentForm from './Timeline/ContentForm/ContentForm';
-import ContentList from './Timeline/ContentView/ContentList';
+import InfoBar from './Column/Parts/Toolbar/InfoBar';
+import ContentForm from './Column/Parts/ContentForm/ContentForm';
+import ContentList from './Column/Parts/ContentView/ContentList';
 
 const Body = styled(Paper)`
     margin: 3px;
@@ -20,7 +20,6 @@ const Body = styled(Paper)`
 `;
 
 type Props = {
-    classes: Object,
     timeline: Object,
     timelineIndex: number,
     ownerInfo: Object,
@@ -67,7 +66,7 @@ const Column = (props: Props) => (
             callApi={props.callApi}
             setReply={props.setReply}
             contents={props.contents}
-            setScrollPosition={props.setScrollPosition}/>
+            setScrollPosition={props.setScrollPosition} />
     </Body>
 );
 

@@ -11,7 +11,7 @@ import RepeatIcon from 'material-ui-icons/Repeat';
 
 import MiniContentCard from '../Parts/MiniContentCard';
 
-import {FavoriteEvent} from '../../../../../core/view/value/Event';
+import {FavoriteEvent} from '../../../../../../core/view/value/Event';
 
 const Styled = {
     Root: styled.div`

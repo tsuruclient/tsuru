@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import ContentObject from '../../../../../core/view/value/Content';
+import ContentObject from '../../../../../../core/view/value/Content';
 
 import Content from './Content';
 import Event from './Notification';
