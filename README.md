@@ -4,6 +4,7 @@ Twitter, GNU Social, Mastodonのアカウントを一つの画面にまとめて
 ![Tsuru動作画像](./images/ss.png "はい")  
   
 Roadmapや進捗状況は以下から確認できます。
+* [Wiki](https://scrapbox.io/tsuruclient)
 * [Tsuru Roadmap](https://trello.com/b/Id3TjFbr/tsuru)
 * [Work in progress](https://github.com/tsuruclient/tsuru/projects/3)  
 * [Bugtrucker](https://github.com/tsuruclient/tsuru/projects/2)  
