@@ -4,7 +4,7 @@ import React from 'react';
 import {pure} from 'recompose';
 import styled from 'styled-components';
 
-import Column from './Column';
+import Column from './Panel';
 
 import timelineTypes from '../../core/constant/timelineType';
 
