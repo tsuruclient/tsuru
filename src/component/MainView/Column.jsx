@@ -6,7 +6,7 @@ import Paper from 'material-ui/Paper';
 
 import InfoBar from './Column/Parts/InfomationTopBar/InfomationTop';
 import ContentForm from './Column/Parts/Form/ContentForm';
-import ContentList from './Column/Parts/ContentView/ContentList';
+import ContentList from './Column/Parts/ContentList/ContentList';
 
 const Body = styled(Paper)`
     margin: 3px;
