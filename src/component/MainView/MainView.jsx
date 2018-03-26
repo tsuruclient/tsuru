@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 import Panel from './Panel';
 
-import timelineTypes from '../../core/constant/timelineType';
+import timelineTypes from '../../core/old/constant/timelineType';
 
 const Main = styled.div`
     display: flex;

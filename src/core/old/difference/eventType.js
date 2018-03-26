@@ -1,6 +1,6 @@
 // @flow
 
-import * as Services from '../Services';
+import * as Services from '../../Services';
 
 export default {
     mention: {

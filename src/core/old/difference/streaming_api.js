@@ -1,6 +1,6 @@
 // @flow
 import qs from 'query-string';
-import * as Services from '../Services';
+import * as Services from '../../Services';
 import * as apiUrls from './api_urls';
 
 export const mastodonStreamingTypes = {

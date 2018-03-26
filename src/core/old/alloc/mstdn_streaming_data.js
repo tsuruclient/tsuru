@@ -1,7 +1,7 @@
 // @flow
-import {Mastodon} from '../Services';
-import Content from '../view/value/Content';
-import Event from '../view/value/Event';
+import {Mastodon} from '../../Services';
+import Content from '../../view/value/Content';
+import Event from '../../view/value/Event';
 import type {allocatedObject} from "./allocatedObjectType";
 import createAllocatedObject from "./createAllocatedObject";
 

@@ -1,6 +1,6 @@
 // @flow
 import promisify from 'es6-promisify';
-import * as Services from '../Services';
+import * as Services from '../../Services';
 import type { Social, KeyObject } from './client';
 
 const { remote } = window.require('electron');

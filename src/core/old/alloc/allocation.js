@@ -1,11 +1,11 @@
 // @flow
 
-import * as Services from '../Services';
+import * as Services from '../../Services';
 import * as dataTypes from '../constant/dataType';
 import notice from '../difference/notice';
 import eventTypes from '../difference/eventType';
-import Content from '../view/value/Content';
-import Event from '../view/value/Event';
+import Content from '../../view/value/Content';
+import Event from '../../view/value/Event';
 
 import type {allocatedObject} from './allocatedObjectType';
 import createAllocatedObject from "./createAllocatedObject";

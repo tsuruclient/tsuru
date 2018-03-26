@@ -1,5 +1,5 @@
 // @flow
-import * as Services from '../Services';
+import * as Services from '../../Services';
 import * as apiUrls from './api_urls';
 import * as dataTypes from '../constant/dataType';
 import * as requestTypes from '../constant/requestType';

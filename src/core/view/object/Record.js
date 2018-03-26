@@ -1,5 +1,5 @@
 // @flow
-import type {allocatedObject} from "../../alloc/allocation";
+import type {allocatedObject} from "../../old/alloc/allocation";
 
 import copyInstance from '../../../helper/copyInstance';
 import Content, {Retweeted} from '../value/Content';

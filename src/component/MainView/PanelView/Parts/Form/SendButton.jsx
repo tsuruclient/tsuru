@@ -5,7 +5,7 @@ import {withStyles} from 'material-ui/styles';
 import IconButton from 'material-ui/IconButton';
 import SendIcon from 'material-ui-icons/Send';
 
-import timelineTypes from '../../../../../core/constant/timelineType';
+import timelineTypes from '../../../../../core/old/constant/timelineType';
 
 const styles = theme => ({
     root: {

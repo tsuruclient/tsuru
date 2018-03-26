@@ -1,7 +1,7 @@
 // @flow
-import * as apis from '../../core/difference/api';
-import OAuth from '../../core/client/oauth';
-import OAuth2 from '../../core/client/oauth2';
+import * as apis from '../../core/old/difference/api';
+import OAuth from '../../core/old/client/oauth';
+import OAuth2 from '../../core/old/client/oauth2';
 import * as Services from '../../core/Services';
 
 export function openPinAuthWindow(status: Object): OAuth | OAuth2 {

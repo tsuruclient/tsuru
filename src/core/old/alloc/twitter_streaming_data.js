@@ -1,7 +1,7 @@
 // @flow
-import {Twitter} from '../Services';
-import Content from '../view/value/Content';
-import Event, {eventFilter} from "../view/value/Event";
+import {Twitter} from '../../Services';
+import Content from '../../view/value/Content';
+import Event, {eventFilter} from "../../view/value/Event";
 
 import type {allocatedObject} from "./allocatedObjectType";
 import createAllocatedObject from "./createAllocatedObject";
