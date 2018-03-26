@@ -5,7 +5,7 @@ type Props = {
 
 };
 
-class Panel extends React.PureComponent {
+class Panel extends React.PureComponent<Props> {
     render(){
         return (
             <div>

@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import {dialogActions, authActions, timelineActions} from '../redux/action';
 import Dialog from '../component/Dialog/Dialog';
-import * as dialogData from '../redux/selectors/dialog';
+import * as dialogData from '../redux/selector/dialog';
 
 const mapStateToProps = (state: Object): Object => ({
     accounts: dialogData.accounts(state),

@@ -4,7 +4,7 @@ import React from 'react';
 import {pure} from 'recompose';
 import styled from 'styled-components';
 
-import Column from './Panel';
+import Panel from './Panel';
 
 import timelineTypes from '../../core/constant/timelineType';
 
@@ -34,7 +34,7 @@ type Props = {
 const MainVIew = (props: Props) => (
     <Main>
         {props.timelines.map((item: Object, index: number): any => (
-            <Column
+            <Panel
                 key={index}
                 timeline={item}
                 timelineIndex={index}
