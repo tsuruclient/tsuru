@@ -22,7 +22,7 @@ type Props = {
     deleteTimeline: Function,
 };
 
-const InfoBar = (props: Props) => (
+const InfomationTopBar = (props: Props) => (
     <div>
         <Toolbar>
             <div style={{marginRight: 'auto'}}>
@@ -48,4 +48,4 @@ const InfoBar = (props: Props) => (
     </div>
 );
 
-export default pure(InfoBar);
+export default pure(InfomationTopBar);

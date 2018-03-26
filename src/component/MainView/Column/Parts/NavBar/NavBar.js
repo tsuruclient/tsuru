@@ -5,10 +5,10 @@ type Props = {
 
 };
 
-const TimeLine = (props: Props) => (
+const NavBar = (props: Props) => (
     <div>
 
     </div>
 );
 
-export default TimeLine;
+export default NavBar;
