@@ -3,7 +3,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as selectors from '../redux/selector/timeline';
+import * as selectors from '../redux/selector/panel';
 import { timelineActions, apiActions, contentActions } from '../redux/action';
 import MainView from '../component/MainView/MainView';
 

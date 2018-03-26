@@ -2,16 +2,16 @@
 
 import { createSelector } from 'reselect';
 
-const timelineList = (state: Object): Array<any> => (state.timeline);
+const panelList = (state: Object): Array<any> => (state.timeline);
 const accountList = (state: Object): Array<any> => (state.account);
 
 export const contentBoxText = createSelector(
-    [timelineList],
-    (Timelines: Array<any>): Function => (
+    [panelList],
+    (panes: Array<any>): Function => (
         (index: number): Object => ({
-            text: Timelines[index].contentText,
-            imageList: Timelines[index].image,
-            inPosting: Timelines[index].inPosting,
+            text: panes[index].contentText,
+            imageList: panes[index].image,
+            inPosting: panes[index].inPosting,
         })),
 );
 
@@ -46,10 +46,10 @@ export const isStreaming = createSelector(
 );
 
 export const contents = createSelector(
-    [accountList, timelineList],
-    (AccountList: Array<any>, TimelineList: Array<any>): Function => (
+    [accountList, panelList],
+    (AccountList: Array<any>, panes: Array<any>): Function => (
         (accountIndex: number, timelineIndex: number, dataType: string): Array<any> => (
-            TimelineList[timelineIndex].filterling(AccountList[accountIndex].record[dataType])
+            panes[timelineIndex].filterling(AccountList[accountIndex].record[dataType])
         )
     )
 );
