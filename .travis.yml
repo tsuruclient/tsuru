@@ -8,9 +8,8 @@ install:
     - npm install
     - npm install -g codecov
 script:
-    - npm run test
-after_success:
-    - codecov
+    - npm run test && codecov
+
 before_deploy:
     - sudo dpkg --add-architecture i386
     - wget -nc https://dl.winehq.org/wine-builds/Release.key
