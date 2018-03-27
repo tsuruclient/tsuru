@@ -1,7 +1,7 @@
 // @flow
 
 import type {authObject} from "./auth";
-import type {uiInteractionObject} from './uiInteraction';
+import type {uiInteractionObject} from './panel';
 import type {apiSetObject} from "./apiSet";
 
 export type ServiceObject = {
