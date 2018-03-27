@@ -35,6 +35,8 @@
     "electron-packager": "^10.1.2",
     "flow-bin": "^0.61.0",
     "foreman": "^2.0.0",
+    "jest": "^22.4.3",
+    "jest-cli": "^22.4.3",
     "material-ui": "^1.0.0-beta.36",
     "material-ui-icons": "^1.0.0-beta.36",
     "query-string": "^5.1.0",
@@ -51,8 +53,8 @@
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.0",
     "reselect": "^3.0.1",
-    "targz": "^1.0.1",
     "styled-components": "^3.2.1",
+    "targz": "^1.0.1",
     "webpack": "^3.11.0"
   }
 }
