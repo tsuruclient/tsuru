@@ -6,9 +6,12 @@ cache:
          - node_modules
 install:
     - npm install
+    - npm install -g codegov
 script:
     - npm run test
     - npm run build
+after_success:
+    - codegov
 before_deploy:
     - sudo dpkg --add-architecture i386
     - wget -nc https://dl.winehq.org/wine-builds/Release.key
