@@ -35,7 +35,7 @@ const MainVIew = (props: Props) => (
     <Main>
         {props.timelines.map((item: Object, index: number): any => (
             <Panel
-                key={index}
+                key={index} // TODO: key=index is deprecated
                 timeline={item}
                 timelineIndex={index}
                 ownerInfo={props.ownerInfo(item.ownerIndex)}
