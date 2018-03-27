@@ -9,7 +9,6 @@ install:
     - npm install -g codecov
 script:
     - npm run test
-    - npm run build
 after_success:
     - codecov
 before_deploy:
