@@ -14,14 +14,10 @@
     "request": "^2.83.0",
     "safe-buffer": "^5.1.1"
   },
-  "jest": {
-    "coverageDirectory": "./coverage/",
-    "collectCoverage": true
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test --env=jsdom --coverage",
     "electron": "electron .",
     "dev": "nf start",
     "flow": "flow",

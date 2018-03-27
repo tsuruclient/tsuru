@@ -7,7 +7,7 @@ describe('copyInstance()', ()=>{
         class test{
             constructor(value){
                 this.value = value;
-                this.array = [value, value*2, value+'tostring']
+                this.array = [value, value*2, value+'todesking']
             }
 
             testfunc(){
