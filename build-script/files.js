@@ -29,6 +29,8 @@ const data = {
         'package-lock.json',
         'yarn.lock',
         '.travis.yaml',
+        'jest.config.js',
+        'coverage',
         'src/component',
         'src/container',
         'src/core',
