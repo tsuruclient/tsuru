@@ -32,8 +32,3 @@ deploy:
     on:
         tags: true
         repo: tsuruclient/tsuru
-notifications:
-    email:
-        recipients: thnpt926+travis@gmail.com
-        on_success: always
-        on_failure: always
