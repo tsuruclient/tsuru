@@ -2,11 +2,11 @@
 
 import { put, call } from 'redux-saga/effects';
 
-import Account from '../../core/object/Account';
-import Timeline from '../../core/object/Timeline';
-import Record from '../../core/object/Record';
-import OAuth from '../../core/client/oauth';
-import OAuth2 from '../../core/client/oauth2';
+import Account from '../../core/view/object/Account';
+import Timeline from '../../core/view/object/Timeline';
+import Record from '../../core/view/object/Record';
+import OAuth from '../../core/old/client/oauth';
+import OAuth2 from '../../core/old/client/oauth2';
 import * as Services from '../../core/Services';
 import * as types from '../constant';
 import * as storageApis from '../api/storage';
@@ -16,7 +16,7 @@ export function* loadApplicationData(): any {
         const loadedData = yield call(storageApis.load);
         try {
             const Accounts = loadedData.accounts.map(((item: any): Object => {
-                const c = item.service === Services.Mastodon ? 
+                const c = item.service === Services.Mastodon ?
                     new OAuth2(item.consumerKey, item.domain, item.token) :
                     new OAuth(item.service, item.consumerKey, item.domain, item.token);
                 return {account: new Account(item.service, c, item.userData), record: new Record(item.service)};

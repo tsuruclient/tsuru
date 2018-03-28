@@ -6,7 +6,7 @@ import {withStyles} from 'material-ui/styles';
 import List, { ListItem, ListItemText, ListItemSecondaryAction } from 'material-ui/List';
 import Radio from 'material-ui/Radio';
 
-import timelineTypes from '../../../core/constant/timelineType';
+import timelineTypes from '../../../core/old/constant/timelineType';
 
 const styles = theme => ({
     root: {

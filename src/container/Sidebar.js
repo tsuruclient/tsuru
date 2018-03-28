@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { dialogActions, accountActions, apiActions, streamingActions, styleActions } from '../redux/action';
-import { accounts } from '../redux/selectors/sidebar';
+import { accounts } from '../redux/selector/sidebar';
 import Sidebar from '../component/Sidebar/Sidebar';
 
 const mapStateToProps = (state: Object): Object => ({

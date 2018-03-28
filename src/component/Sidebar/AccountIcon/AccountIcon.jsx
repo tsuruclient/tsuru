@@ -5,9 +5,9 @@ import {withStyles} from 'material-ui/styles';
 import Divider from 'material-ui/Divider';
 import Menu, { MenuItem } from 'material-ui/Menu';
 
-import type User from '../../../core/value/User';
-import * as apis from '../../../core/difference/api';
-import streamingApi, {mastodonStreamingTypes} from '../../../core/difference/streaming_api';
+import type User from '../../../core/view/value/User';
+import * as apis from '../../../core/old/difference/api';
+import streamingApi, {mastodonStreamingTypes} from '../../../core/old/difference/streaming_api';
 
 import Icon from './Icon';
 

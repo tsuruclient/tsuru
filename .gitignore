@@ -5,6 +5,7 @@
 
 # testing
 /coverage
+/flow-typed
 
 # production
 /build

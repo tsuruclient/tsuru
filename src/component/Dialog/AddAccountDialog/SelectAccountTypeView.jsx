@@ -12,7 +12,7 @@ import { DialogActions,
     DialogContentText } from 'material-ui/Dialog';
 import Radio from 'material-ui/Radio';
 
-import instances from '../../../core/constant/_instanceList';
+import instances from '../../../core/old/constant/_instanceList';
 
 const styles = () => ({
     list: {
