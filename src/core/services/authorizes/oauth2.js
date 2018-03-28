@@ -1,9 +1,9 @@
 // @flow
 // import promisify from 'es6-promisify';
 
-import type { providerObject } from "../type/auth/providerObject";
-import type { consumerKeyObject } from "../type/auth/consumerKeyObject";
-import type { accessTokenObjectForOAuth2 } from "../type/auth/accessTokenObject";
+import type { providerObject } from "../types/auth/providerObject";
+import type { consumerKeyObject } from "../types/auth/consumerKeyObject";
+import type { accessTokenObjectForOAuth2 } from "../types/auth/accessTokenObject";
 
 const { remote } = window.require('electron');
 const { OAuth } = remote.require('oauth');
