@@ -1,6 +1,6 @@
 // @flow
 
-import copyInstance from '../../helper/copyInstance';
+import copyInstance from '../../helper/copyInstance/copyInstance';
 import type Content from '../value/Content';
 
 export default class Timeline {
