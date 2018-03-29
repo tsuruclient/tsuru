@@ -1,0 +1,2 @@
+# Contributing guideline
+FREEDOM
