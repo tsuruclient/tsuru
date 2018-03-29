@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/tsuruclient/tsuru.svg?branch=dev)](https://travis-ci.org/tsuruclient/tsuru) [![codecov](https://codecov.io/gh/tsuruclient/tsuru/branch/dev/graph/badge.svg)](https://codecov.io/gh/tsuruclient/tsuru)
 
 Twitter, GNU Social, Mastodonのアカウントを一つの画面にまとめて表示できるTweetdeck風クライアントです。   
-![Tsuru動作画像](./images/ss.png "はい")  
+![Tsuru動作画像](./images/ss@0,5x.jpg "はい")  
   
 Roadmapや進捗状況は以下から確認できます。
 * [Wiki](https://scrapbox.io/tsuruclient)
