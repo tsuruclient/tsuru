@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/tsuruclient/tsuru.svg?branch=dev)](https://travis-ci.org/tsuruclient/tsuru) [![codecov](https://codecov.io/gh/tsuruclient/tsuru/branch/dev/graph/badge.svg)](https://codecov.io/gh/tsuruclient/tsuru)
 
 Twitter, GNU Social, Mastodonのアカウントを一つの画面にまとめて表示できるTweetdeck風クライアントです。   
-![Tsuru動作画像](./images/ss.png "はい")  
+![Tsuru動作画像](./images/ss@0,5x.jpg "はい")  
   
 Roadmapや進捗状況は以下から確認できます。
 * [Wiki](https://scrapbox.io/tsuruclient)
@@ -25,17 +25,10 @@ Roadmapや進捗状況は以下から確認できます。
 ### Remote Contentに関するセキュリティ警告  
 `npm run dev`を実行した時、表示されたElectronアプリのコンソールにSecurity Warningが表示されることに気がつくはずです。  
 これは開発時のホットリロードを可能にするためにreact-scriptsが別に立ち上がっており、Electronがそのサーバにアクセスするためによって起こる警告です。  
-ビルド時にはこの警告は消えるため、気にしないことをおすすめします。少々目障りですが…
-  
-## 次回リリース予定  
-3月
-
-## Tsuruへの参画  
-このプロジェクトには誰でも参加可能です。  
-問題の報告、コードの改善とプルリクエストを歓迎します！    
-  
-## 支援の募集  
-FounderであるOrigamiはあまり裕福ではなく、金銭的サポートを募集しています。  
+ビルド時にはこの警告は消えるため、気にしないことをおすすめします。少々目障りですが…  
+    
+## 支援  
+FounderであるOrigamiはあまり裕福ではなく、金銭的サポートとかを募集しています。  
   
 ## LICENSE
 このソフトウェアはMIT License下において公開されています。
