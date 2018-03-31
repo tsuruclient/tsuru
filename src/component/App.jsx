@@ -37,6 +37,8 @@ const App = (props: Props) => {
 const AppComponent = lifecycle({
     componentWillMount(){
         this.props.initApp();
+        const err = new Error("ジャバ.lang.NullPointerException");
+        console.error(err);
     }
 })(App);
 
