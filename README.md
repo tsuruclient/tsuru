@@ -1,15 +1,26 @@
 # Tsuru  
 [![Build Status](https://travis-ci.org/tsuruclient/tsuru.svg?branch=dev)](https://travis-ci.org/tsuruclient/tsuru) [![codecov](https://codecov.io/gh/tsuruclient/tsuru/branch/dev/graph/badge.svg)](https://codecov.io/gh/tsuruclient/tsuru)
 
-Twitter, GNU Social, Mastodonのアカウントを一つの画面にまとめて表示できるTweetdeck風クライアントです。   
+Cross Platform, TweetDeck like UI, more UX, and support many services.  
+**WARN:IN DEVELOPING**  
 ![Tsuru動作画像](./images/ss@0,5x.jpg "はい")  
   
-Roadmapや進捗状況は以下から確認できます。
+## Project Goal
+### Support many services
+For example, Twitter, GNU Social, Mastodon, Slack, Discord will be support.  
+OR, to be available REST API, Streaming API, Websocket supported service by plugin.  
+  
+### Powerup with plugin
+Add Service, Language, Theme definable by plugin.  
+  
+## Roadmap and wiki
 * [Wiki](https://scrapbox.io/tsuruclient)
 * [Tsuru Roadmap](https://trello.com/b/Id3TjFbr/tsuru)
 * [Work in progress](https://github.com/tsuruclient/tsuru/projects/3)  
 * [Bugtrucker](https://github.com/tsuruclient/tsuru/projects/2)  
   
+## Contributing
+[is here](CONTRIBUTING.md)
   
 ## 自前でビルドする際の注意点
 ### アプリの起動  
@@ -26,9 +37,6 @@ Roadmapや進捗状況は以下から確認できます。
 `npm run dev`を実行した時、表示されたElectronアプリのコンソールにSecurity Warningが表示されることに気がつくはずです。  
 これは開発時のホットリロードを可能にするためにreact-scriptsが別に立ち上がっており、Electronがそのサーバにアクセスするためによって起こる警告です。  
 ビルド時にはこの警告は消えるため、気にしないことをおすすめします。少々目障りですが…  
-    
-## 支援  
-FounderであるOrigamiはあまり裕福ではなく、金銭的サポートとかを募集しています。  
   
 ## LICENSE
 このソフトウェアはMIT License下において公開されています。
