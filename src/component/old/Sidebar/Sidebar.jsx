@@ -14,7 +14,7 @@ import PersonAddIcon from 'material-ui-icons/PersonAdd';
 
 import AccountList from './AccountList';
 
-import * as DialogNames from '../../redux/constant/dialogs';
+import * as DialogNames from '../../../redux/constant/dialogs';
 
 const styles = theme => ({
     root: {
