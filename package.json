@@ -23,7 +23,9 @@
     "dev": "nf start",
     "flow": "flow",
     "package": "electron-packager . Tsuru --platform=all --arch=x64 --prune --out=release --overwrite",
-    "release": "node ./build-script/build"
+    "release": "node ./build-script/build",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "devDependencies": {
     "adm-zip": "^0.4.7",
@@ -56,6 +58,12 @@
     "reselect": "^3.0.1",
     "styled-components": "^3.2.1",
     "targz": "^1.0.1",
-    "webpack": "^3.11.0"
+    "webpack": "^3.11.0",
+    "@storybook/react": "^3.4.0",
+    "@storybook/addon-actions": "^3.4.0",
+    "@storybook/addon-links": "^3.4.0",
+    "@storybook/addons": "^3.4.0",
+    "babel-core": "^6.26.0",
+    "babel-runtime": "^6.26.0"
   }
 }
