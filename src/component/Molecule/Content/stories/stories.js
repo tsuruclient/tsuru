@@ -1,13 +1,12 @@
 // @flow
 
 import React from 'react';
+import { storiesOf } from '@storybook/react';
 
 import Status from '../unit/Status';
 
 import testProps from './testProps';
 import PaperWrapper from './PaperWrapper';
-
-import { storiesOf } from '@storybook/react';
 
 storiesOf('Content', module)
     .add('Status unit', () =>
