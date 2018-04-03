@@ -2,7 +2,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
-import Avatar from '../StatusAvatar';
+import Avatar from '../Avatar';
 
 const src = 'https://avatars0.githubusercontent.com/u/5967271';
 

@@ -22,10 +22,10 @@ type Props = {
     styles: style,
 }
 
-const StatusAvatar = (props: Props) => (
+const TAvatar = (props: Props) => (
     <Styled.Avatar
         src={props.src}
         styles={props.styles}/>
 );
 
-export default StatusAvatar;
+export default TAvatar;
