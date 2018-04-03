@@ -10,7 +10,7 @@ const Styled = {
         color: #00552e;
         font-weight: bold;
     `
-}
+};
 
 storiesOf('Icon', module)
     .add('Keyboard Arrow Icons', () =>
