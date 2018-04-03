@@ -2,7 +2,7 @@
 import React from 'react';
 import { pure } from 'recompose';
 import styled from 'styled-components';
-import Avatar from 'material-ui/Avatar';
+import Avatar from 'component/Atom/Avatar/StatusAvatar';
 import Typography from 'material-ui/Typography';
 
 const Styled = {
