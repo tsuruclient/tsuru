@@ -33,6 +33,7 @@ const Common = (props: Props) => (
         <Styled.Body>
             <Avatar
                 src={props.data.user.avatar}
+                styles={{rect: true, size: 40}} //TODO: Style in reducer
                 onClick={null}
                 onDoubleClick={null}/>
             <Styled.Text>
@@ -40,7 +41,7 @@ const Common = (props: Props) => (
                     variant="caption"
                     onClick={null}
                     onDoubleClick={null}>
-                    {props.data.user.displayName + "@"+ props.data.user.screenName}
+                    {props.data.user.displayName + '@'+ props.data.user.screenName}
                 </Typography>
                 <Typography
                     variant="body1"
