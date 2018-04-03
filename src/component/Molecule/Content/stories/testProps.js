@@ -51,8 +51,16 @@ export default {
         longScreenName: {
             user: {
                 avatar: avatarSource,
+                displayName: 'ONOUE Origami',
+                screenName: 'superlonglonglonglonglonglonglongsoooooooooolongscreenname',
+            },
+            content: dummyText,
+        },
+        bothNameLong: {
+            user: {
+                avatar: avatarSource,
                 displayName: 'ONOUE Origami as arclisp as schemelisp as Origamium',
-                screenName: 'superlonglonglonglonglonglonglongscreenname',
+                screenName: 'superlonglonglonglonglonglonglongsoooooooooolongscreenname',
             },
             content: dummyText,
         },

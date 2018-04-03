@@ -35,6 +35,12 @@ storiesOf('Content', module)
                         data: testProps.data.longScreenName,
                     })}
                 </div>
+                <div>
+                    <h3>both name is long long</h3>
+                    {PaperWrapper(Status, {
+                        data: testProps.data.bothNameLong,
+                    })}
+                </div>
             </section>
 
             <h3>吉野家コピペ</h3>
