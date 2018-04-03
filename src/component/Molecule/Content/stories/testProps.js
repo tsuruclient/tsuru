@@ -78,7 +78,7 @@ export default {
                 displayName: 'ONOUE Origami',
                 screenName: 'FirstStar',
             },
-            content: yoshinoyaCopipe.replace('\n', ''),
+            content: yoshinoyaCopipe.replace(' \n', ''),
         },
     },
     handler: {
