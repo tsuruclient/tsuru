@@ -1,2 +1,2 @@
-import 'component/Atom';
-import 'component/Molecule';
+import 'component/Atom/story/index';
+import 'component/Molecule/story/index';
