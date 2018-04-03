@@ -9,11 +9,15 @@ const Styled = {
     Root: styled.div`
         display: flex;
         flex-direction: column;
+        
     `,
     Body: styled.div`
         display: flex;
     `,
-    Text: styled.div`
+    Text: styled.section`
+        word-wrap : 'break-word';
+        overflow-wrap: 'break-word';
+        overflow-x: hidden;
     `,
     Bottom: styled.div`
     `

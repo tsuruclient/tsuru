@@ -1,1 +1,1 @@
-import './Content/stories';
+import './Content/stories/stories';
