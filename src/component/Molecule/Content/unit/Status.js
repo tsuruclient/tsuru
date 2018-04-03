@@ -9,7 +9,7 @@ const Styled = {
     Root: styled.div`
         display: flex;
         flex-direction: column;
-        
+        padding: 6px;
     `,
     Body: styled.div`
         display: flex;

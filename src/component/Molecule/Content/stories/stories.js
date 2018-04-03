@@ -15,26 +15,43 @@ storiesOf('Content', module)
             {PaperWrapper(Status, {
                 data: testProps.data.normal,
             })}
-            <h2>long long display_name</h2>
-            {PaperWrapper(Status, {
-                data: testProps.data.longDisplayName,
-            })}
-            <h2>long long screen_name</h2>
-            {PaperWrapper(Status, {
-                data: testProps.data.longScreenName,
-            })}
-            <h2>very long text</h2>
-            {PaperWrapper(Status, {
-                data: testProps.data.longContent,
-            })}
-            <h2>吉野家コピペ</h2>
-            <h3>改行あり</h3>
-            {PaperWrapper(Status, {
-                data: testProps.data.yoshinoyaCopipe,
-            })}
-            <h3>改行なし</h3>
-            {PaperWrapper(Status, {
-                data: testProps.data.yoshinoyaCopipeNotBreakline,
-            })}
+            <article>
+                <h2>Stress Test</h2>
+                <div style={{display: 'flex'}}>
+                    <section>
+                        <h3>very long text</h3>
+                        {PaperWrapper(Status, {
+                            data: testProps.data.longContent,
+                        })}
+                    </section>
+                    <section>
+                        <h3>long long display_name</h3>
+                        {PaperWrapper(Status, {
+                            data: testProps.data.longDisplayName,
+                        })}
+                    </section>
+                    <section>
+                        <h3>long long screen_name</h3>
+                        {PaperWrapper(Status, {
+                            data: testProps.data.longScreenName,
+                        })}
+                    </section>
+                </div>
+                <h3>吉野家コピペ</h3>
+                <div style={{display: 'flex'}}>
+                    <section>
+                        <h4>改行あり</h4>
+                        {PaperWrapper(Status, {
+                            data: testProps.data.yoshinoyaCopipe,
+                        })}
+                    </section>
+                    <section>
+                        <h4>改行なし</h4>
+                        {PaperWrapper(Status, {
+                            data: testProps.data.yoshinoyaCopipeNotBreakline,
+                        })}
+                    </section>
+                </div>
+            </article>
         </div>
     );
