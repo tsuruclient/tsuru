@@ -2,6 +2,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Fav from '../Favorite';
+import Repeat from '../Repeat';
+import Reply from '../Reply';
 import Arrow from '../Arrow';
 
 const Styled = {
@@ -12,6 +15,27 @@ const Styled = {
 };
 export default () => (
     <article>
+        <h1>Icon</h1>
+        <section style={{display: 'flex'}}>
+            <div style={{width: '160px'}}>
+                <h3>Favorite</h3>
+                <Fav colorful={false} styles={null}/>
+                <p>Colorful</p>
+                <Fav colorful={true} styles={null}/>
+            </div>
+            <div style={{width: '160px'}}>
+                <h3>Repeat</h3>
+                <Repeat colorful={false} styles={null}/>
+                <p>Colorful</p>
+                <Repeat colorful={true} styles={null}/>
+            </div>
+            <div style={{width: '160px'}}>
+                <h3>Reply</h3>
+                <Reply colorful={false} styles={null}/>
+                <p>Colorful</p>
+                <Reply colorful={true} styles={null}/>
+            </div>
+        </section>
         <h1>Arrow Icons</h1>
         <section style={{display: 'flex'}}>
             <Arrow direction={'up'}/>
