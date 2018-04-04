@@ -5,7 +5,6 @@ import Avatar from 'material-ui/Avatar';
 
 const Styled = {
     Avatar: styled(Avatar)`
-        padding-right: 4px;
         width: ${(props: Props) => props.styles.size + 4}px !important;
         height: ${(props: Props) => props.styles.size}px !important;
         border-radius: ${(props: Props) => props.styles.rect ? 10 : 50}% !important;
