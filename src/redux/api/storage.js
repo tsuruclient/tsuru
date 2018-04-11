@@ -1,8 +1,8 @@
 // @flow
 
 import promisify from 'es6-promisify';
-import Account from '../../core/view/object/Account';
-import Timeline from '../../core/view/object/Timeline';
+import Account from '../../core/old/object/Account';
+import Timeline from '../../core/old/object/Timeline';
 
 const { remote } = window.require('electron');
 const storage = remote.require('electron-json-storage');

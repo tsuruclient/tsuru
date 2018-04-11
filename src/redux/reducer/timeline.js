@@ -3,7 +3,7 @@
 import { handleActions } from 'redux-actions';
 import scanner from '../../helper/scanner/scanner';
 import * as types from '../constant';
-import Timeline from '../../core/view/object/Timeline';
+import Timeline from '../../core/old/object/Timeline';
 import {saveTimelines} from '../api/storage';
 
 const initState = [];

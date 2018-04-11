@@ -3,7 +3,7 @@
 import { handleActions } from 'redux-actions';
 import * as types from '../constant';
 import {openPinAuthWindow} from '../api/auth';
-import Account from '../../core/view/object/Account';
+import Account from '../../core/old/object/Account';
 
 const initState = {};
 

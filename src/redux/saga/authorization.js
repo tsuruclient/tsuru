@@ -3,7 +3,7 @@
 import { put, call, select } from 'redux-saga/effects';
 import * as types from '../constant';
 import {AddAccountDialogName} from '../constant/dialogs';
-import type Account from '../../core/view/object/Account';
+import type Account from '../../core/old/object/Account';
 import * as storageApis from '../api/storage';
 import * as authApis from '../api/auth';
 

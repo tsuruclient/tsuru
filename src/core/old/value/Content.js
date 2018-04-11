@@ -1,6 +1,6 @@
 // @flow
 import * as Services from '../../Services';
-import content from '../../old/difference/content';
+import content from '../difference/content';
 import User from './User';
 
 export const Normal = 'Normal';

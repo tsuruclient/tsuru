@@ -1,6 +1,6 @@
 // @flow
 
-import Account from '../../old/difference/account';
+import Account from '../difference/account';
 
 export default class user {
     instance: ?string;

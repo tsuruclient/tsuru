@@ -2,9 +2,9 @@
 
 import { put, call } from 'redux-saga/effects';
 
-import Account from '../../core/view/object/Account';
-import Timeline from '../../core/view/object/Timeline';
-import Record from '../../core/view/object/Record';
+import Account from '../../core/old/object/Account';
+import Timeline from '../../core/old/object/Timeline';
+import Record from '../../core/old/object/Record';
 import OAuth from '../../core/old/client/oauth';
 import OAuth2 from '../../core/old/client/oauth2';
 import * as Services from '../../core/Services';
