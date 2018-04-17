@@ -4,6 +4,7 @@ import { pure } from 'recompose';
 import styled from 'styled-components';
 import Avatar from '../../../Atom/Avatar/Avatar';
 import Typography from 'material-ui/Typography';
+import Linkify from 'react-linkify';
 
 const Styled = {
     Root: styled.div`
@@ -47,7 +48,9 @@ const Common = (props: Props) => (
                     variant="body1"
                     onClick={null}
                     onDoubleClick={null}>
-                    {props.data.content}
+                    <Linkify>
+                        {props.data.content}
+                    </Linkify>
                 </Typography>
             </Styled.Text>
         </Styled.Body>
