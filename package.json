@@ -28,8 +28,14 @@
     "build-storybook": "build-storybook -s public"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^3.4.0",
+    "@storybook/addon-actions": "^3.4.2",
+    "@storybook/addon-backgrounds": "^3.4.2",
+    "@storybook/addon-events": "^3.4.2",
+    "@storybook/addon-info": "^3.4.2",
+    "@storybook/addon-jest": "^3.4.2",
+    "@storybook/addon-knobs": "^3.4.2",
     "@storybook/addon-links": "^3.4.0",
+    "@storybook/addon-notes": "^3.4.2",
     "@storybook/addons": "^3.4.0",
     "@storybook/react": "^3.4.0",
     "adm-zip": "^0.4.7",
