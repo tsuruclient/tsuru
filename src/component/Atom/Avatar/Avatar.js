@@ -5,26 +5,25 @@ import Avatar from 'material-ui/Avatar';
 
 const Styled = {
     Avatar: styled(Avatar)`
-        width: ${(props: Props) => props.styles.size}px !important;
-        height: ${(props: Props) => props.styles.size}px !important;
-        border-radius: ${(props: Props) => props.styles.rect ? 10 : 50}% !important;
+        && {
+            width: ${(props) => props.size}px;
+            height: ${(props) => props.size}px;
+            border-radius: ${(props) => props.rect}%;
+        }
     `
 };
 
-type style = {
-    rect: boolean, //default: false
-    size: number, //default: 40
-}
-
 type Props = {
     src: string,
-    styles: style,
+    rect?: boolean,
+    size?: number,
 }
 
 const TAvatar = (props: Props) => (
     <Styled.Avatar
         src={props.src}
-        styles={props.styles}/>
+        rect={!!props.rect ? 10 : 50}
+        size={!props.size ? 40 : props.size} />
 );
 
 export default TAvatar;
