@@ -14,6 +14,15 @@ export type themeObject = {
         },
     },
     molecule: {
+        card: {
+
+        },
+        content: {
+
+        },
+        thread: {
+
+        },
     },
     organism: {
         panel: {
