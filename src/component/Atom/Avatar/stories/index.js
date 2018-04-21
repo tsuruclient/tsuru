@@ -1,60 +1,31 @@
-// @flow
+//@flow
 import React from 'react';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { withInfo } from '@storybook/addon-info';
+import { withKnobsOptions, text, boolean, number } from '@storybook/addon-knobs/react';
+import WithEvents from '@storybook/addon-events';
 
 import Avatar from '../Avatar';
 
+import Info from './Info';
+
 const src = 'https://avatars0.githubusercontent.com/u/5967271';
 
-export default () => (
-    <article>
-        <h1>Status Avatar</h1>
-        <Avatar src={src} styles={{rect: false, size: 40}}/>
-        <h2>Shape</h2>
-        <section style={{display: 'flex'}}>
-            <div>
-                <h3>Round Avatar</h3>
-                <Avatar src={src} styles={{rect: false, size: 230}}/>
-            </div>
-            <div>
-                <h3>Rectangle Avatar</h3>
-                <Avatar src={src} styles={{rect: true, size: 230}}/>
-            </div>
-        </section>
-        <h2>Size</h2>
-        <p>default: 40px</p>
-        <section style={{display: 'flex'}}>
-            <div>
-                <small>18px</small>
-                <Avatar src={src} styles={{rect: false, size: 18}}/>
-            </div>
-            <div>
-                <small>24px</small>
-                <Avatar src={src} styles={{rect: false, size: 24}}/>
-            </div>
-            <div>
-                <small>32px</small>
-                <Avatar src={src} styles={{rect: false, size: 32}}/>
-            </div>
-            <div>
-                <small>40px</small>
-                <Avatar src={src} styles={{rect: false, size: 40}}/>
-            </div>
-            <div>
-                <small>60px</small>
-                <Avatar src={src} styles={{rect: false, size: 60}}/>
-            </div>
-            <div>
-                <small>80px</small>
-                <Avatar src={src} styles={{rect: false, size: 80}}/>
-            </div>
-            <div>
-                <small>120px</small>
-                <Avatar src={src} styles={{rect: false, size: 120}}/>
-            </div>
-            <div>
-                <small>240px</small>
-                <Avatar src={src} styles={{rect: false, size: 240}}/>
-            </div>
-        </section>
-    </article>
-);
+storiesOf('Atom/Avatar', module)
+    .addDecorator(withKnobsOptions({}))
+    .add('Infomation',
+        () => (<Info />))
+    .add('withDynamicValue',
+        () => (
+            <Avatar
+                rect={boolean('rect', false)}
+                size={number('size', 64, {
+                    range: true,
+                    min: 8,
+                    max: 360,
+                    step: 1,
+                })}
+                src={text('src', src)}/>));
+
+
