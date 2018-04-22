@@ -5,17 +5,18 @@ import FavoriteIcon from 'material-ui-icons/Favorite';
 
 const Styled = {
     Icon: styled(FavoriteIcon)`
-        fill: ${props => props.colorful ? '#D2255F' : '#7D7D7D'} !important;
+        && {
+            fill: ${props => props.color ? props.color : '#7D7D7D'};
+        }
     `
 };
 
 type Props = {
-    styles: Object,
-    colorful: boolean,
+    color?: string,
 }
 
 const Favorite = (props: Props) => (
-    <Styled.Icon colorful={props.colorful} />
+    <Styled.Icon color={props.color} />
 );
 
 

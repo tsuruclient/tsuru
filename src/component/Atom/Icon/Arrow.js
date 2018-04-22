@@ -19,7 +19,7 @@ const Styled = {
 };
 
 type Props = {
-    direction: string,
+    direction?: string,
 };
 
 const Arrow = (props: Props) => {

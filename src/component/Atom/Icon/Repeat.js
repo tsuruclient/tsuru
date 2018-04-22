@@ -5,17 +5,18 @@ import RepeatIcon from 'material-ui-icons/Repeat';
 
 const Styled = {
     Icon: styled(RepeatIcon)`
-        fill: ${props => props.colorful ? '#4EBD67' : '#7D7D7D'} !important;
+        && {
+            fill: ${props => props.color ? props.color : '#7D7D7D'};
+        }
     `
 };
 
 type Props = {
-    styles: Object,
-    colorful: boolean,
+    color?: string
 }
 
 const Repeat = (props: Props) => (
-    <Styled.Icon colorful={props.colorful}/>
+    <Styled.Icon color={props.color}/>
 );
 
 
