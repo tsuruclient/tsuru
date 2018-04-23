@@ -28,4 +28,5 @@ storiesOf('Atom/Avatar', module)
                     max: 360,
                     step: 1,
                 })}
-                src={text('src', src)}/>)));
+                src={text('src', src)}/>)))
+;
