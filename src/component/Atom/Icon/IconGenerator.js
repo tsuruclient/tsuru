@@ -4,15 +4,18 @@ import styled from 'styled-components';
 
 type Props = {
     color: string,
+    size: number,
 };
 
-export default (icon: any ,color: colorObject, size: number) =>
+export default (icon: any): Function =>
     (props: Props) => {
         const Icon = styled(icon)`
             && {
-                fill: ${props => props.color};
-                width: ${size}px;
-                height: ${size}px;
+                ${props => `
+                    fill: ${props.color};
+                    width: ${props.size}px;
+                    height: ${props.size}px;
+                `}
             }
         `;
         return <Icon {...props}/>

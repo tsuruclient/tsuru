@@ -7,7 +7,7 @@ import IconGenerator from './IconGenerator';
 //TODO: Apply Theme
 
 export const ReactionIconPack = (theme: Object) => ({
-    Favorite: IconGenerator(Favorite, 24),
-    Repeat: IconGenerator(Repeat, 24),
-    Reply: IconGenerator(Reply, 24),
+    Favorite: IconGenerator(Favorite),
+    Repeat: IconGenerator(Repeat),
+    Reply: IconGenerator(Reply),
 });
