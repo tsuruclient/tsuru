@@ -1,10 +1,10 @@
 // @flow
 import React from 'react'
 import styled from 'styled-components';
-import Avatar from 'material-ui/Avatar';
+import SourceAvatar from 'material-ui/Avatar';
 
 const Styled = {
-    Avatar: styled(Avatar)`
+    Avatar: styled(SourceAvatar)`
         && {
             width: ${(props) => props.size}px;
             height: ${(props) => props.size}px;
@@ -19,11 +19,11 @@ type Props = {
     size?: number,
 }
 
-const TAvatar = (props: Props) => (
+const Avatar = (props: Props) => (
     <Styled.Avatar
         src={props.src}
         rect={!!props.rect ? 10 : 50}
         size={!props.size ? 40 : props.size} />
 );
 
-export default TAvatar;
+export default Avatar;
