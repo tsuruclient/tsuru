@@ -1,5 +1,6 @@
 //@flow
 import React from 'react';
+import styled from 'styled-components';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
@@ -16,10 +17,11 @@ const src = 'https://avatars0.githubusercontent.com/u/5967271';
 storiesOf('Atom/Avatar', module)
     .addDecorator(withKnobs)
     .add(
-        'Infomation',
-        withNotes('')(() => (<Info />)))
+        'Basic',
+        withInfo('Avatarはユーザーのアイコンを表示するコンポーネントです。')
+        (() => (<Avatar src={src} />)))
     .add('withDynamicValue',
-        withNotes('')(() => (
+        withNotes('Look KNOBS Tag.')(() => (
             <Avatar
                 rect={boolean('rect', false)}
                 size={number('size', 64, {
