@@ -1,6 +1,6 @@
 // @flow
 
-//import '../Icon/stories';
+import '../Icon/stories';
 import '../Avatar/stories';
 
 
