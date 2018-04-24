@@ -10,8 +10,9 @@ import WithEvents from '@storybook/addon-events';
 
 import Infomation from './Infomation';
 
-storiesOf('Atom/Icon', module)
+storiesOf('Atom/Icon/Reaction', module)
     .addDecorator(withKnobs)
     .add('Infomation',
-        withNotes('')(() => <Infomation/>))
+        (() => <Infomation/>))
+    .add('Simple Icon with Dynamic Value', () => (<div />))
 ;
