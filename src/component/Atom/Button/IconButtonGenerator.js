@@ -7,7 +7,9 @@ type Props = {
 };
 
 export default (Component: Object, props: Props) => (
-    <ButtonBase onClick={props.onclick}>
-        <Component/>
-    </ButtonBase>
+    () => (
+        <ButtonBase onClick={props.onclick}>
+            <Component/>
+        </ButtonBase>
+    )
 );
