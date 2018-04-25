@@ -9,10 +9,17 @@ import { withKnobs, text, boolean, number } from '@storybook/addon-knobs/react';
 import WithEvents from '@storybook/addon-events';
 
 import Infomation from './Infomation';
+import Arrow from '../Arrow';
 
 storiesOf('Atom/Icon/Reaction', module)
     .addDecorator(withKnobs)
     .add('Infomation',
         (() => <Infomation/>))
     .add('Simple Icon with Dynamic Value', () => (<div />))
+    .add('without Button', () => <div />)
+;
+
+storiesOf('Atom/Icon/Arrow', module)
+    .addDecorator(withKnobs)
+    .add('Basic', withInfo('Arrowは三角矢印を表示するコンポーネントです。入力引数によって方向を変更できます。')(() => <Arrow />))
 ;
