@@ -36,6 +36,7 @@
     "@storybook/addon-knobs": "^3.4.2",
     "@storybook/addon-links": "^3.4.0",
     "@storybook/addon-notes": "^3.4.2",
+    "@storybook/addon-storysource": "^3.4.2",
     "@storybook/addons": "^3.4.0",
     "@storybook/react": "^3.4.0",
     "adm-zip": "^0.4.7",
