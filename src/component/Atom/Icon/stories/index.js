@@ -15,8 +15,6 @@ storiesOf('Atom/Icon/Reaction', module)
     .addDecorator(withKnobs)
     .add('Infomation',
         (() => <Infomation/>))
-    .add('Simple Icon with Dynamic Value', () => (<div />))
-    .add('without Button', () => <div />)
 ;
 
 storiesOf('Atom/Icon/Arrow', module)
