@@ -29,25 +29,18 @@ type Props = {
     handler: Object,
 }
 
-const Common = (props: Props) => (
+const Status = (props: Props) => (
     <Styled.Root>
         <Styled.Body>
             <Avatar
-                src={props.data.user.avatar}
-                styles={{rect: true, size: 40}} //TODO: Style in reducer
-                onClick={null}
-                onDoubleClick={null}/>
+                src={props.data.user.avatar}/>
             <Styled.Text>
                 <Typography
-                    variant="caption"
-                    onClick={null}
-                    onDoubleClick={null}>
+                    variant="caption">
                     {props.data.user.displayName + '@'+ props.data.user.screenName}
                 </Typography>
                 <Typography
-                    variant="body1"
-                    onClick={null}
-                    onDoubleClick={null}>
+                    variant="body1">
                     <Linkify>
                         {props.data.content}
                     </Linkify>
@@ -57,4 +50,4 @@ const Common = (props: Props) => (
     </Styled.Root>
 );
 
-export default pure(Common);
+export default pure(Status);
