@@ -13,8 +13,13 @@ type Events = {
     Reply: {onClick: Function},
 }
 
+export const FavoriteIcon = IconGenerator(Favorite);
+export const RepeatIcon = IconGenerator(Repeat);
+export const ReplyIcon = IconGenerator(Reply);
+
 export const ReactionIconPack = (theme: Object, events: Events) => ({
-    Favorite: IconButtonGenerator(IconGenerator(Favorite), events.Favorite.onClick),
-    Repeat: IconButtonGenerator(IconGenerator(Repeat), events.Repeat.onClick),
-    Reply: IconButtonGenerator(IconGenerator(Reply), events.Reply.onClick),
+    Favorite: IconButtonGenerator(FavoriteIcon, events.Favorite.onClick),
+    Repeat: IconButtonGenerator(RepeatIcon, events.Repeat.onClick),
+    Reply: IconButtonGenerator(ReplyIcon, events.Reply.onClick),
 });
+
