@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Typography from 'material-ui/Typography';
 
-import RepeatIcon from '../../../Atom/Icon/Repeat';
-import FavoriteIcon from '../../../Atom/Icon/Favorite';
+import {RepeatIcon, FavoriteIcon} from '../../../Atom/Icon/IconPack';
 import StatusCard from '../../Card/StatusCard';
 
 const Styled = {
@@ -33,10 +32,10 @@ const info = (type: string) => (
             <Typography variant="body1">{'liked'}</Typography>
         </Styled.Info>
     ) : (
-        <Styled.Infot>
+        <Styled.Info>
             <RepeatIcon/>
-            <Typography variant="body1">{'favorited'}</Typography>
-        </Styled.Infot>
+            <Typography variant="body1">{'repeated'}</Typography>
+        </Styled.Info>
     )
 );
 
@@ -46,7 +45,7 @@ const Event = (props: Props) => (
         <Styled.Card>
             <StatusCard
                 avatar={data.user.avatar}
-                content={}/>
+                content={data.content.text}/>
         </Styled.Card>
     </Styled.Root>
 );
