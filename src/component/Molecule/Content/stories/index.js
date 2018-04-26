@@ -1,11 +1,46 @@
 // @flow
 import React from 'react';
+import styled from 'styled-components';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { withInfo } from '@storybook/addon-info';
+import { withNotes, withMarkdownNotes } from '@storybook/addon-notes';
+import { withKnobs, text, boolean, number, object } from '@storybook/addon-knobs/react';
+import WithEvents from '@storybook/addon-events';
 
 import Status from '../unit/Status';
+import Event from '../unit/Event'
+//import Quote from '../unit/Quote';
 
 import testProps from './testProps';
 import PaperWrapper from './PaperWrapper';
 
+storiesOf('Molecule/Content/Status', module)
+    .addDecorator(withKnobs)
+    .add('basic',
+        withInfo('')(
+            withNotes('widthの値は親の横の長さに依存します。')(
+                () => (
+                    <Status
+                        data={object('data', testProps.data.normal)}
+                        handler={object('handler', {})}/>))));
+
+storiesOf('Molecule/Content/Event', module)
+    .addDecorator(withKnobs)
+    .add('basic',
+        withInfo('')(
+            withNotes('')(
+                () => <div />)));
+
+storiesOf('Molecule/Content/Quote', module)
+    .addDecorator(withKnobs)
+    .add('basic',
+        withInfo('')(
+            withNotes('')(
+                () => <div />)));
+
+
+/*
 export default () => (
     <article>
         <h1>Status</h1>
@@ -57,3 +92,4 @@ export default () => (
         </section>
     </article>
 );
+*/
