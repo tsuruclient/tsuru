@@ -1,5 +1,13 @@
 // @flow
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { withInfo } from '@storybook/addon-info';
+import { withNotes } from '@storybook/addon-notes';
+import { withKnobs, text, boolean, number, object } from '@storybook/addon-knobs/react';
+import WithEvents from '@storybook/addon-events';
+
 import UserCard from '../UserCard';
 import StatusCard from '../StatusCard';
 
@@ -11,13 +19,39 @@ const dummyText =
 const avatarSource = 'https://avatars0.githubusercontent.com/u/5967271';
 const headerSource = 'https://pbs.twimg.com/profile_banners/838224048/1430527658';
 
-const userObject = {
+const userData = {
     header: headerSource,
     avatar: avatarSource,
     displayName: '東武鉄道遅延伝説2049',
     screenName: 'arclisp',
 };
 
+const statusData = {
+    user: {
+        avatar: avatarSource
+    },
+    content: {
+        text: dummyText.short
+    }
+};
+
+storiesOf('Molecule/Card/StatusCard', module)
+    .addDecorator(withKnobs)
+    .add('basic',
+        withInfo('')(
+            withNotes('')(
+                () => <StatusCard data={object('data', statusData)} />)))
+;
+
+storiesOf('Molecule/Card/UserCard', module)
+    .addDecorator(withKnobs)
+    .add('basic',
+        withInfo('')(
+            withNotes('')(
+                () => <UserCard user={object('userdata', userData)} />)))
+;
+
+/*
 export default () => (
     <article>
         <h1>Card</h1>
@@ -46,3 +80,4 @@ export default () => (
         </section>
     </article>
 )
+*/
