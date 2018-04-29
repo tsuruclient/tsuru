@@ -12,7 +12,8 @@
     "oauth": "^0.9.15",
     "opn": "^5.2.0",
     "request": "^2.83.0",
-    "safe-buffer": "^5.1.1"
+    "safe-buffer": "^5.1.1",
+    "snyk": "^1.75.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -23,7 +24,9 @@
     "dev": "nf start",
     "flow": "flow",
     "package": "electron-packager . Tsuru --platform=all --arch=x64 --prune --out=release --overwrite",
-    "release": "node ./build-script/build"
+    "release": "node ./build-script/build",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "devDependencies": {
     "adm-zip": "^0.4.7",
@@ -45,7 +48,7 @@
     "react-devtools": "^3.1.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
-    "react-scripts": "1.0.17",
+    "react-scripts": "1.1.1",
     "react-virtualized": "^9.18.5",
     "recompose": "^0.26.0",
     "redux": "^3.7.2",
@@ -57,5 +60,6 @@
     "styled-components": "^3.2.1",
     "targz": "^1.0.1",
     "webpack": "^3.11.0"
-  }
+  },
+  "snyk": true
 }
