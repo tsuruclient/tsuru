@@ -38,7 +38,7 @@
     "electron-load-devtool": "^1.0.0",
     "electron-packager": "^10.1.2",
     "flow-bin": "^0.61.0",
-    "foreman": "^2.0.0",
+    "foreman": "^3.0.1",
     "jest": "^22.4.3",
     "jest-cli": "^22.4.3",
     "material-ui": "^1.0.0-beta.44",
